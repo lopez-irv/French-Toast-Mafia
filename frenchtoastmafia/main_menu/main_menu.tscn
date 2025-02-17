@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6dew7w6yfxd2"]
+[gd_scene load_steps=6 format=3 uid="uid://b6dew7w6yfxd2"]
 
 [ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="1_rkbhb"]
+[ext_resource type="Script" path="res://main_menu/main_menu.gd" id="1_udoj2"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="2_85jrc"]
 [ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="3_bkv8m"]
+[ext_resource type="Script" path="res://main_menu/exit_button.gd" id="5_tl7qf"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -11,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_udoj2")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -49,7 +52,7 @@ theme_override_constants/outline_size = 32
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/font = ExtResource("2_85jrc")
 theme_override_font_sizes/font_size = 64
-text = "GAME TITLE"
+text = "Zeyta"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
@@ -77,3 +80,4 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_bkv8m")
 theme_override_font_sizes/font_size = 25
 text = "EXIT GAME"
+script = ExtResource("5_tl7qf")
