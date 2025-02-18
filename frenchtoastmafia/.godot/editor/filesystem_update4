@@ -1,0 +1,3 @@
+res://main_menu/main_menu.tscn
+res://scripts/start_button.gd
+res://scenes/game.tscn
