@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1739919019
+::res://::1740025222
 icon.svg::CompressedTexture2D::7851986562485260539::1739911765::1739918991::1::::<><>::
 ::res://assests/::1739911765
 ::res://assests/backgrounds/::1739918991
@@ -52,15 +52,22 @@ platforms.png::CompressedTexture2D::4709017165074305648::1739918705::1739918991:
 slime_green.png::CompressedTexture2D::4535775632284036817::1739918705::1739918991::1::::<><>::
 slime_purple.png::CompressedTexture2D::6874533049234003837::1739918705::1739918991::1::::<><>::
 world_tileset.png::CompressedTexture2D::13692535863434579::1739918705::1739918991::1::::<><>::
-::res://main_menu/::1739911765
+::res://main_menu/::1740025333
 exit_button.gd::GDScript::-1::1739911765::0::1::::<>Button<>::
 main_menu.gd::GDScript::-1::1739911765::0::1::::<>Control<>::
-main_menu.tscn::PackedScene::4568751841344953061::1739911765::0::1::::<><>::uid://dogxsxnvmd66w::::res://assests/backgrounds/background_layer_1.png<>res://main_menu/main_menu.gd<>uid://c4r3gwdlp5ncn::::res://assests/fonts/PixelOperator8-Bold.ttf<>uid://blceg55b1cgev::::res://assests/fonts/PixelOperator8.ttf<>res://main_menu/exit_button.gd
-::res://scenes/::1739918705
-game.tscn::PackedScene::2663243787220999878::1739918705::0::1::::<><>::
-::res://scripts/::1739918705
+main_menu.tscn::PackedScene::4568751841344953061::1740025333::0::1::::<><>::uid://dogxsxnvmd66w::::res://assets/backgrounds/background_layer_1.png<>res://main_menu/main_menu.gd<>uid://c4r3gwdlp5ncn::::res://assets/fonts/PixelOperator8-Bold.ttf<>uid://blceg55b1cgev::::res://assets/fonts/PixelOperator8.ttf<>res://main_menu/exit_button.gd
+::res://scenes/::1740025413
+coin.tscn::PackedScene::6219286381951714156::1740021624::0::1::::<><>::uid://bhsx6wllv03x4::::res://assets/sprites/coin.png<>res://scripts/coin.gd
+game.tscn::PackedScene::2663243787220999878::1740025333::0::1::::<><>::
+killzone.tscn::PackedScene::3496109152098584757::1739899488::0::1::::<><>::res://scripts/killzone.gd
+platform.tscn::PackedScene::1350370732932701992::1740025413::0::1::::<><>::uid://b8dc3bmrly8cy::::res://assets/sprites/platforms.png
+slime.tscn::PackedScene::3952094219847227707::1740025333::0::1::::<><>::uid://b5vftdwaigiht::::res://assets/sprites/slime_green.png<>res://scripts/slime.gd<>uid://bp2sn3owdek5b::::res://scenes/killzone.tscn
+::res://scripts/::1740021624
+coin.gd::GDScript::-1::1740021624::0::1::::<>Area2D<>::
 exit_button.gd::GDScript::-1::1739918705::0::1::::<>Button<>::
+killzone.gd::GDScript::-1::1739899488::0::1::::<>Area2D<>::
 main_menu.gd::GDScript::-1::1739918705::0::1::::<>Control<>::
+slime.gd::GDScript::-1::1739857644::0::1::::<>Node2D<>::
 start_button.gd::GDScript::-1::1739918705::0::1::::<>Button<>::
 ::res://seasonsAssets/::1739918705
 - READ ME -.txt::TextFile::-1::1739918705::0::1::::<><>::
