@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=10 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Texture2D" uid="uid://gvrqi2116lr" path="res://assets/sprites/world_tileset.png" id="2_c0vy0"]
 [ext_resource type="PackedScene" uid="uid://tien5o0qs8hg" path="res://scenes/greenPlatform.tscn" id="3_kqtp4"]
 [ext_resource type="PackedScene" uid="uid://cuuw0dg1lhj6c" path="res://scenes/coin.tscn" id="4_affm7"]
 [ext_resource type="PackedScene" uid="uid://bwkoodbj4wv5l" path="res://scenes/slime.tscn" id="5_pt8g3"]
+[ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_n6sfx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
 texture = ExtResource("2_c0vy0")
@@ -170,6 +171,9 @@ texture = ExtResource("2_c0vy0")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_btumb")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g5cgu"]
+distance = 42.0
+
 [node name="Node2D" type="Node2D"]
 
 [node name="player" parent="." instance=ExtResource("1_csu0g")]
@@ -206,3 +210,10 @@ position = Vector2(816, -38)
 
 [node name="slime" parent="." instance=ExtResource("5_pt8g3")]
 position = Vector2(130, -60)
+
+[node name="killzone" parent="." instance=ExtResource("6_n6sfx")]
+position = Vector2(35, 169)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("WorldBoundaryShape2D_g5cgu")
+metadata/_edit_group_ = true

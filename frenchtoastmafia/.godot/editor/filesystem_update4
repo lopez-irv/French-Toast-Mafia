@@ -1,0 +1,5 @@
+res://scenes/game.tscn
+res://main_menu/main_menu.tscn
+res://scenes/slime.tscn
+res://scenes/greenPlatform.tscn
+res://scenes/yellowPlatform.tscn
