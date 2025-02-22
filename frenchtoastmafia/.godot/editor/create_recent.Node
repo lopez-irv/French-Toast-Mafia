@@ -1,3 +1,11 @@
+VBoxContainer
+ColorRect
+Button
+Control
+HBoxContainer
+Label
+MarginContainer
+TextureRect
 CollisionShape2D
 Area2D
 TileMap
