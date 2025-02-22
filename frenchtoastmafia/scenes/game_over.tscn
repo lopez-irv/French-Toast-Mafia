@@ -70,12 +70,12 @@ alignment = 1
 [node name="seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="start_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="restart_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_boamd")
 theme_override_font_sizes/font_size = 25
-text = "START GAME"
+text = "RESTART GAME"
 script = ExtResource("3_lvseg")
 
 [node name="exit_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]

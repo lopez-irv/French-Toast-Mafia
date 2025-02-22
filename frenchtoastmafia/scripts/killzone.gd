@@ -13,7 +13,7 @@ func _on_body_entered(body: Node2D) -> void:
 #restarts game once time runs out
 func _on_timer_timeout() -> void:
 	#Engine.time_scale = 1.0	 #set time back to normal
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
 
 #make sure player is on layer 2 or killzone wont work
