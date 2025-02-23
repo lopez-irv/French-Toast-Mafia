@@ -1,2 +1,2 @@
 # French-Toast-Mafia
-repository for cs370 project
+game repository for cs370 project
