@@ -22,7 +22,8 @@ mono_crash.*.json
 .DS_Store
 
 # Ignore Godot editor internal files
-.godot/editor/
+/.godot/editor/*-editstate-*.cfg
+
 
 # Ignore Godot editor cache files
 .godot/uid_cache.bin
