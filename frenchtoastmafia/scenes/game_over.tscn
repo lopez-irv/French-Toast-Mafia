@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cqqccuqd0degi"]
 
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_558bb"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="2_boamd"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="2_boamd"]
 [ext_resource type="Script" path="res://scenes/start_button.gd" id="3_lvseg"]
 [ext_resource type="Script" path="res://scenes/main_menu/exit_button.gd" id="4_70m0d"]
 
