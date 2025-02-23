@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=16 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Texture2D" uid="uid://gvrqi2116lr" path="res://assests/sprites/world_tileset.png" id="2_c0vy0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assets/backgrounds/background_layer_1.png" id="8_ybwu0"]
 [ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assets/backgrounds/background_layer_2.png" id="9_vx7va"]
 [ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assets/backgrounds/background_layer_3.png" id="10_dlu7f"]
+[ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="12_lhkkk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
 texture = ExtResource("2_c0vy0")
@@ -256,3 +257,27 @@ texture = ExtResource("9_vx7va")
 position = Vector2(275.111, -69.375)
 scale = Vector2(7.7375, 7.7375)
 texture = ExtResource("10_dlu7f")
+
+[node name="spikes" parent="." instance=ExtResource("12_lhkkk")]
+position = Vector2(39, -26)
+rotation = -3.14159
+
+[node name="spikes4" parent="." instance=ExtResource("12_lhkkk")]
+position = Vector2(796, -40)
+
+[node name="spikes5" parent="." instance=ExtResource("12_lhkkk")]
+position = Vector2(837, -39)
+
+[node name="spikes6" parent="." instance=ExtResource("12_lhkkk")]
+position = Vector2(782, -39)
+
+[node name="spikes7" parent="." instance=ExtResource("12_lhkkk")]
+position = Vector2(852, -39)
+
+[node name="spikes2" parent="." instance=ExtResource("12_lhkkk")]
+position = Vector2(68, -26)
+rotation = -3.14159
+
+[node name="spikes3" parent="." instance=ExtResource("12_lhkkk")]
+position = Vector2(53, -26)
+rotation = -3.14159
