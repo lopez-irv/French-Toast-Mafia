@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=15 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
-[ext_resource type="Texture2D" uid="uid://gvrqi2116lr" path="res://assets/sprites/world_tileset.png" id="2_c0vy0"]
+[ext_resource type="Texture2D" uid="uid://gvrqi2116lr" path="res://assests/sprites/world_tileset.png" id="2_c0vy0"]
+[ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="2_nycdd"]
 [ext_resource type="PackedScene" uid="uid://tien5o0qs8hg" path="res://scenes/greenPlatform.tscn" id="3_kqtp4"]
 [ext_resource type="PackedScene" uid="uid://cuuw0dg1lhj6c" path="res://scenes/coin.tscn" id="4_affm7"]
 [ext_resource type="PackedScene" uid="uid://bwkoodbj4wv5l" path="res://scenes/slime.tscn" id="5_pt8g3"]
@@ -188,6 +189,10 @@ limit_bottom = 130
 limit_smoothed = true
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_nycdd")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_s2s8e")
