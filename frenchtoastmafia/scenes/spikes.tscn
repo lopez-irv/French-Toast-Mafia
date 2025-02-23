@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3bnr08tlp7c"]
+[gd_scene load_steps=3 format=3 uid="uid://bhd51qc53sxbt"]
 
 [ext_resource type="Texture2D" uid="uid://bpcdj56xm4o2u" path="res://assets/Traps/Spikes/Idle.png" id="1_dxb3g"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="2_phegf"]
