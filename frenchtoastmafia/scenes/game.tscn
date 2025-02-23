@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=22 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_i2mix"]
@@ -12,8 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="8_ybwu0"]
 [ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assests/backgrounds/background_layer_2.png" id="9_vx7va"]
 [ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assests/backgrounds/background_layer_3.png" id="10_dlu7f"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="13_pqw61"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="13_pqw61"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
+[ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="15_gl4w0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
 texture = ExtResource("2_c0vy0")
@@ -287,7 +288,7 @@ position = Vector2(1373, -199)
 position = Vector2(1405, -197)
 
 [node name="Coin8" parent="coins" instance=ExtResource("4_affm7")]
-position = Vector2(1432, -199)
+position = Vector2(1440, -199)
 
 [node name="Coin9" parent="coins" instance=ExtResource("4_affm7")]
 position = Vector2(1240, -89)
@@ -356,3 +357,36 @@ offset_bottom = -351.0
 theme_override_fonts/font = ExtResource("13_pqw61")
 text = "You made it!"
 autowrap_mode = 2
+
+[node name="spikes" parent="." instance=ExtResource("15_gl4w0")]
+position = Vector2(57, 25)
+
+[node name="spikes2" parent="." instance=ExtResource("15_gl4w0")]
+position = Vector2(777, -39)
+
+[node name="spikes3" parent="." instance=ExtResource("15_gl4w0")]
+position = Vector2(792, -39)
+
+[node name="spikes4" parent="." instance=ExtResource("15_gl4w0")]
+position = Vector2(1001, -39)
+
+[node name="spikes8" parent="." instance=ExtResource("15_gl4w0")]
+position = Vector2(1355, -200)
+
+[node name="spikes9" parent="." instance=ExtResource("15_gl4w0")]
+position = Vector2(1389, -198)
+
+[node name="spikes10" parent="." instance=ExtResource("15_gl4w0")]
+position = Vector2(1424, -198)
+
+[node name="spikes11" parent="." instance=ExtResource("15_gl4w0")]
+position = Vector2(1463, -200)
+
+[node name="spikes5" parent="." instance=ExtResource("15_gl4w0")]
+position = Vector2(988, -39)
+
+[node name="spikes6" parent="." instance=ExtResource("15_gl4w0")]
+position = Vector2(1056, -39)
+
+[node name="spikes7" parent="." instance=ExtResource("15_gl4w0")]
+position = Vector2(1069, -39)
