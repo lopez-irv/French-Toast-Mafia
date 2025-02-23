@@ -1,10 +1,9 @@
 res://scenes/game.tscn
+res://scenes/pause_menu.gdshader
 res://scenes/slime.tscn
 res://scenes/greenPlatform.tscn
 res://scenes/yellowPlatform.tscn
 res://scenes/brownPlatform.tscn
 res://scenes/game_over.tscn
-res://scenes/pause_menu.gdshader
 res://scenes/spikes.tscn
-res://scripts/coin.gd
-res://scripts/game_manager.gd
+res://main_menu.tscn

@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://0gfjo468vqsk"]
+[gd_scene load_steps=5 format=3 uid="uid://daofoqg86xjno"]
 
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="1_558bb"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="2_boamd"]
-[ext_resource type="Script" path="res://scenes/start_button.gd" id="3_lvseg"]
-[ext_resource type="Script" path="res://scenes/main_menu/exit_button.gd" id="4_70m0d"]
+[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="2_xj3kf"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="3_jy3kd"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="4_o5md8"]
+[ext_resource type="Script" path="res://scenes/start_button.gd" id="5_tdcpf"]
 
-[node name="game_over" type="Control"]
+[node name="main_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,15 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.025909, 0.00757139, 0.00948925, 1)
+texture = ExtResource("2_xj3kf")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -44,19 +36,22 @@ theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 60
 
 [node name="seperator" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Game_Title" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.839216, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_558bb")
+theme_override_colors/font_color = Color(0.2724, 0.569813, 0.614168, 1)
+theme_override_constants/shadow_offset_x = 50
+theme_override_constants/shadow_offset_y = 50
+theme_override_constants/outline_size = 32
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("3_jy3kd")
 theme_override_font_sizes/font_size = 64
-text = "GAME OVER"
+text = "Zeyta"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -70,18 +65,17 @@ alignment = 1
 [node name="seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="restart_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="start_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_boamd")
+theme_override_fonts/font = ExtResource("4_o5md8")
 theme_override_font_sizes/font_size = 25
-text = "RESTART GAME"
-script = ExtResource("3_lvseg")
+text = "START GAME"
+script = ExtResource("5_tdcpf")
 
 [node name="exit_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_boamd")
+theme_override_fonts/font = ExtResource("4_o5md8")
 theme_override_font_sizes/font_size = 25
 text = "EXIT GAME"
-script = ExtResource("4_70m0d")
