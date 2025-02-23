@@ -18,4 +18,14 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 
+
+.DS_Store
+
+# Ignore Godot editor internal files
+.godot/editor/
+
+# Ignore Godot editor cache files
+.godot/uid_cache.bin
+
+
 # End of https://www.toptal.com/developers/gitignore/api/godot
