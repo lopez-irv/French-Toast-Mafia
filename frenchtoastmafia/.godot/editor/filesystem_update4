@@ -1,11 +1,5 @@
-res://main_menu/main_menu.tscn
-res://scenes/game.tscn
-res://scenes/slime.tscn
-res://scenes/greenPlatform.tscn
-res://scenes/yellowPlatform.tscn
-res://scenes/brownPlatform.tscn
 res://scenes/game_over.tscn
+res://scenes/brownPlatform.tscn
 res://scenes/main_menu/main_menu.tscn
-res://scripts/killzone.gd
-res://scenes/killzone.tscn
-res://scenes/coin.tscn
+res://scenes/player.tscn
+res://scenes/game.tscn
