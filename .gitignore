@@ -10,6 +10,8 @@
 export.cfg
 export_presets.cfg
 
+.epxort/
+
 # Imported translations (automatically generated from CSV files)
 *.translation
 
@@ -22,11 +24,19 @@ mono_crash.*.json
 .DS_Store
 
 # Ignore Godot editor internal files
-/.godot/editor/*-editstate-*.cfg
+/.godot/editor/*.cfg
 
 
 # Ignore Godot editor cache files
 .godot/uid_cache.bin
 
+# Godot cache files
+*.cfg
+*.converted.res
+*.converted.scn
+*.stex
+*.msh
+*.translation
+*.gen.*
 
 # End of https://www.toptal.com/developers/gitignore/api/godot
