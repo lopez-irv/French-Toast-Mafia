@@ -8,7 +8,13 @@ const WALL_PUSHBACK = SPEED
 const WALL_SLIDE_GRAVITY = 100
 var isWallSliding = false
 
-func _physics_process(delta: float) -> void:		
+# Footstep sound and tilemap for footsteps
+@onready var tilemap = $"../TileMap"
+@onready var footstep_sound = $FootstepAudioPlayer
+var footstep_grass = preload("res://assets/sounds/grass-footsteps.wav")
+var is_walking = false
+
+func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
@@ -56,9 +62,16 @@ func _physics_process(delta: float) -> void:
 		
 	wallSlide(delta)
 	
+	# Move Character
 	move_and_slide()
 	
-	
+	# Check if walking for footsteps
+	if is_on_floor() and abs(velocity.x) > 0.1:
+		is_walking = true
+		play_footstep_sound()
+	else:
+		is_walking = false
+		
 #if player is on a wall and holding down keys for l or r movement
 #they will fall down the wall slowly
 func wallSlide(delta):
@@ -73,3 +86,20 @@ func wallSlide(delta):
 	if isWallSliding:
 		velocity.y += (WALL_SLIDE_GRAVITY * delta)
 		velocity.y = min(velocity.y, WALL_SLIDE_GRAVITY)
+
+var can_play = true
+
+func play_footstep_sound():
+	if is_walking and can_play:
+		can_play = false  # Prevent further calls until the timer completes
+		
+		var tile_pos = tilemap.local_to_map(global_position)
+		var atlas_coords = tilemap.get_cell_atlas_coords(0, tile_pos)
+		
+		if atlas_coords == Vector2i(0, 0):
+			footstep_sound.stream = footstep_grass
+			footstep_sound.play()
+			print("Playing footstep sound")
+			
+			await get_tree().create_timer(0.50).timeout  # Timer for allowing sound to play again
+			can_play = true
