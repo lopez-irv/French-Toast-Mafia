@@ -90,16 +90,13 @@ func wallSlide(delta):
 var can_play = true
 
 func play_footstep_sound():
-	if is_walking and can_play:
-		can_play = false  # Prevent further calls until the timer completes
-		
+	if is_walking and can_play:		
 		var tile_pos = tilemap.local_to_map(global_position)
 		var atlas_coords = tilemap.get_cell_atlas_coords(0, tile_pos)
 		
 		if atlas_coords == Vector2i(0, 0):
 			footstep_sound.stream = footstep_grass
 			footstep_sound.play()
-			print("Playing footstep sound")
-			
-			await get_tree().create_timer(0.50).timeout  # Timer for allowing sound to play again
+			can_play = false
+			await get_tree().create_timer(0.30).timeout  # Timer for allowing sound to play again
 			can_play = true
