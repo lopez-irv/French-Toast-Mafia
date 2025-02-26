@@ -4,7 +4,9 @@ extends CharacterBody2D
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 var canDoubleJump: bool
-	
+const WALL_PUSHBACK = SPEED
+const WALL_SLIDE_GRAVITY = 100
+var isWallSliding = false
 
 func _physics_process(delta: float) -> void:		
 	if not is_on_floor():
@@ -19,6 +21,7 @@ func _physics_process(delta: float) -> void:
 	if canDoubleJump and Input.is_action_just_pressed("jump") and not is_on_floor():
 		canDoubleJump = false
 		velocity.y = JUMP_VELOCITY
+	
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -43,4 +46,30 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	#wall jump
+	if is_on_wall_only() and Input.is_action_just_pressed("move_right"):
+		velocity.y = JUMP_VELOCITY
+		velocity.x = -WALL_PUSHBACK
+	if is_on_wall_only() and Input.is_action_just_pressed("move_left"):
+		velocity.y = JUMP_VELOCITY
+		velocity.x = WALL_PUSHBACK
+		
+	wallSlide(delta)
+	
 	move_and_slide()
+	
+	
+#if player is on a wall and holding down keys for l or r movement
+#they will fall down the wall slowly
+func wallSlide(delta):
+	if is_on_wall_only():
+		if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):
+			isWallSliding = true
+		else:
+			isWallSliding = false
+	else: 
+		isWallSliding = false;
+	
+	if isWallSliding:
+		velocity.y += (WALL_SLIDE_GRAVITY * delta)
+		velocity.y = min(velocity.y, WALL_SLIDE_GRAVITY)
