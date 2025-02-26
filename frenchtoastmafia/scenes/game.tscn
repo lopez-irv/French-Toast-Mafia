@@ -9,11 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://bwkoodbj4wv5l" path="res://scenes/slime.tscn" id="5_pt8g3"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_n6sfx"]
 [ext_resource type="AudioStream" uid="uid://cgds5wjvg3so1" path="res://assets/music/Vindsvept CC 4.0 License.wav" id="7_lglbo"]
-[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="8_ybwu0"]
-[ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assests/backgrounds/background_layer_2.png" id="9_vx7va"]
-[ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assests/backgrounds/background_layer_3.png" id="10_dlu7f"]
+[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assets/backgrounds/background_layer_1.png" id="8_ybwu0"]
+[ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assets/backgrounds/background_layer_2.png" id="9_vx7va"]
+[ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assets/backgrounds/background_layer_3.png" id="10_dlu7f"]
 [ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="13_pqw61"]
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
 texture = ExtResource("2_c0vy0")
@@ -244,6 +244,8 @@ limit_bottom = 130
 limit_smoothed = true
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
+
+[node name="FootstepAudioPlayer" type="AudioStreamPlayer2D" parent="player"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
