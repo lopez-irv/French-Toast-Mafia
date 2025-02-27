@@ -1,3 +1,6 @@
-res://scenes/game.tscn
+res://scenes/level_timer.tscn
 res://scenes/pause_menu.gdshader
+res://scripts/killzone.gd
+res://scripts/level_timer.gd
+res://scenes/game.tscn
 res://scenes/player.tscn
