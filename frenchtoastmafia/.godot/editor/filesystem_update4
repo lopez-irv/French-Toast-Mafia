@@ -4,3 +4,6 @@ res://scripts/killzone.gd
 res://scripts/level_timer.gd
 res://scenes/game.tscn
 res://scenes/player.tscn
+res://scripts/player.gd
+res://dash_timer.gd
+res://scenes/dash_timer.tscn
