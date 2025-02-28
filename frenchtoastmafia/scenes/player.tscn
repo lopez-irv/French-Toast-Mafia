@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7jc5m7bfpa3l"]
+[gd_scene load_steps=10 format=3 uid="uid://c7jc5m7bfpa3l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_407jq"]
 [ext_resource type="Texture2D" uid="uid://b8kx0k64pq7si" path="res://assets/sprites/knight.png" id="1_ojclm"]
+[ext_resource type="PackedScene" uid="uid://cgxjbtu3k7s5b" path="res://scenes/dash_timer.tscn" id="3_vvwfw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sbspw"]
 atlas = ExtResource("1_ojclm")
@@ -57,3 +58,5 @@ frame_progress = 0.498395
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_l1jl4")
+
+[node name="DashTimer" parent="." instance=ExtResource("3_vvwfw")]
