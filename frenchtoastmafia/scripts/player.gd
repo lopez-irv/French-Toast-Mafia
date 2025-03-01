@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_timer: Timer = $DashTimer
 
+var health = 100.0
+
 var speed = 130.0	#current speed
 const DEFAULT_SPEED = 130.0
 const JUMP_VELOCITY = -300.0
@@ -111,3 +113,11 @@ func dash(direction):
 		speed = DASH_WHILE_MOVING
 	else:
 		speed = DEFAULT_SPEED 
+
+	#health and damage
+	
+func decreaseHealth(n):
+	health -= n
+	print("health droped to:", health)
+	if (health <= 0):
+		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
