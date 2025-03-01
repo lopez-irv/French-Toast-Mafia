@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1740795265
+::res://::1740796987
 dash_timer.gd::GDScript::-1::1740782879::0::1::::<>Timer<>::
 icon.svg::CompressedTexture2D::7851986562485260539::1739911765::1740356386::1::::<><>::
 main_menu.tscn::PackedScene::7188492776898779956::1740458761::0::1::::<><>::uid://dogxsxnvmd66w::::res://assests/backgrounds/background_layer_1.png<>uid://c4r3gwdlp5ncn::::res://assests/fonts/PixelOperator8-Bold.ttf<>uid://blceg55b1cgev::::res://assets/fonts/PixelOperator8.ttf<>res://scenes/start_button.gd
@@ -29,7 +29,7 @@ platforms.png::CompressedTexture2D::4709017165074305648::1739911765::1740356386:
 slime_green.png::CompressedTexture2D::4535775632284036817::1739911765::1740356386::1::::<><>::
 slime_purple.png::CompressedTexture2D::6874533049234003837::1739911765::1740356386::1::::<><>::
 world_tileset.png::CompressedTexture2D::13692535863434579::1739911765::1740356386::1::::<><>::
-::res://assets/::1740795265
+::res://assets/::1740796987
 ::res://assets/backgrounds/::1740356386
 background_layer_1.png::CompressedTexture2D::8155721992749877480::1739918705::1740356386::1::::<><>::
 background_layer_2.png::CompressedTexture2D::8842903886811852808::1739918705::1740356386::1::::<><>::
@@ -37,17 +37,15 @@ background_layer_3.png::CompressedTexture2D::8888957480714618162::1739918705::17
 ::res://assets/fonts/::1740356386
 PixelOperator8-Bold.ttf::FontFile::6845124205938193157::1739918705::1740356386::1::::<><>::
 PixelOperator8.ttf::FontFile::3162881924078974725::1739918705::1740356386::1::::<><>::
-::res://assets/music/::1740795314
-Caketown 1.mp3::AudioStreamMP3::3254223287549781015::1740795303::1740795304::1::::<><>::
+::res://assets/music/::1740796987
 carnivalrides.ogg::AudioStreamOggVorbis::2514512445248067627::1740795287::1740795287::1::::<><>::
 crystalCave.mp3::AudioStreamMP3::2398611078816631513::1740795314::1740795315::1::::<><>::
-gone_fishin_by_memoraphile_CC0.mp3::AudioStreamMP3::3738123363084670202::1740795260::1740795265::1::::<><>::
+flowerbed_fields.ogg::AudioStreamOggVorbis::2050361844870059792::1740796950::1740796972::1::::<><>::
 happy_adveture.mp3::AudioStreamMP3::1589672554701634883::1740795141::1740795175::1::::<><>::
+snowytheme.ogg::AudioStreamOggVorbis::5240178684221567901::1740796982::1740796987::1::::<><>::
 story time.ogg::AudioStreamOggVorbis::2502813376146151115::1740795246::1740795252::1::::<><>::
-the_field_of_dreams.mp3::AudioStreamMP3::764302477053724527::1740795295::1740795295::1::::<><>::
 time_for_adventure.mp3::AudioStreamMP3::4739207737866319952::1739918705::1740356386::1::::<><>::
 Vindsvept CC 4.0 License.wav::AudioStreamWAV::5201315212543745630::1740458761::1740458808::1::::<><>::
-Woodland Fantasy.mp3::AudioStreamMP3::6343272687488392382::1740795189::1740795200::1::::<><>::
 ::res://assets/sounds/::1740795175
 coin.wav::AudioStreamWAV::4848880136103282156::1739918705::1740356386::1::::<><>::
 explosion.wav::AudioStreamWAV::1725592136285838865::1739918705::1740356386::1::::<><>::
