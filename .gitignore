@@ -6,7 +6,7 @@
 .godot/
 
 # Godot-specific ignores
-.import/
+*.import
 export.cfg
 export_presets.cfg
 
@@ -21,14 +21,14 @@ data_*/
 mono_crash.*.json
 
 
-.DS_Store
+*.DS_Store
 
 # Ignore Godot editor internal files
-/.godot/editor/*.cfg
+*/.godot/editor/*.cfg
 
 
 # Ignore Godot editor cache files
-.godot/uid_cache.bin
+*.godot/uid_cache.bin
 
 # Godot cache files
 *.cfg
@@ -38,5 +38,7 @@ mono_crash.*.json
 *.msh
 *.translation
 *.gen.*
+
+*/.godot/imported/*
 
 # End of https://www.toptal.com/developers/gitignore/api/godot
