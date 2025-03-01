@@ -114,10 +114,16 @@ func dash(direction):
 	else:
 		speed = DEFAULT_SPEED 
 
+
 	#health and damage
-	
 func decreaseHealth(n):
+	animated_sprite.play("take_damage")
 	health -= n
 	print("health droped to:", health)
 	if (health <= 0):
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+		
+func _process(delta: float) -> void:
+	# If no animation is playing, ensure the default animation plays
+	if not animated_sprite.is_playing():
+		animated_sprite.play("idle")

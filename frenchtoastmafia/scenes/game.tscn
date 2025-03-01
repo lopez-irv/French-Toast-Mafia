@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=23 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_i2mix"]
@@ -15,6 +15,7 @@
 [ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="13_pqw61"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="15_bfv41"]
+[ext_resource type="PackedScene" uid="uid://bhd51qc53sxbt" path="res://scenes/spikes.tscn" id="16_1wqr5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
 texture = ExtResource("2_c0vy0")
@@ -361,3 +362,12 @@ autowrap_mode = 2
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="LevelTimer" parent="HUD" instance=ExtResource("15_bfv41")]
+
+[node name="spikes" parent="." instance=ExtResource("16_1wqr5")]
+position = Vector2(71, 25)
+
+[node name="spikes2" parent="." instance=ExtResource("16_1wqr5")]
+position = Vector2(85, 26)
+
+[node name="spikes3" parent="." instance=ExtResource("16_1wqr5")]
+position = Vector2(100, 26)
