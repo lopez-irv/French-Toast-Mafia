@@ -7,3 +7,4 @@ res://scenes/player.tscn
 res://scripts/player.gd
 res://dash_timer.gd
 res://scenes/dash_timer.tscn
+res://scenes/main_menu/main_menu.tscn
