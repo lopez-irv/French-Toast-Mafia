@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_timer: Timer = $DashTimer
+@onready var healthBar: ProgressBar = $healthBar
 
 var health = 100.0
 
@@ -122,7 +123,6 @@ func decreaseHealth(n):
 	print("health droped to:", health)
 	if (health <= 0):
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
-		
 func _process(delta: float) -> void:
 	# If no animation is playing, ensure the default animation plays
 	if not animated_sprite.is_playing():
