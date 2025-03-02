@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=23 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_i2mix"]
@@ -16,12 +16,6 @@
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
 [ext_resource type="PackedScene" path="res://scenes/level_timer.tscn" id="15_bfv41"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="16_1wqr5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yly17"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7er60"]
-bg_color = Color(0.975632, 0.000313331, 0.000172116, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
 texture = ExtResource("2_c0vy0")
@@ -252,16 +246,6 @@ limit_bottom = 130
 limit_smoothed = true
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
-
-[node name="healthBar" type="ProgressBar" parent="player"]
-offset_left = -9.0
-offset_top = -24.0
-offset_right = 6.0
-offset_bottom = -22.0
-theme_override_styles/background = SubResource("StyleBoxFlat_yly17")
-theme_override_styles/fill = SubResource("StyleBoxFlat_7er60")
-value = 100.0
-show_percentage = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
