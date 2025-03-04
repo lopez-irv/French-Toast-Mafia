@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var healthBar: ProgressBar = $healthBar
 
 var health = 100.0
+var body_last_collided
 
 var speed = 130.0	#current speed
 const DEFAULT_SPEED = 130.0
@@ -127,3 +128,18 @@ func _process(delta: float) -> void:
 	# If no animation is playing, ensure the default animation plays
 	if not animated_sprite.is_playing():
 		animated_sprite.play("idle")
+
+func increaseHealth(n):
+	health += n
+	if health > 100:
+		health = 100
+	print("health raised to: ", health)
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	body_last_collided = area.get_parent().name
+	print(body_last_collided)
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	if body_last_collided == area.name:
+		body_last_collided = ""
+	print(body_last_collided)
