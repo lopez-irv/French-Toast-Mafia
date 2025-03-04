@@ -122,6 +122,7 @@ func decreaseHealth(n):
 	animated_sprite.play("take_damage")
 	health -= n
 	print("health droped to:", health)
+	healthBar.value = health
 	if (health <= 0):
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 func _process(delta: float) -> void:
@@ -133,6 +134,7 @@ func increaseHealth(n):
 	health += n
 	if health > 100:
 		health = 100
+	healthBar.value = health
 	print("health raised to: ", health)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
