@@ -5,7 +5,6 @@ extends CharacterBody2D
 @onready var healthBar: ProgressBar = $healthBar
 
 var health = 100.0
-var body_last_collided
 
 var speed = 130.0	#current speed
 const DEFAULT_SPEED = 130.0
@@ -20,8 +19,6 @@ const DASH_WHILE_STILL = 800	#what to change velocity to when dashing while not 
 const DASH_WHILE_MOVING = 800	#what to change speed to when dashing while moving
 const DASH_LENGTH = .1
 
-func _ready():
-	healthBar.value = health
 
 func _physics_process(delta: float) -> void:		
 	if not is_on_floor():
@@ -124,28 +121,9 @@ func decreaseHealth(n):
 	animated_sprite.play("take_damage")
 	health -= n
 	print("health droped to:", health)
-	healthBar.value = health
 	if (health <= 0):
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
-
 func _process(delta: float) -> void:
 	# If no animation is playing, ensure the default animation plays
 	if not animated_sprite.is_playing():
 		animated_sprite.play("idle")
-
-func increaseHealth(n):
-	health += n
-	if health > 100:
-		health = 100
-	healthBar.value  = health
-	
-	print("health raised to: ", health)
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	body_last_collided = area.get_parent().name
-	print(body_last_collided)
-
-func _on_area_2d_area_exited(area: Area2D) -> void:
-	if body_last_collided == area.name:
-		body_last_collided = ""
-	print(body_last_collided)
