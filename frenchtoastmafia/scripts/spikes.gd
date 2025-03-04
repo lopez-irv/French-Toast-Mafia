@@ -17,6 +17,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("hit player")
 	if body.is_in_group("Player"):
 		player.decreaseHealth(30);
-		if body.has_node("healthBar"):
-			var healthBar = body.get_node("healthBar") as ProgressBar
-			healthBar.value = player.health  # update health bar visually
+		#if body.has_node("healthBar"):
+			#var healthBar = body.get_node("healthBar") as ProgressBar
+			#healthBar.value = player.health  # update health bar visually
