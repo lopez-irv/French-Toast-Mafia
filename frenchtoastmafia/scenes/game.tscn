@@ -1,6 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_gwgku"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_i2mix"]
 [ext_resource type="Texture2D" uid="uid://gvrqi2116lr" path="res://assets/sprites/world_tileset.png" id="2_c0vy0"]
 [ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="2_nycdd"]
@@ -16,8 +17,7 @@
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="15_bfv41"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="16_1wqr5"]
-[ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="17_4i6i1"]
-[ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="18_8oclb"]
+[ext_resource type="PackedScene" uid="uid://dkxfosfghq5k" path="res://scenes/checkpoint_statue.tscn" id="18_gc304"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
 texture = ExtResource("2_c0vy0")
@@ -224,6 +224,7 @@ _data = {
 distance = 42.0
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_gwgku")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -374,9 +375,5 @@ position = Vector2(85, 26)
 [node name="spikes3" parent="." instance=ExtResource("16_1wqr5")]
 position = Vector2(100, 26)
 
-[node name="green_round_fruit" parent="." instance=ExtResource("17_4i6i1")]
-position = Vector2(-98, 26)
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="fruit_interact" parent="CanvasLayer2" instance=ExtResource("18_8oclb")]
+[node name="Checkpoint" parent="." instance=ExtResource("18_gc304")]
+position = Vector2(718, -40)
