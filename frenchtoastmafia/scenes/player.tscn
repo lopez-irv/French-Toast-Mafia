@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7jc5m7bfpa3l"]
+[gd_scene load_steps=17 format=3 uid="uid://c7jc5m7bfpa3l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_407jq"]
 [ext_resource type="Texture2D" uid="uid://b8kx0k64pq7si" path="res://assets/sprites/knight.png" id="3_lo74j"]
@@ -73,8 +73,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_l1jl4"]
-radius = 5.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfpry"]
+size = Vector2(9, 13)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yluo"]
 bg_color = Color(0, 0, 0, 1)
@@ -82,21 +82,24 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6r2yg"]
 bg_color = Color(0.865041, 0, 0.097925, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_07l0u"]
+size = Vector2(9, 13)
+
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_407jq")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_2crxa")
 animation = &"take_damage"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
-position = Vector2(0, -8)
-shape = SubResource("CircleShape2D_l1jl4")
+position = Vector2(0.5, -11.5)
+shape = SubResource("RectangleShape2D_tfpry")
 
 [node name="DashTimer" parent="." instance=ExtResource("3_vvwfw")]
 
@@ -109,3 +112,14 @@ theme_override_styles/background = SubResource("StyleBoxFlat_3yluo")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6r2yg")
 value = 100.0
 show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 2
+collision_mask = 13
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Player"]]
+position = Vector2(0.5, -11.5)
+shape = SubResource("RectangleShape2D_07l0u")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
