@@ -121,7 +121,7 @@ func dash(direction):
 func decreaseHealth(n):
 	animated_sprite.play("take_damage")
 	health -= n
-	print("health droped to:", health)
+	print("health dropped to:", health)
 	if (health <= 0):
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 func _process(delta: float) -> void:
