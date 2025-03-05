@@ -1,7 +1,7 @@
 res://scenes/game.tscn
 res://scenes/pause_menu.gdshader
-res://scripts/player.gd
+res://scenes/knight.gd
 res://scenes/player.tscn
 res://scenes/level_timer.tscn
 res://scenes/checkpoint_statue.tscn
-res://scripts/slime.gd
+res://scenes/game.gd

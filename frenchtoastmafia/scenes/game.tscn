@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=40 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_gwgku"]
@@ -10,16 +10,96 @@
 [ext_resource type="PackedScene" uid="uid://bwkoodbj4wv5l" path="res://scenes/slime.tscn" id="5_pt8g3"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_n6sfx"]
 [ext_resource type="AudioStream" uid="uid://cgds5wjvg3so1" path="res://assets/music/Vindsvept CC 4.0 License.wav" id="7_lglbo"]
-[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="8_ybwu0"]
-[ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assests/backgrounds/background_layer_2.png" id="9_vx7va"]
-[ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assests/backgrounds/background_layer_3.png" id="10_dlu7f"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="13_pqw61"]
+[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assets/backgrounds/background_layer_1.png" id="8_ybwu0"]
+[ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assets/backgrounds/background_layer_2.png" id="9_vx7va"]
+[ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assets/backgrounds/background_layer_3.png" id="10_dlu7f"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="13_pqw61"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="15_bfv41"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="16_1wqr5"]
 [ext_resource type="PackedScene" uid="uid://dkxfosfghq5k" path="res://scenes/checkpoint_statue.tscn" id="18_gc304"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="19_8fxup"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="20_sb673"]
+[ext_resource type="Texture2D" uid="uid://d1l5ug1xb1c8e" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="21_mbd83"]
+[ext_resource type="Script" path="res://scenes/knight.gd" id="22_46x6y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djqja"]
+atlas = ExtResource("21_mbd83")
+region = Rect2(0, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh7tw"]
+atlas = ExtResource("21_mbd83")
+region = Rect2(120, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kji1l"]
+atlas = ExtResource("21_mbd83")
+region = Rect2(240, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylhk4"]
+atlas = ExtResource("21_mbd83")
+region = Rect2(360, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_310x7"]
+atlas = ExtResource("21_mbd83")
+region = Rect2(480, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2kgr"]
+atlas = ExtResource("21_mbd83")
+region = Rect2(600, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5n3g"]
+atlas = ExtResource("21_mbd83")
+region = Rect2(720, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64oeb"]
+atlas = ExtResource("21_mbd83")
+region = Rect2(840, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqoe8"]
+atlas = ExtResource("21_mbd83")
+region = Rect2(960, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2atx5"]
+atlas = ExtResource("21_mbd83")
+region = Rect2(1080, 0, 120, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jau7i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djqja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh7tw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kji1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylhk4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_310x7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2kgr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5n3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64oeb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqoe8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2atx5")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
 texture = ExtResource("2_c0vy0")
@@ -253,6 +333,33 @@ position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="FootstepAudioPlayer" type="AudioStreamPlayer2D" parent="player"]
+
+[node name="Knight" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(75, -106)
+scale = Vector2(0.608333, 0.65)
+sprite_frames = SubResource("SpriteFrames_jau7i")
+animation = &"Idle"
+script = ExtResource("22_46x6y")
+player = NodePath("../player")
+
+[node name="DialogueBubble" type="Label" parent="Knight"]
+anchors_preset = -1
+anchor_left = 0.443
+anchor_top = 1.0
+anchor_right = 0.443
+anchor_bottom = 1.0
+offset_left = -157.16
+offset_top = -103.0
+offset_right = 82.84
+offset_bottom = -65.0
+text = "This slime is a formidable foe."
+
+[node name="PressE" type="Label" parent="Knight"]
+offset_left = -71.0
+offset_top = -22.0
+offset_right = 125.0
+offset_bottom = 31.0
+text = "Press \"E\" to Interact"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
