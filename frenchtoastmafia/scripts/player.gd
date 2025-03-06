@@ -13,6 +13,7 @@ const JUMP_VELOCITY = -300.0
 var canDoubleJump: bool
 
 var wall_pushback = speed
+var gravity = 980
 const WALL_SLIDE_GRAVITY = 100
 var isWallSliding = false
 
@@ -23,26 +24,27 @@ const DASH_LENGTH = .1
 
 func _physics_process(delta: float) -> void:		
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += Vector2(0, gravity) * delta
+		print(Vector2(0, gravity))
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		canDoubleJump = true
-		velocity.y = JUMP_VELOCITY
+		jump()
 
 	#double jump
 	if canDoubleJump and Input.is_action_just_pressed("jump") and not is_on_floor():
 		canDoubleJump = false
-		velocity.y = JUMP_VELOCITY
-	
+		jump()
+		
+	if Input.is_action_just_released("jump"):
+		jump_cut()
 	
 	#get direction
 	var direction := Input.get_axis("move_left", "move_right")
 	
-	
 	#dash 
 	dash(direction)
-
 
 	#handle the movement/deceleration.	
 	if direction:
@@ -77,8 +79,14 @@ func _physics_process(delta: float) -> void:
 	wallSlide(delta)
 	
 	move_and_slide()
+
+# called when player would jump
+func jump():
+	velocity.y = JUMP_VELOCITY
 	
-	
+func jump_cut():
+	if velocity.y < -70:
+		velocity.y = -70
 	
 #if player is on a wall and holding down keys for l or r movement
 #they will fall down the wall slowly
@@ -124,6 +132,7 @@ func decreaseHealth(n):
 	print("health dropped to:", health)
 	if (health <= 0):
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+
 func _process(delta: float) -> void:
 	# If no animation is playing, ensure the default animation plays
 	if not animated_sprite.is_playing():
