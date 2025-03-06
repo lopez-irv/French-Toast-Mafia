@@ -88,6 +88,10 @@ layout_mode = 2
 text = "EAT
 "
 
+[node name="stash" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "STASH"
+
 [node name="exit" type="Button" parent="PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -100,4 +104,5 @@ libraries = {
 }
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/eat" to="." method="_on_eat_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/stash" to="." method="_on_stash_pressed"]
 [connection signal="pressed" from="PanelContainer/exit" to="." method="_on_exit_pressed"]

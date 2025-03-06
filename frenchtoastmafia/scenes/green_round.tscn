@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://fweojgfa7iad"]
+[gd_scene load_steps=5 format=3 uid="uid://fweojgfa7iad"]
 
 [ext_resource type="Texture2D" uid="uid://cexrsa5sdgsw2" path="res://assets/sprites/fruit.png" id="1_hbvb8"]
 [ext_resource type="Script" path="res://scripts/green_round.gd" id="1_rncsc"]
+[ext_resource type="Resource" uid="uid://bk5gnvskd5xa0" path="res://Resources/green_round.tres" id="2_1crgq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hvcte"]
 radius = 5.0
 
 [node name="green_round_fruit" type="Node2D"]
 script = ExtResource("1_rncsc")
+item = ExtResource("2_1crgq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1, 0)

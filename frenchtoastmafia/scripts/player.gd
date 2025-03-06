@@ -4,6 +4,8 @@ extends CharacterBody2D
 @onready var dash_timer: Timer = $DashTimer
 @onready var healthBar: ProgressBar = $healthBar
 
+@export var inv: Inv
+
 var health = 100.0
 var body_last_collided
 
@@ -138,10 +140,13 @@ func increaseHealth(n):
 	print("health raised to: ", health)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	body_last_collided = area.get_parent().name
+	body_last_collided = area.get_parent()
 	print(body_last_collided)
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	if body_last_collided == area.name:
-		body_last_collided = ""
+	if body_last_collided.name == area.name:
+		body_last_collided.name = ""
 	print(body_last_collided)
+
+func collect(item):
+	inv.insert(item)

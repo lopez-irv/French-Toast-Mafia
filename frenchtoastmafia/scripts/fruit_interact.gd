@@ -40,7 +40,7 @@ func _on_eat_pressed() -> void:
 	player1.increaseHealth(consumable)
 	current_fruit = player1.body_last_collided
 	print(current_fruit)
-	_delete_fruit(current_fruit)
+	_delete_fruit(current_fruit.name)
 	resume()  # Close menu after eating
 	
 func _delete_fruit(name: String):
@@ -49,3 +49,17 @@ func _delete_fruit(name: String):
 
 func _on_exit_pressed() -> void:
 	toggle_menu()
+
+func add_to_inventory(cur_node: Node2D):
+	print("adding to inventory")
+	var invent = get_tree().current_scene.find_child("inventory", true, false)
+	if invent == null:
+		print("inventory not found")
+
+
+func _on_stash_pressed() -> void:
+	var player1 = get_tree().current_scene.find_child("player", true, false)
+	current_fruit = player1.body_last_collided
+	player1.collect(current_fruit.item)
+	_delete_fruit(current_fruit.name)
+	resume()  # Close menu after eating

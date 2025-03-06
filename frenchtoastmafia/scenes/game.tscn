@@ -383,6 +383,15 @@ position = Vector2(718, -40)
 [node name="green_round_fruit" parent="." instance=ExtResource("19_8fxup")]
 position = Vector2(-107, 26)
 
+[node name="green_round_fruit4" parent="." instance=ExtResource("19_8fxup")]
+position = Vector2(-177, 25)
+
+[node name="green_round_fruit2" parent="." instance=ExtResource("19_8fxup")]
+position = Vector2(227, -38)
+
+[node name="green_round_fruit3" parent="." instance=ExtResource("19_8fxup")]
+position = Vector2(988, -38)
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="fruit_interact" parent="CanvasLayer2" instance=ExtResource("20_sb673")]

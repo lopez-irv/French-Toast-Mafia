@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var item: consumable_item
+
 var player_in_area = false;
 
 
@@ -31,8 +33,11 @@ func open_interact_menu():
 		print("❌ ERROR: Interact menu not found in the scene tree!")
 		return  # Stop execution if the node is null
 	if get_tree().current_scene.has_node("InteractMenu"):
+		print("1")
 		return  # Prevent multiple menus
 	if interact_menu.visible:
+		print("2")
 		return
 	interact_menu.consumable = 10
 	interact_menu.pause()
+	print("3")
