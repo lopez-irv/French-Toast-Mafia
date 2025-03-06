@@ -25,7 +25,7 @@ const DASH_LENGTH = .1
 func _physics_process(delta: float) -> void:		
 	if not is_on_floor():
 		velocity += Vector2(0, gravity) * delta
-		print(Vector2(0, gravity))
+		# print(Vector2(0, gravity))
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -45,28 +45,9 @@ func _physics_process(delta: float) -> void:
 	
 	#dash 
 	dash(direction)
-
-	#handle the movement/deceleration.	
-	if direction:
-		if Input.is_action_pressed("run"):
-			velocity.x = (direction * speed)
-		else:
-			velocity.x = (direction * speed)/2
-		if direction > 0:
-			# moving right
-			animated_sprite.flip_h = false
-		elif direction < 0:
-			# moving left
-			animated_sprite.flip_h = true
-
-
-	if direction and Input.is_action_pressed("run"):
-		velocity.x = (direction * speed)
-	elif direction:
-		velocity.x = (direction * speed)/2
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-
+	
+	#handles left and right movement
+	handleMovement(direction)
 	
 	#wall jump
 	if is_on_wall_only() and Input.is_action_just_pressed("move_right"):
@@ -80,13 +61,41 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-# called when player would jump
+#handle the movement/deceleration.	
+func handleMovement(direction):
+	if direction:
+		if Input.is_action_pressed("run"):
+			velocity.x = (direction * speed)
+		else:
+			velocity.x = (direction * speed)/2
+		if direction > 0:
+			# moving right
+			animated_sprite.flip_h = false
+		elif direction < 0:
+			# moving left
+			animated_sprite.flip_h = true
+
+	if direction and Input.is_action_pressed("run"):
+		velocity.x = (direction * speed)
+	elif direction:
+		velocity.x = (direction * speed)/2
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+
+#called when player would jump
 func jump():
 	velocity.y = JUMP_VELOCITY
-	
+
+#called when player releases during a jump. 
+#allows for variable jump height
+#TODO: make feel a bit more smooth
 func jump_cut():
 	if velocity.y < -70:
 		velocity.y = -70
+
+#when holding down on the ground, you can crouch
+#when crouching, movement is slowed and you cannot run or dash
+# func crouch():
 	
 #if player is on a wall and holding down keys for l or r movement
 #they will fall down the wall slowly
