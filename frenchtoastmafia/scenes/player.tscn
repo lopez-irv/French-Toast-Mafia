@@ -75,8 +75,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfpry"]
-size = Vector2(9, 13)
+[sub_resource type="CircleShape2D" id="CircleShape2D_diq8c"]
+radius = 5.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yluo"]
 bg_color = Color(0, 0, 0, 1)
@@ -101,8 +101,8 @@ animation = &"take_damage"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
-position = Vector2(0.5, -11.5)
-shape = SubResource("RectangleShape2D_tfpry")
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_diq8c")
 
 [node name="DashTimer" parent="." instance=ExtResource("3_vvwfw")]
 
