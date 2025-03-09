@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1741499871
+::res://::1741500166
 animated_sprite_2d.gd::GDScript::-1::1741484285::0::1::::<>AnimatedSprite2D<>::
 icon.svg::CompressedTexture2D::7851986562485260539::1739911765::1741484944::1::::<><>::
 main_menu.tscn::PackedScene::7188492776898779956::1741471200::0::1::::<><>::uid://dogxsxnvmd66w::::res://assests/backgrounds/background_layer_1.png<>uid://c4r3gwdlp5ncn::::res://assests/fonts/PixelOperator8-Bold.ttf<>uid://blceg55b1cgev::::res://assets/fonts/PixelOperator8.ttf<>res://scenes/start_button.gd
@@ -55,7 +55,7 @@ jump.wav::AudioStreamWAV::5468891564876283834::1739918705::1741484944::1::::<><>
 power_up.wav::AudioStreamWAV::6350347199342305459::1739918705::1741484944::1::::<><>::
 slime-sound.mp3::AudioStreamMP3::4935455339723412594::1741225447::1741484944::1::::<><>::
 tap.wav::AudioStreamWAV::824988080136149389::1739918705::1741484944::1::::<><>::
-::res://assets/sprites/::1741484944
+::res://assets/sprites/::1741500818
 Adventure_Character_Simple.png::CompressedTexture2D::7441166773241967940::1739918705::1741484944::1::::<><>::
 apple-icon.png::CompressedTexture2D::5144294078223292224::1741471200::1741484944::1::::<><>::
 coin.png::CompressedTexture2D::5580595666793131097::1739918705::1741484944::1::::<><>::
@@ -68,6 +68,15 @@ platforms.png::CompressedTexture2D::4709017165074305648::1739918705::1741484944:
 slime_green.png::CompressedTexture2D::4535775632284036817::1739918705::1741484944::1::::<><>::
 slime_purple.png::CompressedTexture2D::6874533049234003837::1739918705::1741484944::1::::<><>::
 world_tileset.png::CompressedTexture2D::13692535863434579::1739918705::1741484944::1::::<><>::
+::res://assets/sprites/enemies/::1741501139
+Bee_32x32_Brown_Attack_R.png::CompressedTexture2D::3902899854262817955::1741500965::1741500965::1::::<><>::
+Bug_42x30_Brown_Walk_L_Anim.png::CompressedTexture2D::67124039253520670::1741500995::1741500995::1::::<><>::
+butterfly.png::CompressedTexture2D::4866929448206594900::1741501014::1741501015::1::::<><>::
+demon_skeleton-NESW.png::CompressedTexture2D::8809160424965205524::1741500871::1741500871::1::::<><>::
+Devil_42x30_Red_Walk1_L_Anim.png::CompressedTexture2D::5395173436820530340::1741500923::1741500924::1::::<><>::
+Hedgehog_42x30_Purple_Walk_L.png::CompressedTexture2D::6769172359837000834::1741500940::1741500940::1::::<><>::
+skeleton-NESW.png::CompressedTexture2D::2224986790146699553::1741501139::1741501140::1::::<><>::
+warrior_skeleton-NESW.png::CompressedTexture2D::6159712638001915542::1741500832::1741500833::1::::<><>::
 ::res://assets/sprites/Knight/::1741225447
 ::res://assets/sprites/Knight/120x80_gifs/::1741225447
 ::res://assets/sprites/Knight/120x80_PNGSheets/::1741484944
@@ -357,21 +366,21 @@ MUSHROOM 1-2.png::CompressedTexture2D::4150726407056842375::1741471200::17414849
 MUSHROOM 2-1.png::CompressedTexture2D::2169473372519377596::1741471200::1741484944::1::::<><>::
 ::res://customAssets/woods/Tiles/::1741484944
 Tilesheet - WOODS.png::CompressedTexture2D::1781379532257760693::1741471200::1741484944::1::::<><>::
-::res://Resources/::1741485227
-green_round.tres::Resource/consumable_item::3150629101228982101::1741485227::0::1::::<><>::res://scripts/consumable_item.gd<>uid://cexrsa5sdgsw2::::res://assets/sprites/fruit.png
-players_inventory.tres::Resource/Inv::6947788319512469250::1741485227::0::1::::<><>::res://scripts/inventory_rs.gd<>res://scripts/inventory_slot.gd
-::res://scenes/::1741499825
+::res://Resources/::1741499890
+green_round.tres::Resource/consumable_item::3150629101228982101::1741499890::0::1::::<><>::res://scripts/consumable_item.gd<>uid://cexrsa5sdgsw2::::res://assets/sprites/fruit.png
+players_inventory.tres::Resource/Inv::6947788319512469250::1741499890::0::1::::<><>::res://scripts/inventory_rs.gd<>res://scripts/inventory_slot.gd
+::res://scenes/::1741500282
 animated_sprite_2d_2.gd::GDScript::-1::1741484285::0::1::::<>AnimatedSprite2D<>::
 bluePlatforms.tscn::PackedScene::3177759631889121466::1740460972::0::1::::<><>::uid://b8dc3bmrly8cy::::res://assets/sprites/platforms.png
 brownPlatform.tscn::PackedScene::3231848537447003481::1740460972::0::1::::<><>::uid://b8dc3bmrly8cy::::res://assets/sprites/platforms.png
-checkpoint_statue.tscn::PackedScene::232616491626719358::1741499741::0::1::::<><>::res://scripts/checkpoint_statue.gd<>uid://bebg02mu7jh08::::res://assets/sprites/flags.png
+checkpoint_statue.tscn::PackedScene::232616491626719358::1741500282::0::1::::<><>::res://scripts/checkpoint_statue.gd<>uid://bebg02mu7jh08::::res://assets/sprites/flags.png
 coin.tscn::PackedScene::6219286381951714156::1741071741::0::1::::<><>::uid://clrjuifsu43u0::::res://assets/sprites/coin.png<>res://scripts/coin.gd
-controls_button.gd::GDScript::-1::1741499825::0::1::::<>Button<>::
+controls_button.gd::GDScript::-1::1741500174::0::1::::<>Button<>::
 dash_timer.tscn::PackedScene::5242004386413150181::1741110546::0::1::::<><>::res://scripts/dash_timer.gd
 door.tscn::PackedScene::5903489777086767529::1741471200::0::1::::<><>::res://scripts/door.gd<>uid://cw6hnuh5eln65::::res://customAssets/doors.png
 fruit_interact.tscn::PackedScene::3174553685975951614::1741471200::0::1::::<><>::res://scripts/fruit_interact.gd<>res://scenes/pause_menu.gdshader
 game.gd::GDScript::-1::1741484285::0::1::::<>Node2D<>::
-game.tscn::PackedScene::2663243787220999878::1741499741::0::1::::<><>::uid://c7jc5m7bfpa3l::::res://scenes/player.tscn<>res://scenes/game.gd<>res://scripts/game_manager.gd<>uid://gvrqi2116lr::::res://assets/sprites/world_tileset.png<>uid://dvo60vlq62fwc::::res://scenes/pause_menu.tscn<>uid://tien5o0qs8hg::::res://scenes/greenPlatform.tscn<>uid://cuuw0dg1lhj6c::::res://scenes/coin.tscn<>uid://bwkoodbj4wv5l::::res://scenes/slime.tscn<>uid://bp2sn3owdek5b::::res://scenes/killzone.tscn<>uid://cgds5wjvg3so1::::res://assets/music/Vindsvept CC 4.0 License.wav<>uid://dogxsxnvmd66w::::res://assets/backgrounds/background_layer_1.png<>uid://dx8tlnk4g2lhw::::res://assets/backgrounds/background_layer_2.png<>uid://dyv43iwgq6gko::::res://assets/backgrounds/background_layer_3.png<>uid://blceg55b1cgev::::res://assets/fonts/PixelOperator8.ttf<>uid://c4r3gwdlp5ncn::::res://assets/fonts/PixelOperator8-Bold.ttf<>uid://bpc6xx01y1ei0::::res://scenes/level_timer.tscn<>uid://d3bnr08tlp7c::::res://scenes/spikes.tscn<>uid://dkxfosfghq5k::::res://scenes/checkpoint_statue.tscn<>uid://fweojgfa7iad::::res://scenes/green_round.tscn<>uid://blh1o2k7uifv7::::res://scenes/fruit_interact.tscn<>uid://b84duiybiv12q::::res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png<>res://scenes/knight.gd<>uid://cqdxu46j7jm7r::::res://scenes/door.tscn
+game.tscn::PackedScene::2663243787220999878::1741500282::0::1::::<><>::uid://c7jc5m7bfpa3l::::res://scenes/player.tscn<>res://scenes/game.gd<>res://scripts/game_manager.gd<>uid://gvrqi2116lr::::res://assets/sprites/world_tileset.png<>uid://dvo60vlq62fwc::::res://scenes/pause_menu.tscn<>uid://tien5o0qs8hg::::res://scenes/greenPlatform.tscn<>uid://cuuw0dg1lhj6c::::res://scenes/coin.tscn<>uid://bwkoodbj4wv5l::::res://scenes/slime.tscn<>uid://bp2sn3owdek5b::::res://scenes/killzone.tscn<>uid://cgds5wjvg3so1::::res://assets/music/Vindsvept CC 4.0 License.wav<>uid://dogxsxnvmd66w::::res://assets/backgrounds/background_layer_1.png<>uid://dx8tlnk4g2lhw::::res://assets/backgrounds/background_layer_2.png<>uid://dyv43iwgq6gko::::res://assets/backgrounds/background_layer_3.png<>uid://blceg55b1cgev::::res://assets/fonts/PixelOperator8.ttf<>uid://c4r3gwdlp5ncn::::res://assets/fonts/PixelOperator8-Bold.ttf<>uid://bpc6xx01y1ei0::::res://scenes/level_timer.tscn<>uid://d3bnr08tlp7c::::res://scenes/spikes.tscn<>uid://dkxfosfghq5k::::res://scenes/checkpoint_statue.tscn<>uid://fweojgfa7iad::::res://scenes/green_round.tscn<>uid://blh1o2k7uifv7::::res://scenes/fruit_interact.tscn<>uid://b84duiybiv12q::::res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png<>res://scenes/knight.gd<>uid://cqdxu46j7jm7r::::res://scenes/door.tscn
 game_over.tscn::PackedScene::1767427796163816454::1740460972::0::1::::<><>::uid://c4r3gwdlp5ncn::::res://assests/fonts/PixelOperator8-Bold.ttf<>uid://blceg55b1cgev::::res://assets/fonts/PixelOperator8.ttf<>res://scenes/start_button.gd<>res://scenes/main_menu/exit_button.gd
 greenPlatform.tscn::PackedScene::1350370732932701992::1740460972::0::1::::<><>::uid://b8dc3bmrly8cy::::res://assets/sprites/platforms.png
 green_round.tscn::PackedScene::396628880072633283::1741471200::0::1::::<><>::uid://cexrsa5sdgsw2::::res://assets/sprites/fruit.png<>res://scripts/green_round.gd<>uid://bk5gnvskd5xa0::::res://Resources/green_round.tres
@@ -380,20 +389,20 @@ inventory_ui.tscn::PackedScene::3160406459345817858::1741471200::0::1::::<><>::r
 inv_ui_slot.tscn::PackedScene::1808212810367347228::1741471200::0::1::::<><>::res://scripts/inv_ui_slot.gd<>uid://ohbawmse36ev::::res://assets/sprites/inventory-slot.png
 killzone.tscn::PackedScene::3496109152098584757::1739899488::0::1::::<><>::res://scripts/killzone.gd
 knight.gd::GDScript::-1::1741485023::0::1::::<>AnimatedSprite2D<>::
-level_1.tscn::PackedScene::4579394660096898994::1741499741::0::1::::<><>::uid://vljjsn5x38h1::::res://customAssets/swamp/1 Tiles/Tileset.png<>uid://d0b3rspeqvfj5::::res://customAssets/swamp/2 Background/Background.png<>uid://fweojgfa7iad::::res://scenes/green_round.tscn<>uid://d3bnr08tlp7c::::res://scenes/spikes.tscn<>uid://bp2sn3owdek5b::::res://scenes/killzone.tscn<>uid://c7jc5m7bfpa3l::::res://scenes/player.tscn<>uid://blh1o2k7uifv7::::res://scenes/fruit_interact.tscn<>uid://b84duiybiv12q::::res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png<>res://scenes/knight.gd<>uid://cgds5wjvg3so1::::res://assets/music/Vindsvept CC 4.0 License.wav<>res://scripts/game_manager.gd<>uid://c4r3gwdlp5ncn::::res://assets/fonts/PixelOperator8-Bold.ttf<>uid://bpc6xx01y1ei0::::res://scenes/level_timer.tscn
-level_timer.tscn::PackedScene::3445306641678862985::1741499741::0::1::::<><>::res://scripts/level_timer.gd<>uid://blceg55b1cgev::::res://assets/fonts/PixelOperator8.ttf
-main_menu.tscn::PackedScene::4568751841344953061::1741499741::0::1::::<><>::uid://dogxsxnvmd66w::::res://assets/backgrounds/background_layer_1.png<>res://scripts/main_menu.gd<>uid://c4r3gwdlp5ncn::::res://assets/fonts/PixelOperator8-Bold.ttf<>uid://blceg55b1cgev::::res://assets/fonts/PixelOperator8.ttf<>res://scripts/exit_button.gd<>res://scenes/start_button.gd<>res://scenes/controls_button.gd
-pause_menu.gdshader::Shader::-1::1741499825::0::1::::<><>::
+level_1.tscn::PackedScene::4579394660096898994::1741500282::0::1::::<><>::uid://vljjsn5x38h1::::res://customAssets/swamp/1 Tiles/Tileset.png<>uid://d0b3rspeqvfj5::::res://customAssets/swamp/2 Background/Background.png<>uid://fweojgfa7iad::::res://scenes/green_round.tscn<>uid://d3bnr08tlp7c::::res://scenes/spikes.tscn<>uid://bp2sn3owdek5b::::res://scenes/killzone.tscn<>uid://c7jc5m7bfpa3l::::res://scenes/player.tscn<>uid://blh1o2k7uifv7::::res://scenes/fruit_interact.tscn<>uid://b84duiybiv12q::::res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png<>res://scenes/knight.gd<>uid://cgds5wjvg3so1::::res://assets/music/Vindsvept CC 4.0 License.wav<>res://scripts/game_manager.gd<>uid://c4r3gwdlp5ncn::::res://assets/fonts/PixelOperator8-Bold.ttf<>uid://bpc6xx01y1ei0::::res://scenes/level_timer.tscn
+level_timer.tscn::PackedScene::3445306641678862985::1741500282::0::1::::<><>::res://scripts/level_timer.gd<>uid://blceg55b1cgev::::res://assets/fonts/PixelOperator8.ttf
+main_menu.tscn::PackedScene::4568751841344953061::1741500282::0::1::::<><>::uid://dogxsxnvmd66w::::res://assets/backgrounds/background_layer_1.png<>res://scripts/main_menu.gd<>uid://c4r3gwdlp5ncn::::res://assets/fonts/PixelOperator8-Bold.ttf<>uid://blceg55b1cgev::::res://assets/fonts/PixelOperator8.ttf<>res://scripts/exit_button.gd<>res://scenes/start_button.gd<>res://scenes/controls_button.gd
+pause_menu.gdshader::Shader::-1::1741500282::0::1::::<><>::
 pause_menu.tscn::PackedScene::8664057048410865418::1741068325::0::1::::<><>::res://scripts/pause_menu.gd<>uid://blceg55b1cgev::::res://assets/fonts/PixelOperator8.ttf<>res://scenes/pause_menu.gdshader
-player.tscn::PackedScene::7037639451159106859::1741499741::0::1::::<><>::res://scripts/player.gd<>uid://c58tb8w1fpjvm::::res://Resources/players_inventory.tres<>uid://b8kx0k64pq7si::::res://assets/sprites/knight.png<>uid://cgxjbtu3k7s5b::::res://scenes/dash_timer.tscn<>uid://bla6oyewdsm0a::::res://scenes/inventory_ui.tscn
+player.tscn::PackedScene::7037639451159106859::1741500282::0::1::::<><>::res://scripts/player.gd<>uid://c58tb8w1fpjvm::::res://Resources/players_inventory.tres<>uid://b8kx0k64pq7si::::res://assets/sprites/knight.png<>uid://cgxjbtu3k7s5b::::res://scenes/dash_timer.tscn<>uid://bla6oyewdsm0a::::res://scenes/inventory_ui.tscn
 slime.tscn::PackedScene::3952094219847227707::1741471200::0::1::::<><>::uid://b5vftdwaigiht::::res://assets/sprites/slime_green.png<>res://scripts/slime.gd
 spikes.tscn::PackedScene::268453973383573990::1741225447::0::1::::<><>::res://scripts/spikes.gd<>uid://bpcdj56xm4o2u::::res://assets/Traps/Spikes/Idle.png
 start_button.gd::GDScript::-1::1741484285::0::1::::<>Button<>::
 yellowPlatform.tscn::PackedScene::1192291389156199103::1740460972::0::1::::<><>::uid://b8dc3bmrly8cy::::res://assets/sprites/platforms.png
-::res://scenes/main_menu/::1741499742
+::res://scenes/main_menu/::1741500282
 exit_button.gd::GDScript::-1::1741484285::0::1::::<>Button<>::
 main_menu.gd::GDScript::-1::1740458761::0::1::::<>Control<>::
-main_menu.tscn::PackedScene::4568751841344953061::1741499742::0::1::::<><>::uid://dogxsxnvmd66w::::res://assets/backgrounds/background_layer_1.png<>res://scenes/main_menu/main_menu.gd<>uid://c4r3gwdlp5ncn::::res://assets/fonts/PixelOperator8-Bold.ttf<>uid://blceg55b1cgev::::res://assets/fonts/PixelOperator8.ttf<>res://scenes/main_menu/exit_button.gd<>res://scenes/start_button.gd<>res://scenes/controls_button.gd
+main_menu.tscn::PackedScene::4568751841344953061::1741500282::0::1::::<><>::uid://dogxsxnvmd66w::::res://assets/backgrounds/background_layer_1.png<>res://scenes/main_menu/main_menu.gd<>uid://c4r3gwdlp5ncn::::res://assets/fonts/PixelOperator8-Bold.ttf<>uid://blceg55b1cgev::::res://assets/fonts/PixelOperator8.ttf<>res://scenes/main_menu/exit_button.gd<>res://scenes/start_button.gd<>res://scenes/controls_button.gd
 ::res://scripts/::1741484917
 checkpoint.gd::GDScript::-1::1741484285::0::1::::<>Node<>::
 checkpoint_statue.gd::GDScript::-1::1741484285::0::1::::<>Node2D<>::
