@@ -36,19 +36,19 @@ func _physics_process(delta: float) -> void:
 	if canDoubleJump and Input.is_action_just_pressed("jump") and not is_on_floor():
 		canDoubleJump = false
 		jump()
-		
+
 	if Input.is_action_just_released("jump"):
 		jump_cut()
-	
+
 	#get direction
 	var direction := Input.get_axis("move_left", "move_right")
-	
+
 	#dash 
 	dash(direction)
-	
+
 	#handles left and right movement
 	handleMovement(direction)
-	
+
 	#wall jump
 	if is_on_wall_only() and Input.is_action_just_pressed("move_right"):
 		velocity.y = JUMP_VELOCITY
@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 	if is_on_wall_only() and Input.is_action_just_pressed("move_left"):
 		velocity.y = JUMP_VELOCITY
 		velocity.x = wall_pushback
-		
+	
 	wallSlide(delta)
 	
 	move_and_slide()

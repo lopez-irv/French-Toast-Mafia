@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://0gfjo468vqsk"]
+[gd_scene load_steps=6 format=3 uid="uid://0gfjo468vqsk"]
 
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="1_558bb"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_558bb"]
+[ext_resource type="Script" uid="uid://gmlybn824f44" path="res://scripts/restart_extended.gd" id="2_7m3ot"]
 [ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="2_boamd"]
-[ext_resource type="Script" path="res://scenes/start_button.gd" id="3_lvseg"]
-[ext_resource type="Script" path="res://scenes/main_menu/exit_button.gd" id="4_70m0d"]
+[ext_resource type="Script" uid="uid://c2vx5n5acytcg" path="res://scenes/start_button.gd" id="3_lvseg"]
+[ext_resource type="Script" uid="uid://c2c5ui5an23vd" path="res://scenes/main_menu/exit_button.gd" id="4_70m0d"]
 
 [node name="game_over" type="Control"]
 layout_mode = 3
@@ -61,6 +62,7 @@ vertical_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 alignment = 1
+script = ExtResource("2_7m3ot")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2

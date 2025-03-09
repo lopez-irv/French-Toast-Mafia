@@ -1,9 +1,6 @@
-res://scenes/game.tscn
+res://scenes/main_menu/main_menu.tscn
 res://scenes/pause_menu.gdshader
-res://scenes/spikes.tscn
-res://scenes/slime.tscn
-res://scenes/spikes.gd
-res://scenes/player.tscn
-res://healthBar.tscn
 res://scripts/player.gd
-res://scripts/slime.gd
+res://scenes/main_menu/h_box_container_resetkey.gd
+res://scenes/restart_button_extended.gd
+res://scenes/game_over.tscn
