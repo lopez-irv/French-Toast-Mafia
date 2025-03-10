@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://0gfjo468vqsk"]
+[gd_scene load_steps=7 format=3 uid="uid://0gfjo468vqsk"]
 
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="1_558bb"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="2_boamd"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_558bb"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="2_boamd"]
 [ext_resource type="Script" path="res://scenes/start_button.gd" id="3_lvseg"]
 [ext_resource type="Script" path="res://scenes/main_menu/exit_button.gd" id="4_70m0d"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="4_kye41"]
+[ext_resource type="Script" path="res://scripts/level_selection.gd" id="5_q3u3o"]
 
 [node name="game_over" type="Control"]
 layout_mode = 3
@@ -71,12 +73,20 @@ alignment = 1
 layout_mode = 2
 
 [node name="restart_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_boamd")
 theme_override_font_sizes/font_size = 25
 text = "RESTART GAME"
 script = ExtResource("3_lvseg")
+
+[node name="level_selection" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_kye41")
+theme_override_font_sizes/font_size = 25
+text = "LEVEL SELCTION"
+script = ExtResource("5_q3u3o")
 
 [node name="exit_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
