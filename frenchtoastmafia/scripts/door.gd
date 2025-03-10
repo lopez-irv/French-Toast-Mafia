@@ -8,7 +8,7 @@ func _input(event):      #KEY TO ENTER DOORS IS "ENTER/RETURN"
 		if get_overlapping_bodies().size() > 0: 
 			next_level()
 func next_level():                 #CHANGE ME LATER TO WORK FOR ALL SCENES
-	var ERR = get_tree().change_scene_to_file("res://scenes/level_1.tscn")
+	var ERR = get_tree().change_scene_to_file("res://scenes/levelSelection.tscn")
 	
 	if ERR != OK:
 		print("something failed in this door scene")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://b6dew7w6yfxd2"]
 
-[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="1_rkbhb"]
+[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assets/backgrounds/background_layer_1.png" id="1_rkbhb"]
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_udoj2"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_85jrc"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="3_bkv8m"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="3_bkv8m"]
 [ext_resource type="Script" path="res://scenes/main_menu/exit_button.gd" id="5_tl7qf"]
 [ext_resource type="Script" path="res://scenes/start_button.gd" id="5_v2jj8"]
 [ext_resource type="Script" path="res://scenes/controls_button.gd" id="6_hatwt"]
