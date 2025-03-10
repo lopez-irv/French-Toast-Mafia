@@ -1,18 +1,19 @@
-[gd_scene load_steps=28 format=3 uid="uid://b6ij7w55xvbkc"]
+[gd_scene load_steps=29 format=3 uid="uid://b6ij7w55xvbkc"]
 
-[ext_resource type="Texture2D" uid="uid://q66soxlyrsat" path="res://customAssets/swamp/1 Tiles/Tileset.png" id="1_bq4tm"]
-[ext_resource type="Texture2D" uid="uid://dhbksd5rpsnik" path="res://customAssets/swamp/2 Background/Background.png" id="4_8udiv"]
+[ext_resource type="Texture2D" uid="uid://dfhnfifhx84t6" path="res://customAssets/swamp/1 Tiles/Tileset.png" id="1_bq4tm"]
+[ext_resource type="Texture2D" uid="uid://xvfin6q4s74q" path="res://customAssets/swamp/2 Background/Background.png" id="4_8udiv"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="5_sbpf1"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="6_3uu66"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_y81ue"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="7_fwkgs"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="7_s8w3o"]
-[ext_resource type="Texture2D" uid="uid://b2ajqcf2kub4d" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="8_vdx2w"]
+[ext_resource type="Texture2D" uid="uid://c3x0ti0huljck" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="8_vdx2w"]
 [ext_resource type="Script" path="res://scenes/knight.gd" id="9_edxxv"]
 [ext_resource type="AudioStream" uid="uid://cgds5wjvg3so1" path="res://assets/music/Vindsvept CC 4.0 License.wav" id="10_hr6oi"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="11_a8k55"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="12_300bq"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="13_8h11d"]
+[ext_resource type="PackedScene" uid="uid://bla6oyewdsm0a" path="res://scenes/inventory_ui.tscn" id="14_wwswp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrup6"]
 texture = ExtResource("1_bq4tm")
@@ -341,3 +342,12 @@ autowrap_mode = 2
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="LevelTimer" parent="HUD" instance=ExtResource("13_8h11d")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="inventory_UI" parent="CanvasLayer" instance=ExtResource("14_wwswp")]
+offset_left = 306.0
+offset_top = 175.0
+offset_right = -753.0
+offset_bottom = -402.0
+scale = Vector2(3, 3)
