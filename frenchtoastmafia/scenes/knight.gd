@@ -23,7 +23,7 @@ func _process(delta):
 			$PressE.visible = distance <= interact_range_press_e
 
 func _input(event):
-	if event.is_action_pressed("Interact"):
+	if event.is_action_pressed("interact"):
 		if player:
 			var distance = player.global_position.distance_to(global_position)
 			# Only interact if within range.

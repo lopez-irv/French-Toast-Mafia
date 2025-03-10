@@ -153,8 +153,8 @@ func _process(delta: float) -> void:
 	if not animated_sprite.is_playing():
 		animated_sprite.play("idle")
 
-func increaseHealth(n):
-	health += n
+func increaseHealth(regain_value):
+	health += regain_value
 	if health > 100:
 		health = 100
 	healthBar.value = health

@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b65uev0sm3vui"]
+
+[ext_resource type="Script" path="res://scripts/orange_round.gd" id="1_07axc"]
+[ext_resource type="Resource" uid="uid://culsti1lyd1jo" path="res://Resources/orange_round.tres" id="2_tsaox"]
+[ext_resource type="Texture2D" uid="uid://cexrsa5sdgsw2" path="res://assets/sprites/fruit.png" id="3_akfpd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e28t4"]
+atlas = ExtResource("3_akfpd")
+region = Rect2(2, 18, 11, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1x23f"]
+radius = 5.09902
+
+[node name="orange_round" type="Node2D"]
+script = ExtResource("1_07axc")
+item = ExtResource("2_tsaox")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_e28t4")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_1x23f")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
