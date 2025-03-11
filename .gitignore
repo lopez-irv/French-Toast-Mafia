@@ -10,7 +10,7 @@
 export.cfg
 export_presets.cfg
 
-.epxort/
+.export/
 
 # Imported translations (automatically generated from CSV files)
 *.translation
