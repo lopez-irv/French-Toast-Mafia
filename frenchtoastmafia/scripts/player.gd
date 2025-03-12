@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_timer: Timer = $DashTimer
 @onready var healthBar: ProgressBar = $healthBar
+@onready var dash_cooldown: Timer = $dashCooldown
 
 @export var inv: Inv
 
@@ -123,16 +124,20 @@ func play_footstep_sound():
 #lunges player forward in direction they are facing	
 func dash(direction):
 	
-	#if player is moving, change speed
-	if Input.is_action_just_pressed("Dash") and direction:
-		dash_timer.start_dash(DASH_LENGTH)
+	if not dash_cooldown.on_cooldown():
+		#if player is moving, change speed
+		if Input.is_action_just_pressed("Dash") and direction:
+			dash_timer.start_dash(DASH_LENGTH)
+			dash_cooldown.start()
 	
-	#if player not moving, change velocity
-	elif Input.is_action_just_pressed("Dash") and !direction:
-		if animated_sprite.flip_h:
-			velocity.x = -DASH_WHILE_STILL
-		else:
-			velocity.x = DASH_WHILE_STILL
+		#if player not moving, change velocity
+		elif Input.is_action_just_pressed("Dash") and !direction:
+			dash_cooldown.start()
+			if animated_sprite.flip_h:
+				velocity.x = -DASH_WHILE_STILL
+			else:
+				velocity.x = DASH_WHILE_STILL
+
 	
 	#this is for dashing while moving
 	if dash_timer.is_dashing():	
@@ -153,8 +158,8 @@ func _process(delta: float) -> void:
 	if not animated_sprite.is_playing():
 		animated_sprite.play("idle")
 
-func increaseHealth(regain_value):
-	health += regain_value
+func increaseHealth(n):
+	health += n
 	if health > 100:
 		health = 100
 	healthBar.value = health

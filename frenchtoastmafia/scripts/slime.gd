@@ -3,8 +3,6 @@ extends Node2D
 const SPEED = 60
 var direction = 1
 var player = null
-var player_in_contact = false
-var damage_task_running = false
 
 @onready var ray_cast_right: RayCast2D = $rayCastRight
 @onready var ray_cast_left: RayCast2D = $rayCastLeft
@@ -42,33 +40,13 @@ func _process(delta: float) -> void:
 		play_slime_sound()
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("hit player")
 	if body.is_in_group("Player"):
-		player = body
-		player_in_contact = true
-		if not damage_task_running:
-			start_damage_over_time()
+		player.decreaseHealth(10)  
+		#if body.has_node("healthBar"):
+			#var healthBar = body.get_node("healthBar") as ProgressBar
+			#healthBar.value = player.health  # update health bar visually
 		
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		player_in_contact = false
-
-func start_damage_over_time():
-	damage_task_running = true
-	var duration := 15
-	var interval := 1.0  # Deal damage every second
-	var total_ticks := int(duration / interval)
-	var damage_per_tick := 15.0 / total_ticks  # This gives -20 health total over 20s
-
-	for i in range(total_ticks):
-		if not player_in_contact:
-			break
-		if player:
-			player.decreaseHealth(damage_per_tick)
-			player.healthBar.value = player.health
-		await get_tree().create_timer(interval).timeout
-
-	damage_task_running = false
-
 var can_play = true
 func play_slime_sound():
 	if can_play:

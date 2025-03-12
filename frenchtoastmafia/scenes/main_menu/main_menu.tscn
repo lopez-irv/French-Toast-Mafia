@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6dew7w6yfxd2"]
+[gd_scene load_steps=8 format=3 uid="uid://b6dew7w6yfxd2"]
 
 [ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assets/backgrounds/background_layer_1.png" id="1_rkbhb"]
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_udoj2"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://scenes/main_menu/exit_button.gd" id="5_tl7qf"]
 [ext_resource type="Script" path="res://scenes/start_button.gd" id="5_v2jj8"]
 [ext_resource type="Script" path="res://scenes/controls_button.gd" id="6_hatwt"]
-[ext_resource type="Script" path="res://scripts/levels_button.gd" id="7_2kcaj"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -70,15 +69,7 @@ alignment = 1
 [node name="seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="levels_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_bkv8m")
-theme_override_font_sizes/font_size = 25
-text = "LEVELS"
-script = ExtResource("7_2kcaj")
-
 [node name="start_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-visible = false
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_bkv8m")
