@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=41 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_gwgku"]
@@ -20,10 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://dkxfosfghq5k" path="res://scenes/checkpoint_statue.tscn" id="18_gc304"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="19_8fxup"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="20_sb673"]
-[ext_resource type="Texture2D" uid="uid://c3x0ti0huljck" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="21_mbd83"]
+[ext_resource type="Texture2D" uid="uid://b84duiybiv12q" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="21_mbd83"]
 [ext_resource type="Script" path="res://scenes/knight.gd" id="22_46x6y"]
-[ext_resource type="PackedScene" uid="uid://b65uev0sm3vui" path="res://scenes/orange_round.tscn" id="22_kpepp"]
-[ext_resource type="PackedScene" uid="uid://bla6oyewdsm0a" path="res://scenes/inventory_ui.tscn" id="24_nc5nj"]
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="24_was7h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_djqja"]
@@ -311,6 +309,21 @@ distance = 42.0
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_gwgku")
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_i2mix")
+
+[node name="score_label" type="Label" parent="GameManager"]
+offset_left = 1048.0
+offset_top = -342.0
+offset_right = 1281.0
+offset_bottom = -293.0
+theme_override_fonts/font = ExtResource("14_dtybv")
+text = "You collected x coins
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="player" parent="." instance=ExtResource("1_csu0g")]
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -321,21 +334,6 @@ position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="FootstepAudioPlayer" type="AudioStreamPlayer2D" parent="player"]
-
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_i2mix")
-
-[node name="score_label" type="Label" parent="GameManager" groups=["ui"]]
-offset_left = 1048.0
-offset_top = -342.0
-offset_right = 1281.0
-offset_bottom = -293.0
-theme_override_fonts/font = ExtResource("14_dtybv")
-text = "You collected x coins
-"
-horizontal_alignment = 1
-autowrap_mode = 2
 
 [node name="Knight" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("player")]
 position = Vector2(75, -106)
@@ -362,11 +360,11 @@ offset_left = -71.0
 offset_top = -22.0
 offset_right = 125.0
 offset_bottom = 31.0
-text = "Press \"I\" to Interact"
+text = "Press \"E\" to Interact"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" groups=["ui"] instance=ExtResource("2_nycdd")]
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_nycdd")]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_s2s8e")
@@ -429,7 +427,6 @@ position = Vector2(-9, -43)
 position = Vector2(130, -60)
 
 [node name="SlimeSoundPlayer2" type="AudioStreamPlayer2D" parent="slime"]
-volume_db = -2.0
 attenuation = 39.2292
 
 [node name="killzone" parent="." instance=ExtResource("6_n6sfx")]
@@ -471,7 +468,7 @@ texture = ExtResource("10_dlu7f")
 
 [node name="labels" type="Node" parent="."]
 
-[node name="Label" type="Label" parent="labels" groups=["ui"]]
+[node name="Label" type="Label" parent="labels"]
 offset_left = 1075.0
 offset_top = -374.0
 offset_right = 1243.0
@@ -508,28 +505,9 @@ position = Vector2(227, -38)
 [node name="green_round_fruit3" parent="." instance=ExtResource("19_8fxup")]
 position = Vector2(988, -38)
 
-[node name="orange_round" parent="." instance=ExtResource("22_kpepp")]
-position = Vector2(-144, 25)
-
-[node name="orange_round2" parent="." instance=ExtResource("22_kpepp")]
-position = Vector2(-217, 26)
-
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="fruit_interact" parent="CanvasLayer2" groups=["ui"] instance=ExtResource("20_sb673")]
-offset_left = 2.0
-offset_top = 1.0
-offset_right = 2.0
-offset_bottom = 1.0
+[node name="fruit_interact" parent="CanvasLayer2" instance=ExtResource("20_sb673")]
 
 [node name="Door" parent="." instance=ExtResource("24_was7h")]
 position = Vector2(1143, -271)
-
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
-
-[node name="inventory_UI" parent="CanvasLayer3" instance=ExtResource("24_nc5nj")]
-offset_left = 409.0
-offset_top = 296.0
-offset_right = -650.0
-offset_bottom = -280.0
-scale = Vector2(3, 3)

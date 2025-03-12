@@ -1,14 +1,12 @@
 extends AnimatedSprite2D
 
 @export var player: Node = null
-
 @export var interact_range: float = 100.0
 @export var interact_range_press_e: float = 40.0
 var has_interacted: bool = false
 
 func _ready():
 	play("Idle")
-	player = get_tree().current_scene.find_child("player", true, false)
 	# Enable input processing so this node receives input events.
 	set_process_input(true)
 	$DialogueBubble.visible = false
