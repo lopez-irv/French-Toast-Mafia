@@ -9,3 +9,9 @@ res://scenes/game.tscn
 res://scenes/level_1.tscn
 res://scenes/main_menu/main_menu.tscn
 res://scenes/dash_timer.tscn
+res://scripts/level_unlock_status.gd
+res://scripts/door.gd
+res://scripts/levelSelectionButton1.gd
+res://main_menu.tscn
+res://scenes/levelSelection.tscn
+res://scripts/levelSelectionButton0.gd
