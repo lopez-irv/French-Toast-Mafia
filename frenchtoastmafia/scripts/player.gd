@@ -124,7 +124,7 @@ func play_footstep_sound():
 #lunges player forward in direction they are facing	
 func dash(direction):
 	
-	if not dash_cooldown.on_cooldown():
+	if not dash_cooldown.on_cooldown():	#change to if true for unlimited dashing
 		#if player is moving, change speed
 		if Input.is_action_just_pressed("Dash") and direction:
 			dash_timer.start_dash(DASH_LENGTH)
