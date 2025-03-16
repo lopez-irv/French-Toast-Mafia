@@ -14,6 +14,7 @@ var slime_sound_stream = preload("res://assets/sounds/slime-sound.mp3")
 
 #@onready var players = get_tree().get_nodes_in_group("Player")
 
+var velocity: Vector2 #for use with knockback for player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +25,7 @@ func _ready() -> void:
 	# Set the slime sound stream to the 3D audio player.
 	slime_sound.stream = slime_sound_stream
 	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
@@ -36,13 +38,18 @@ func _process(delta: float) -> void:
 		animated_sprite.flip_h = false
 	position.x += direction * SPEED * delta
 	
+	#this is to determine velocity for knockback
+	velocity[0] = direction * SPEED # x velocity
+	velocity[1] = 0 # y velocity
+	
 	if can_play:
 		play_slime_sound()
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("hit player")
 	if body.is_in_group("Player"):
-		player.decreaseHealth(10)  
+		player.decreaseHealth(10)
+		
 		#if body.has_node("healthBar"):
 			#var healthBar = body.get_node("healthBar") as ProgressBar
 			#healthBar.value = player.health  # update health bar visually
