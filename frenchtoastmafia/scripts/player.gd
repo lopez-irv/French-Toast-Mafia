@@ -50,10 +50,12 @@ func _physics_process(delta: float) -> void:
 	
 	#dash 
 	dash(direction)
+	
 
 
 	#handle the movement/deceleration.	
 	if direction:
+
 		if Input.is_action_pressed("run"):
 			velocity.x = (direction * speed)
 		else:
@@ -165,14 +167,45 @@ func increaseHealth(n):
 	healthBar.value = health
 	print("health raised to: ", health)
 
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	body_last_collided = area.get_parent()
 	print(body_last_collided)
+	
+	#knockback for enemies that have a velocity
+	if body_last_collided.is_in_group("Enemy"):
+		knockback(body_last_collided.velocity)
+	
+	#knockback for stationary obstacles like spikes
+	#moved this to spikes bc wasnt registering the health decrease
+	#might need to move health decrease here if want knockback handled here
+	#if body_last_collided.is_in_group("Obstacle"):
+		#print("obstacle collision")
+		#knockback(Vector2(0,0))
+
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if body_last_collided.name == area.name:
 		body_last_collided.name = ""
 	print(body_last_collided)
 
+
 func collect(item):
 	inv.insert(item)
+
+
+#calculates and applies knockback to player 
+#set y knockback manually so it will have less of a large effect
+var knockbackPower_x = 400
+var knockbackPower_y = -100	#only works for upward knockback
+func knockback(enemyVelocity: Vector2):
+	print("og player velocity", velocity)
+	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower_x
+	#velocity = knockbackDirection
+	velocity.x = knockbackDirection.x	
+	velocity.y = knockbackPower_y	#this will not work if enemy hits from above 
+	print("enemy velocity", enemyVelocity)
+	print("new player velocity", velocity)
+	print(" ")
+	move_and_slide()
+	
