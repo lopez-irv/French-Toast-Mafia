@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=42 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_gwgku"]
@@ -10,18 +10,19 @@
 [ext_resource type="PackedScene" uid="uid://bwkoodbj4wv5l" path="res://scenes/slime.tscn" id="5_pt8g3"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_n6sfx"]
 [ext_resource type="AudioStream" uid="uid://cgds5wjvg3so1" path="res://assets/music/Vindsvept CC 4.0 License.wav" id="7_lglbo"]
-[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assets/backgrounds/background_layer_1.png" id="8_ybwu0"]
-[ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assets/backgrounds/background_layer_2.png" id="9_vx7va"]
-[ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assets/backgrounds/background_layer_3.png" id="10_dlu7f"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="13_pqw61"]
+[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="8_ybwu0"]
+[ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assests/backgrounds/background_layer_2.png" id="9_vx7va"]
+[ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assests/backgrounds/background_layer_3.png" id="10_dlu7f"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="13_pqw61"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="15_bfv41"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="16_1wqr5"]
 [ext_resource type="PackedScene" uid="uid://dkxfosfghq5k" path="res://scenes/checkpoint_statue.tscn" id="18_gc304"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="19_8fxup"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="20_sb673"]
-[ext_resource type="Texture2D" uid="uid://b84duiybiv12q" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="21_mbd83"]
+[ext_resource type="Texture2D" uid="uid://c3x0ti0huljck" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="21_mbd83"]
 [ext_resource type="Script" path="res://scenes/knight.gd" id="22_46x6y"]
+[ext_resource type="PackedScene" uid="uid://bla6oyewdsm0a" path="res://scenes/inventory_ui.tscn" id="24_ma7tl"]
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="24_was7h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_djqja"]
@@ -360,7 +361,7 @@ offset_left = -71.0
 offset_top = -22.0
 offset_right = 125.0
 offset_bottom = 31.0
-text = "Press \"E\" to Interact"
+text = "Press \"I\" to Interact"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -511,3 +512,12 @@ position = Vector2(988, -38)
 
 [node name="Door" parent="." instance=ExtResource("24_was7h")]
 position = Vector2(1143, -271)
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="inventory_UI" parent="CanvasLayer3" instance=ExtResource("24_ma7tl")]
+offset_left = 451.0
+offset_top = 289.0
+offset_right = -608.0
+offset_bottom = -288.0
+scale = Vector2(3, 3)
