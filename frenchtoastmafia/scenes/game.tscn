@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=46 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_gwgku"]
@@ -19,7 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="16_1wqr5"]
 [ext_resource type="PackedScene" uid="uid://dkxfosfghq5k" path="res://scenes/checkpoint_statue.tscn" id="18_gc304"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="19_8fxup"]
+[ext_resource type="Texture2D" uid="uid://clrjuifsu43u0" path="res://assets/sprites/coin.png" id="19_p7qam"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="20_jlcbo"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="20_sb673"]
+[ext_resource type="Script" path="res://scenes/coin_label.gd" id="21_4w28b"]
 [ext_resource type="Texture2D" uid="uid://c3x0ti0huljck" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="21_mbd83"]
 [ext_resource type="Script" path="res://scenes/knight.gd" id="22_46x6y"]
 [ext_resource type="PackedScene" uid="uid://bla6oyewdsm0a" path="res://scenes/inventory_ui.tscn" id="24_ma7tl"]
@@ -307,6 +310,10 @@ _data = {
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g5cgu"]
 distance = 42.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk0xe"]
+atlas = ExtResource("19_p7qam")
+region = Rect2(3, 3, 10, 10)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_gwgku")
 
@@ -375,9 +382,6 @@ layer_0/tile_data = PackedInt32Array(65535, 0, 0, 0, 0, 0, 131071, 0, 1, 196607,
 [node name="coins" type="Node" parent="."]
 
 [node name="Coin" parent="coins" instance=ExtResource("4_affm7")]
-position = Vector2(59, -85)
-
-[node name="Coin12" parent="coins" instance=ExtResource("4_affm7")]
 position = Vector2(59, -85)
 
 [node name="Coin10" parent="coins" instance=ExtResource("4_affm7")]
@@ -480,7 +484,26 @@ autowrap_mode = 2
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="LevelTimer" parent="HUD" instance=ExtResource("15_bfv41")]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 126.0
+offset_right = -18.0
+offset_bottom = 24.0
+grow_horizontal = 2
+
+[node name="LevelTimer" parent="HUD/HBoxContainer" instance=ExtResource("15_bfv41")]
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jk0xe")
+expand_mode = 2
+
+[node name="CoinLabel" type="Label" parent="HUD/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("20_jlcbo")
+theme_override_font_sizes/font_size = 24
+script = ExtResource("21_4w28b")
 
 [node name="spikes" parent="." instance=ExtResource("16_1wqr5")]
 position = Vector2(71, 25)

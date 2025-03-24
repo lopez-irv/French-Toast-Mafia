@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Checkpoint="*res://scripts/checkpoint.gd"
 level_unlock_status="*res://scripts/level_unlock_status.gd"
+CoinGlobal="*res://scripts/coin_global.gd"
 
 [dotnet]
 
