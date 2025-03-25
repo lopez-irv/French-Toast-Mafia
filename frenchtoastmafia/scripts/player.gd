@@ -6,6 +6,9 @@ extends CharacterBody2D
 @onready var dash_cooldown: Timer = $dashCooldown
 
 @export var inv: Inv
+@export var attacking = false # in the same animatedSprite2d as take_damage, 
+# we have an animation called sword_attack   , i want to play this animation
+# when the attack button is pressed. 
 
 var health = 100.0
 var body_last_collided
@@ -29,6 +32,11 @@ const DASH_LENGTH = .1
 var footstep_grass = preload("res://assets/sounds/grass-footsteps.wav")
 var is_walking = false
 
+func _ready():
+	# Make sure sword hitbox is off at the start
+	$SwordHitbox.monitoring = false
+	$SwordHitbox.get_node("CollisionShape2D").disabled = true
+	
 func _physics_process(delta: float) -> void:
 		
 	if not is_on_floor():
@@ -67,6 +75,9 @@ func _physics_process(delta: float) -> void:
 		elif direction < 0:
 			# moving left
 			animated_sprite.flip_h = true
+		# Flip the hitbox position
+		# Flip the sword hitbox based on direction
+
 
 
 	if direction and Input.is_action_pressed("run"):
@@ -156,10 +167,32 @@ func decreaseHealth(n):
 	healthBar.value = health
 	if (health <= 0):
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+	
+func attack():
+	if not attacking:
+		attacking = true
+
+		# 🟢 Activate the hitbox
+		$SwordHitbox.monitoring = true
+		$SwordHitbox.get_node("CollisionShape2D").disabled = false
+
+		animated_sprite.play("sword_attack")
+		await animated_sprite.animation_finished
+
+		# 🔴 Deactivate the hitbox
+		$SwordHitbox.monitoring = false
+		$SwordHitbox.get_node("CollisionShape2D").disabled = true
+
+		attacking = false
+
+
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("attack"):
+		attack()
 	# If no animation is playing, ensure the default animation plays
 	if not animated_sprite.is_playing():
 		animated_sprite.play("idle")
+
 
 func increaseHealth(n):
 	health += n
@@ -210,3 +243,9 @@ func knockback(enemyVelocity: Vector2):
 	print(" ")
 	move_and_slide()
 	
+
+func _on_sword_hitbox_body_entered(body: Node2D) -> void:
+	print("Sword hit:", body.name)
+	if body and body.has_method("take_damage"):
+		print("Calling take_damage on", body.name)
+		body.take_damage(30)

@@ -16,6 +16,9 @@ var slime_sound_stream = preload("res://assets/sounds/slime-sound.mp3")
 
 var velocity: Vector2 #for use with knockback for player
 
+# NEW: Slime health
+var health := 30
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var players = get_tree().get_nodes_in_group("Player")
@@ -61,3 +64,11 @@ func play_slime_sound():
 		can_play = false
 		await get_tree().create_timer(0.30).timeout  # Delay before allowing the sound to play again.
 		can_play = true
+		
+# NEW: Handle taking damage
+func take_damage(amount: int):
+	health -= amount
+	print("Slime took", amount, "damage. Health now:", health)
+
+	if health <= 0:
+		queue_free()  # Destroy the slime
