@@ -11,4 +11,5 @@ func _process(delta: float) -> void:
 
 func _on_start_button_pressed() -> void:
 	if level_unlock_status.level0:
+		level_unlock_status.currentLevel = 0;
 		get_tree().change_scene_to_file("res://scenes/game.tscn") 

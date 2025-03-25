@@ -30,6 +30,7 @@ var footstep_grass = preload("res://assets/sounds/grass-footsteps.wav")
 var is_walking = false
 
 func _physics_process(delta: float) -> void:
+		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
