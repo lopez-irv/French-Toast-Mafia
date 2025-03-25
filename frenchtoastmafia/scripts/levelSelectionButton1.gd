@@ -12,5 +12,11 @@ func _process(delta: float) -> void:
 
 func _on_start_button_pressed() -> void:
 	if level_unlock_status.level1:
+		
+		#reset checkpoint if switching to different level
+		if level_unlock_status.currentLevel != 1:
+			Checkpoint.last_position = null
+			print("checkpoint reset")
+			
 		level_unlock_status.currentLevel = 1;
 		get_tree().change_scene_to_file("res://scenes/level_1.tscn") 
