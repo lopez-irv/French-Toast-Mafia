@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://b6ij7w55xvbkc"]
+[gd_scene load_steps=30 format=3 uid="uid://b6ij7w55xvbkc"]
 
 [ext_resource type="Texture2D" uid="uid://vljjsn5x38h1" path="res://customAssets/swamp/1 Tiles/Tileset.png" id="1_bq4tm"]
+[ext_resource type="Script" path="res://scenes/level_1.gd" id="1_jj3tt"]
 [ext_resource type="Texture2D" uid="uid://d0b3rspeqvfj5" path="res://customAssets/swamp/2 Background/Background.png" id="4_8udiv"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="5_sbpf1"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="6_3uu66"]
@@ -13,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="11_a8k55"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="12_300bq"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="13_8h11d"]
+[ext_resource type="PackedScene" uid="uid://dkxfosfghq5k" path="res://scenes/checkpoint_statue.tscn" id="14_ru5uk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrup6"]
 texture = ExtResource("1_bq4tm")
@@ -216,6 +218,7 @@ animations = [{
 }]
 
 [node name="level1" type="Node"]
+script = ExtResource("1_jj3tt")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-811, -84)
@@ -341,3 +344,6 @@ autowrap_mode = 2
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="LevelTimer" parent="HUD" instance=ExtResource("13_8h11d")]
+
+[node name="Checkpoint" parent="." instance=ExtResource("14_ru5uk")]
+position = Vector2(-936, -84)
