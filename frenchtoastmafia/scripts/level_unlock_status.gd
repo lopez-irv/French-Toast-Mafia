@@ -15,3 +15,5 @@ var level11 = false
 var level12 = false
 var level13 = false
 var level14 = false
+
+var currentLevel = 0;

@@ -9,4 +9,5 @@ func _process(delta: float) -> void:
 	set("theme_override_colors/font_color",Color(0,1,0))
 
 func _on_start_button_pressed() -> void:
+	level_unlock_status.currentLevel = -1;
 	get_tree().change_scene_to_file("res://scenes/shop.tscn") 
