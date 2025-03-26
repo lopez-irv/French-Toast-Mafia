@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var dash_timer: Timer = $DashTimer
 @onready var healthBar: ProgressBar = $healthBar
 @onready var dash_cooldown: Timer = $dashCooldown
+@onready var invincibilityTimer: Timer = $invincibilityTimer
 
 @export var inv: Inv
 @export var attacking = false # in the same animatedSprite2d as take_damage, 
@@ -161,12 +162,20 @@ func dash(direction):
 
 	#health and damage
 func decreaseHealth(n):
-	animated_sprite.play("take_damage")
-	health -= n
-	print("health droped to:", health)
-	healthBar.value = health
-	if (health <= 0):
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+
+	if invincibilityTimer.is_stopped():
+		invincibilityTimer.start()
+		print("started invincibility")
+		
+	
+		animated_sprite.play("take_damage")
+		health -= n
+		print("health dropped to:", health)
+		healthBar.value = health
+		if (health <= 0):
+			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+	else:
+		print("currently invincible")
 	
 func attack():
 	if not attacking:
