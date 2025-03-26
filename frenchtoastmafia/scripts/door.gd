@@ -17,6 +17,7 @@ func _input(event):      #KEY TO ENTER DOORS IS "ENTER/RETURN"
 			Checkpoint.last_position = null
 			print("checkpoint reset")
 			
+			CoinGlobal._commit_coins()
 			next_level()
 			
 				
