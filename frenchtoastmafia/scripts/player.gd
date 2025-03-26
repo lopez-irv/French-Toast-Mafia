@@ -4,12 +4,14 @@ extends CharacterBody2D
 @onready var dash_timer: Timer = $DashTimer
 @onready var healthBar: ProgressBar = $healthBar
 @onready var dash_cooldown: Timer = $dashCooldown
+@onready var invincibilityTimer: Timer = $invincibilityTimer
 
 @export var inv: Inv
 @export var attacking = false # in the same animatedSprite2d as take_damage, 
 # we have an animation called sword_attack   , i want to play this animation
 # when the attack button is pressed. 
 
+var facing_right = false 
 var health = 100.0
 var body_last_collided
 
@@ -36,6 +38,9 @@ func _ready():
 	# Make sure sword hitbox is off at the start
 	$SwordHitbox.monitoring = false
 	$SwordHitbox.get_node("CollisionShape2D").disabled = true
+	# Make sure sword hitbox is off at the start
+	$SwordHitboxLeft.monitoring = false
+	$SwordHitboxLeft.get_node("CollisionShape2D").disabled = true
 	
 func _physics_process(delta: float) -> void:
 		
@@ -55,7 +60,10 @@ func _physics_process(delta: float) -> void:
 	
 	#get direction
 	var direction := Input.get_axis("move_left", "move_right")
-	
+	if direction > 0:
+		facing_right = true
+	elif direction < 0:
+		facing_right = false
 	
 	#dash 
 	dash(direction)
@@ -161,27 +169,41 @@ func dash(direction):
 
 	#health and damage
 func decreaseHealth(n):
-	animated_sprite.play("take_damage")
-	health -= n
-	print("health droped to:", health)
-	healthBar.value = health
-	if (health <= 0):
-		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+
+	if invincibilityTimer.is_stopped():
+		invincibilityTimer.start()
+		#print("started invincibility")
+		
+	
+		animated_sprite.play("take_damage")
+		health -= n
+		#print("health dropped to:", health)
+		healthBar.value = health
+		if (health <= 0):
+			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+	else:
+		print("currently invincible")
 	
 func attack():
 	if not attacking:
 		attacking = true
-
+		
 		# 🟢 Activate the hitbox
-		$SwordHitbox.monitoring = true
-		$SwordHitbox.get_node("CollisionShape2D").disabled = false
-
+		if (facing_right): #moving right 
+			$SwordHitbox.monitoring = true
+			$SwordHitbox.get_node("CollisionShape2D").disabled = false
+		if (!facing_right): # moving left
+			$SwordHitboxLeft.monitoring = true
+			$SwordHitboxLeft.get_node("CollisionShape2D").disabled = false
 		animated_sprite.play("sword_attack")
 		await animated_sprite.animation_finished
+	
 
 		# 🔴 Deactivate the hitbox
 		$SwordHitbox.monitoring = false
 		$SwordHitbox.get_node("CollisionShape2D").disabled = true
+		$SwordHitboxLeft.monitoring = false
+		$SwordHitboxLeft.get_node("CollisionShape2D").disabled = true
 
 		attacking = false
 
@@ -204,7 +226,7 @@ func increaseHealth(n):
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	body_last_collided = area.get_parent()
-	print(body_last_collided)
+	#print(body_last_collided)
 	
 	#knockback for enemies that have a velocity
 	if body_last_collided.is_in_group("Enemy"):
@@ -221,7 +243,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if body_last_collided.name == area.name:
 		body_last_collided.name = ""
-	print(body_last_collided)
+	#print(body_last_collided)
 
 
 func collect(item):
@@ -233,19 +255,19 @@ func collect(item):
 var knockbackPower_x = 400
 var knockbackPower_y = -100	#only works for upward knockback
 func knockback(enemyVelocity: Vector2):
-	print("og player velocity", velocity)
+	#print("og player velocity", velocity)
 	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower_x
 	#velocity = knockbackDirection
 	velocity.x = knockbackDirection.x	
 	velocity.y = knockbackPower_y	#this will not work if enemy hits from above 
-	print("enemy velocity", enemyVelocity)
-	print("new player velocity", velocity)
-	print(" ")
+	#print("enemy velocity", enemyVelocity)
+	#print("new player velocity", velocity)
+	#print(" ")
 	move_and_slide()
 	
 
 func _on_sword_hitbox_body_entered(body: Node2D) -> void:
-	print("Sword hit:", body.name)
+	#print("Sword hit:", body.name)
 	if body and body.has_method("take_damage"):
 		print("Calling take_damage on", body.name)
 		body.take_damage(30)

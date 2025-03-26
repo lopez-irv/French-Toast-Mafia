@@ -1,11 +1,11 @@
+AudioStreamPlayer2D
+Timer
 Node2D
 RigidBody2D
 CharacterBody2D
-Timer
 Button
 Label
 AnimatedSprite2D
-AudioStreamPlayer2D
 AudioListener3D
 AudioStreamPlayer3D
 Area2D
