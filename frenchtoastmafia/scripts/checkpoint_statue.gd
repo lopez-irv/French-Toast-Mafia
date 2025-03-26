@@ -14,5 +14,8 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	print("checkpoint reached")
+	if Checkpoint.last_position == null:		#only play sound 1st time 
+		$AudioStreamPlayer2D.play()
 	Checkpoint.last_position = global_position
 	$AnimatedSprite2D.play("activated")
+	
