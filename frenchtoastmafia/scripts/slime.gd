@@ -17,7 +17,7 @@ var slime_sound_stream = preload("res://assets/sounds/slime-sound.mp3")
 var velocity: Vector2 #for use with knockback for player
 
 # NEW: Slime health
-var health := 30
+var health := 90
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 		play_slime_sound()
 		
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("hit player")
+	#print("hit player")
 	if body.is_in_group("Player"):
 		player.decreaseHealth(10)
 		
