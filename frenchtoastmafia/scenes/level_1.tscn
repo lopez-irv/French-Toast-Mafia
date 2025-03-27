@@ -1,20 +1,26 @@
-[gd_scene load_steps=30 format=3 uid="uid://b6ij7w55xvbkc"]
+[gd_scene load_steps=37 format=3 uid="uid://b6ij7w55xvbkc"]
 
-[ext_resource type="Texture2D" uid="uid://vljjsn5x38h1" path="res://customAssets/swamp/1 Tiles/Tileset.png" id="1_bq4tm"]
+[ext_resource type="Texture2D" uid="uid://dfhnfifhx84t6" path="res://customAssets/swamp/1 Tiles/Tileset.png" id="1_bq4tm"]
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="1_jj3tt"]
-[ext_resource type="Texture2D" uid="uid://d0b3rspeqvfj5" path="res://customAssets/swamp/2 Background/Background.png" id="4_8udiv"]
+[ext_resource type="Texture2D" uid="uid://xvfin6q4s74q" path="res://customAssets/swamp/2 Background/Background.png" id="4_8udiv"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="5_sbpf1"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="6_3uu66"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_y81ue"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="7_fwkgs"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="7_s8w3o"]
-[ext_resource type="Texture2D" uid="uid://b84duiybiv12q" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="8_vdx2w"]
+[ext_resource type="Texture2D" uid="uid://c3x0ti0huljck" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="8_vdx2w"]
+[ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="9_b17ab"]
 [ext_resource type="Script" path="res://scenes/knight.gd" id="9_edxxv"]
 [ext_resource type="AudioStream" uid="uid://cgds5wjvg3so1" path="res://assets/music/Vindsvept CC 4.0 License.wav" id="10_hr6oi"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="11_a8k55"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="12_300bq"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="13_8h11d"]
 [ext_resource type="PackedScene" uid="uid://dkxfosfghq5k" path="res://scenes/checkpoint_statue.tscn" id="14_ru5uk"]
+[ext_resource type="Texture2D" uid="uid://clrjuifsu43u0" path="res://assets/sprites/coin.png" id="16_k3uoe"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="17_wsj3s"]
+[ext_resource type="Script" path="res://scenes/coin_label.gd" id="18_4iuw6"]
+[ext_resource type="PackedScene" uid="uid://cuuw0dg1lhj6c" path="res://scenes/coin.tscn" id="19_giwdr"]
+[ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="21_afbxm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrup6"]
 texture = ExtResource("1_bq4tm")
@@ -217,6 +223,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2s11"]
+atlas = ExtResource("16_k3uoe")
+region = Rect2(3, 3, 10, 10)
+
 [node name="level1" type="Node"]
 script = ExtResource("1_jj3tt")
 
@@ -290,9 +300,19 @@ position = Vector2(-346, -852)
 [node name="spikes2" parent="spikes" instance=ExtResource("6_3uu66")]
 position = Vector2(-474, -1091)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_b17ab")]
+offset_left = -2.0
+offset_top = 6.0
+offset_right = -2.0
+offset_bottom = 6.0
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="fruit_interact" parent="CanvasLayer2" instance=ExtResource("7_s8w3o")]
+offset_top = 5.0
+offset_bottom = 5.0
 
 [node name="Knight" type="AnimatedSprite2D" parent="."]
 position = Vector2(-554, -422)
@@ -345,5 +365,28 @@ autowrap_mode = 2
 
 [node name="LevelTimer" parent="HUD" instance=ExtResource("13_8h11d")]
 
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+offset_left = 144.0
+offset_top = -3.0
+offset_right = 184.0
+offset_bottom = 37.0
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_a2s11")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="HUD/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_wsj3s")
+theme_override_font_sizes/font_size = 25
+script = ExtResource("18_4iuw6")
+
 [node name="Checkpoint" parent="." instance=ExtResource("14_ru5uk")]
-position = Vector2(-936, -84)
+position = Vector2(470, -595)
+
+[node name="Coin" parent="." instance=ExtResource("19_giwdr")]
+position = Vector2(-655, -49)
+
+[node name="Door" parent="." instance=ExtResource("21_afbxm")]
+position = Vector2(173, -1196)
