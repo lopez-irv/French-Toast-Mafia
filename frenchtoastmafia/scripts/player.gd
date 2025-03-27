@@ -34,6 +34,11 @@ const DASH_LENGTH = .1
 var footstep_grass = preload("res://assets/sounds/grass-footsteps.wav")
 var is_walking = false
 
+#for other sound effects
+@onready var sound_effect_player: AudioStreamPlayer2D = $SoundEffectPlayer
+
+var dash_ready_sound = preload("res://assets/sounds/dashReady.wav")
+
 func _ready():
 	# Make sure sword hitbox is off at the start
 	$SwordHitbox.monitoring = false
@@ -271,3 +276,15 @@ func _on_sword_hitbox_body_entered(body: Node2D) -> void:
 	if body and body.has_method("take_damage"):
 		print("Calling take_damage on", body.name)
 		body.take_damage(30)
+
+
+
+func _on_dash_cooldown_timeout() -> void:
+	#play sound
+	sound_effect_player.stream = dash_ready_sound
+	sound_effect_player.play()
+	
+	#make player flash once
+	modulate = Color(0.678431, 0.847059, 0.901961, 1)
+	await get_tree().create_timer(0.25).timeout
+	modulate = Color(1,1,1,1) #back to normal
