@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://clrjuifsu43u0" path="res://assets/sprites/coin.png" id="19_xi534"]
 [ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="20_m8tkj"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="20_sb673"]
-[ext_resource type="Texture2D" uid="uid://c3x0ti0huljck" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="21_mbd83"]
+[ext_resource type="Texture2D" uid="uid://b84duiybiv12q" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="21_mbd83"]
 [ext_resource type="Script" path="res://scenes/coin_label.gd" id="21_pt23e"]
 [ext_resource type="Script" path="res://scenes/knight.gd" id="22_46x6y"]
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="24_was7h"]

@@ -13,3 +13,4 @@ func _process(delta: float) -> void:
 
 func on_cooldown():
 	return !is_stopped()
+	
