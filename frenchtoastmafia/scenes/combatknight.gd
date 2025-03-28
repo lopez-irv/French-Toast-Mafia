@@ -10,7 +10,7 @@ extends CharacterBody2D
 
 var can_attack: bool = true
 var is_attacking: bool = false
-var gravity: float = 980.0  # Adjust this value as needed
+var gravity: float = 980.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -85,7 +85,7 @@ func attack() -> void:
 	await get_tree().create_timer(0.5).timeout
 
 	if player.has_method("decreaseHealth"):
-		player.decreaseHealth(10)
+		player.decreaseHealth(30)
 	
 	await get_tree().create_timer(1.0).timeout  # Timer
 	can_attack = true
