@@ -24,7 +24,7 @@
 [ext_resource type="Script" path="res://scenes/coin_label.gd" id="21_pt23e"]
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="24_was7h"]
 [ext_resource type="Script" path="res://scenes/saw.gd" id="25_8sr5b"]
-[ext_resource type="PackedScene" uid="uid://beko1ey73bn8j" path="res://knight.tscn" id="26_ldc1u"]
+[ext_resource type="PackedScene" path="res://knight.tscn" id="26_ldc1u"]
 [ext_resource type="Texture2D" uid="uid://cdvf56ijdnbuw" path="res://assets/Traps/Saw/On (38x38).png" id="26_vnkng"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]

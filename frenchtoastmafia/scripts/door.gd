@@ -8,9 +8,15 @@ func _input(event):      #KEY TO ENTER DOORS IS "ENTER/RETURN"
 		if get_overlapping_bodies().size() > 0: 	
 			#unlock next level based on which one was just at
 			match level_unlock_status.currentLevel:
-				0: level_unlock_status.level1 = true
-				1: level_unlock_status.level2 = true
-				2: level_unlock_status.level3 = true
+				0: 
+					level_unlock_status.level1 = true #unlock next lvl
+					LevelCompletionStatus.level0 = true #mark this lvl as completed
+				1: 
+					level_unlock_status.level2 = true
+					LevelCompletionStatus.level1 = true
+				2: 
+					level_unlock_status.level3 = true
+					LevelCompletionStatus.level2 = true
 				#add the ones for other levels later
 				_: print("no current level")
 				
