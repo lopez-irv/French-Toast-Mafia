@@ -41,3 +41,5 @@ res://scenes/shop_selection_button.gd
 res://scripts/slime.gd
 res://scripts/spikes.gd
 res://scenes/start_button.gd
+res://Resources/orange_round.tres
+res://scenes/shop.tscn
