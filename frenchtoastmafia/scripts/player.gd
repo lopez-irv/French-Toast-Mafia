@@ -173,22 +173,16 @@ func dash(direction):
 		speed = DEFAULT_SPEED 
 
 	#health and damage
-func decreaseHealth(n):
-
-	if invincibilityTimer.is_stopped():
-		invincibilityTimer.start()
-		#print("started invincibility")
-		
-	
+func decreaseHealth(n, ignore_invincibility: bool = false):
+	if ignore_invincibility or invincibilityTimer.is_stopped():
+		if not ignore_invincibility:
+			invincibilityTimer.start()
 		animated_sprite.play("take_damage")
 		health -= n
-		#print("health dropped to:", health)
 		healthBar.value = health
-		if (health <= 0):
+		if health <= 0:
 			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
-	else:
-		print("currently invincible")
-	
+
 func attack():
 	if not attacking:
 		attacking = true

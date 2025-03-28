@@ -1,5 +1,6 @@
-AnimatedSprite2D
+Area2D
 CollisionShape2D
+AnimatedSprite2D
 CharacterBody2D
 AudioStreamPlayer2D
 Timer
@@ -9,6 +10,5 @@ Button
 Label
 AudioListener3D
 AudioStreamPlayer3D
-Area2D
 Node
 CanvasLayer
