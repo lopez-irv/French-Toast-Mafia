@@ -8,6 +8,9 @@ func _process(delta: float) -> void:
 	#pass
 	if level_unlock_status.level0:
 		set("theme_override_colors/font_color",Color(0,1,0))
+	
+	if LevelCompletionStatus.level0:
+		icon = ResourceLoader.load("res://customAssets/goldButton.png")
 
 func _on_start_button_pressed() -> void:
 	if level_unlock_status.level0:
