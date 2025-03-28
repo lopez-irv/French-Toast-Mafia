@@ -13,13 +13,13 @@
 [ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="8_ybwu0"]
 [ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assests/backgrounds/background_layer_2.png" id="9_vx7va"]
 [ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assests/backgrounds/background_layer_3.png" id="10_dlu7f"]
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="15_bfv41"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="16_1wqr5"]
 [ext_resource type="PackedScene" uid="uid://dkxfosfghq5k" path="res://scenes/checkpoint_statue.tscn" id="18_gc304"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="19_8fxup"]
 [ext_resource type="Texture2D" uid="uid://clrjuifsu43u0" path="res://assests/sprites/coin.png" id="19_xi534"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="20_m8tkj"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="20_m8tkj"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="20_sb673"]
 [ext_resource type="Script" path="res://scenes/coin_label.gd" id="21_pt23e"]
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="24_was7h"]
@@ -263,8 +263,7 @@ rotation_smoothing_enabled = true
 [node name="FootstepAudioPlayer" type="AudioStreamPlayer2D" parent="player"]
 
 [node name="Knight" parent="." instance=ExtResource("26_ldc1u")]
-position = Vector2(-279, 12)
-attack_range = 40.0
+position = Vector2(-301, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -342,7 +341,7 @@ metadata/_edit_group_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_lglbo")
-volume_db = -15.999
+volume_db = -5.047
 autoplay = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
