@@ -1,11 +1,11 @@
 [gd_scene load_steps=42 format=3 uid="uid://beko1ey73bn8j"]
 
 [ext_resource type="Script" path="res://scenes/combatknight.gd" id="1_wj6qx"]
-[ext_resource type="Texture2D" uid="uid://cjtxafhxfciwn" path="res://assets/sprites/Knight/120x80_PNGSheets/_Attack.png" id="2_ahkhh"]
-[ext_resource type="Texture2D" uid="uid://y5otpj0guf3s" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="2_c0x2r"]
-[ext_resource type="Texture2D" uid="uid://dbdvppeum3ohw" path="res://assets/sprites/Knight/120x80_PNGSheets/_CrouchWalk.png" id="3_ikhi1"]
-[ext_resource type="Texture2D" uid="uid://3xje7lnfyq8i" path="res://assets/sprites/Knight/120x80_PNGSheets/_Run.png" id="5_vk14g"]
-[ext_resource type="Texture2D" uid="uid://nyq121usiu3m" path="res://assets/sprites/Knight/120x80_PNGSheets/_CrouchTransition.png" id="6_m4qgg"]
+[ext_resource type="Texture2D" uid="uid://cy8kmcp4aeysm" path="res://assets/sprites/Knight/120x80_PNGSheets/_Attack.png" id="2_ahkhh"]
+[ext_resource type="Texture2D" uid="uid://bvegmj5dlqhkr" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="2_c0x2r"]
+[ext_resource type="Texture2D" uid="uid://dtx3l1alfouip" path="res://assets/sprites/Knight/120x80_PNGSheets/_CrouchWalk.png" id="3_ikhi1"]
+[ext_resource type="Texture2D" uid="uid://cxf11nfj1jvpe" path="res://assets/sprites/Knight/120x80_PNGSheets/_Run.png" id="5_vk14g"]
+[ext_resource type="Texture2D" uid="uid://hi55e55elt5v" path="res://assets/sprites/Knight/120x80_PNGSheets/_CrouchTransition.png" id="6_m4qgg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24ift"]
 atlas = ExtResource("2_ahkhh")

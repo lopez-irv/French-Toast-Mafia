@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://dkxfosfghq5k"]
 
 [ext_resource type="Script" path="res://scripts/checkpoint_statue.gd" id="1_oo3c6"]
-[ext_resource type="Texture2D" uid="uid://d2b67xu03s0ot" path="res://assets/sprites/flags.png" id="2_vodks"]
-[ext_resource type="AudioStream" uid="uid://lc2xnbm1dh1p" path="res://assets/sounds/checkpoint.mp3" id="3_dw7ye"]
+[ext_resource type="Texture2D" uid="uid://bj7ehei554kgr" path="res://assets/sprites/flags.png" id="2_vodks"]
+[ext_resource type="AudioStream" uid="uid://crcbpbuq30rou" path="res://assets/sounds/checkpoint.mp3" id="3_dw7ye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c8msa"]
 atlas = ExtResource("2_vodks")
