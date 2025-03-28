@@ -1,9 +1,9 @@
 [gd_scene load_steps=33 format=3 uid="uid://ccb80t2du7h7s"]
 
-[ext_resource type="Texture2D" uid="uid://cwttcxvnsivjf" path="res://customAssets/worldSet.png" id="1_7ifw3"]
+[ext_resource type="Texture2D" uid="uid://b3jgl87gpvlxg" path="res://customAssets/worldSet.png" id="1_7ifw3"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="2_3v2fx"]
-[ext_resource type="Texture2D" uid="uid://cstsgucexkdpj" path="res://customAssets/worldSet2.png" id="2_qfqab"]
-[ext_resource type="Texture2D" uid="uid://dvlir1o1123o2" path="res://customAssets/characters.png" id="2_y4imm"]
+[ext_resource type="Texture2D" uid="uid://cf5frei83g22p" path="res://customAssets/worldSet2.png" id="2_qfqab"]
+[ext_resource type="Texture2D" uid="uid://6iva0m3xwg4a" path="res://customAssets/characters.png" id="2_y4imm"]
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="4_fonc7"]
 [ext_resource type="Script" path="res://scripts/npc.gd" id="6_crsim"]
 [ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="7_5xaxj"]
