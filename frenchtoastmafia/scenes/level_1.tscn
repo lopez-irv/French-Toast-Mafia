@@ -1,15 +1,15 @@
-[gd_scene load_steps=39 format=3 uid="uid://b6ij7w55xvbkc"]
+[gd_scene load_steps=41 format=3 uid="uid://b6ij7w55xvbkc"]
 
-[ext_resource type="Texture2D" uid="uid://vljjsn5x38h1" path="res://customAssets/swamp/1 Tiles/Tileset.png" id="1_bq4tm"]
+[ext_resource type="Texture2D" uid="uid://q66soxlyrsat" path="res://customAssets/swamp/1 Tiles/Tileset.png" id="1_bq4tm"]
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="1_jj3tt"]
-[ext_resource type="Texture2D" uid="uid://cwttcxvnsivjf" path="res://customAssets/worldSet.png" id="3_11od7"]
-[ext_resource type="Texture2D" uid="uid://d0b3rspeqvfj5" path="res://customAssets/swamp/2 Background/Background.png" id="4_8udiv"]
+[ext_resource type="Texture2D" uid="uid://bomfsil27owpd" path="res://customAssets/worldSet.png" id="3_11od7"]
+[ext_resource type="Texture2D" uid="uid://dhbksd5rpsnik" path="res://customAssets/swamp/2 Background/Background.png" id="4_8udiv"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="5_sbpf1"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="6_3uu66"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_y81ue"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="7_fwkgs"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="7_s8w3o"]
-[ext_resource type="Texture2D" uid="uid://b84duiybiv12q" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="8_vdx2w"]
+[ext_resource type="Texture2D" uid="uid://b2ajqcf2kub4d" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="8_vdx2w"]
 [ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="9_b17ab"]
 [ext_resource type="Script" path="res://scenes/knight.gd" id="9_edxxv"]
 [ext_resource type="AudioStream" uid="uid://cgds5wjvg3so1" path="res://assets/music/Vindsvept CC 4.0 License.wav" id="10_hr6oi"]
@@ -21,7 +21,9 @@
 [ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="17_wsj3s"]
 [ext_resource type="Script" path="res://scenes/coin_label.gd" id="18_4iuw6"]
 [ext_resource type="PackedScene" uid="uid://cuuw0dg1lhj6c" path="res://scenes/coin.tscn" id="19_giwdr"]
+[ext_resource type="Script" path="res://scripts/playerLevelLabel.gd" id="20_uxxkv"]
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="21_afbxm"]
+[ext_resource type="PackedScene" uid="uid://bwkoodbj4wv5l" path="res://scenes/slime.tscn" id="23_qmlff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrup6"]
 texture = ExtResource("1_bq4tm")
@@ -139,6 +141,7 @@ texture = ExtResource("1_bq4tm")
 18:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.0625, -16.125, 15.8125, -16, 15.6875, 15.75, -15.6875, 15.625)
 12:8/size_in_atlas = Vector2i(5, 4)
 12:8/0 = 0
+16:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m80yo"]
 texture = ExtResource("3_11od7")
@@ -771,6 +774,7 @@ texture = ExtResource("3_11od7")
 30:37/0 = 0
 31:37/0 = 0
 32:37/0 = 0
+32:37/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 35:37/0 = 0
 36:37/0 = 0
 37:37/0 = 0
@@ -816,7 +820,9 @@ texture = ExtResource("3_11od7")
 31:40/0 = 0
 32:40/0 = 0
 35:40/0 = 0
+35:40/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.84375, -8, -1.59375, -8, 1.46875, -8, 6.28125, -8, 6.28125, -2.875, 5.71875, 8, -4.90625, 8, -6.90625, -2.0625)
 36:40/0 = 0
+36:40/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.84375, -8, -1.59375, -8, 1.46875, -8, 6.28125, -8, 6.28125, -2.875, 5.71875, 8, -4.90625, 8, -6.90625, -2.0625)
 37:40/0 = 0
 9:42/0 = 0
 10:42/0 = 0
@@ -1299,7 +1305,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a2s11"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dbms"]
 atlas = ExtResource("16_k3uoe")
 region = Rect2(3, 3, 10, 10)
 
@@ -1437,32 +1443,54 @@ text = "you reached the of level 1
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="LevelTimer" parent="HUD" instance=ExtResource("13_8h11d")]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
-offset_left = 144.0
-offset_top = -3.0
-offset_right = 184.0
-offset_bottom = 37.0
-
-[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_a2s11")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="HUD/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("17_wsj3s")
-theme_override_font_sizes/font_size = 25
-script = ExtResource("18_4iuw6")
-
 [node name="Checkpoint" parent="." instance=ExtResource("14_ru5uk")]
 position = Vector2(470, -595)
 
 [node name="Coin" parent="." instance=ExtResource("19_giwdr")]
 position = Vector2(-655, -49)
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="LevelTimer" parent="HUD" instance=ExtResource("13_8h11d")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 124.0
+offset_right = -2.0
+offset_bottom = 26.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_6dbms")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="HUD/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_wsj3s")
+theme_override_font_sizes/font_size = 25
+text = "0"
+script = ExtResource("18_4iuw6")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 213.0
+offset_right = 87.0
+offset_bottom = 26.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="HUD/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_wsj3s")
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("20_uxxkv")
+
 [node name="Door" parent="." instance=ExtResource("21_afbxm")]
 position = Vector2(173, -1196)
+
+[node name="slime" parent="." instance=ExtResource("23_qmlff")]
+position = Vector2(-312, -71)
