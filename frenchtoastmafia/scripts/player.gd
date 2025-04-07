@@ -96,12 +96,20 @@ func _physics_process(delta: float) -> void:
 
 
 
-	if direction and Input.is_action_pressed("run"):
-		velocity.x = (direction * speed)
-	elif direction:
-		velocity.x = (direction * speed)/2
+	if direction:
+		if Input.is_action_pressed("run"):
+			velocity.x = (direction * speed)
+			if not attacking:
+				animated_sprite.play("run")
+		else:
+			velocity.x = (direction * speed) / 2
+			if not attacking:
+				animated_sprite.play("run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+		if is_on_floor() and not attacking:
+			animated_sprite.play("idle")
+
 
 	
 	#wall jump
@@ -113,6 +121,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = wall_pushback
 		
 	wallSlide(delta)
+	
+	if not attacking and animated_sprite.animation in ["idle", "run"]:
+		if direction:
+			animated_sprite.play("run")
+		else:
+			animated_sprite.play("idle")
+
+
 	
 	move_and_slide()
 	
@@ -190,24 +206,29 @@ func attack():
 	if not attacking:
 		attacking = true
 		
-		# 🟢 Activate the hitbox
-		if (facing_right): #moving right 
+		# 🟢 Activate the correct hitbox
+		if facing_right:
 			$SwordHitbox.monitoring = true
 			$SwordHitbox.get_node("CollisionShape2D").disabled = false
-		if (!facing_right): # moving left
+		else:
 			$SwordHitboxLeft.monitoring = true
 			$SwordHitboxLeft.get_node("CollisionShape2D").disabled = false
-		animated_sprite.play("sword_attack")
-		await animated_sprite.animation_finished
-	
 
-		# 🔴 Deactivate the hitbox
+		# 🔥 Play attack animation
+		animated_sprite.play("sword_attack")
+
+		# Wait for the animation OR a short timeout as a fallback
+		var timer := get_tree().create_timer(0.4)
+		await animated_sprite.animation_finished or timer.timeout
+
+		# 🔴 Cleanup
 		$SwordHitbox.monitoring = false
 		$SwordHitbox.get_node("CollisionShape2D").disabled = true
 		$SwordHitboxLeft.monitoring = false
 		$SwordHitboxLeft.get_node("CollisionShape2D").disabled = true
 
 		attacking = false
+
 
 
 func _process(delta: float) -> void:
