@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/exit_button.gd" id="5_tl7qf"]
 [ext_resource type="Script" path="res://scenes/start_button.gd" id="5_v2jj8"]
 [ext_resource type="Script" path="res://scenes/controls_button.gd" id="6_hatwt"]
-[ext_resource type="Script" path="res://scripts/levels_button.gd" id="7_2kcaj"]
+[ext_resource type="Script" path="res://scripts/level_selection.gd" id="6_me3k5"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -70,13 +70,6 @@ alignment = 1
 [node name="seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="levels_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_bkv8m")
-theme_override_font_sizes/font_size = 25
-text = "LEVELS"
-script = ExtResource("7_2kcaj")
-
 [node name="start_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 visible = false
 custom_minimum_size = Vector2(120, 32)
@@ -85,6 +78,13 @@ theme_override_fonts/font = ExtResource("3_bkv8m")
 theme_override_font_sizes/font_size = 25
 text = "START GAME"
 script = ExtResource("5_v2jj8")
+
+[node name="level_selection" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bkv8m")
+theme_override_font_sizes/font_size = 25
+text = "Level Selection"
+script = ExtResource("6_me3k5")
 
 [node name="controls_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)

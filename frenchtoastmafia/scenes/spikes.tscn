@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/spikes.gd" id="1_1t5ir"]
 [ext_resource type="Texture2D" uid="uid://bpcdj56xm4o2u" path="res://assets/Traps/Spikes/Idle.png" id="1_dxb3g"]
 
-[node name="spikes" type="Node2D" groups=["Enemy"]]
+[node name="spikes" type="Node2D" groups=["Obstacle"]]
 script = ExtResource("1_1t5ir")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["Enemy"]]

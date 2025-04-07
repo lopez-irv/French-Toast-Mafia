@@ -1,9 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://c7jc5m7bfpa3l"]
+[gd_scene load_steps=29 format=3 uid="uid://c7jc5m7bfpa3l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_407jq"]
 [ext_resource type="Resource" uid="uid://c58tb8w1fpjvm" path="res://Resources/players_inventory.tres" id="2_3yveb"]
 [ext_resource type="Texture2D" uid="uid://b8kx0k64pq7si" path="res://assets/sprites/knight.png" id="3_lo74j"]
 [ext_resource type="PackedScene" uid="uid://cgxjbtu3k7s5b" path="res://scenes/dash_timer.tscn" id="3_vvwfw"]
+[ext_resource type="Texture2D" uid="uid://doyy8uq6880tc" path="res://assets/sprites/swordAttack.png" id="4_d4r2g"]
+[ext_resource type="PackedScene" uid="uid://bla6oyewdsm0a" path="res://scenes/inventory_ui.tscn" id="5_bibil"]
+[ext_resource type="Script" path="res://dash_cooldown.gd" id="6_52574"]
+[ext_resource type="Script" path="res://scenes/invincibility_timer.gd" id="8_g5yw5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sbspw"]
 atlas = ExtResource("3_lo74j")
@@ -20,6 +24,30 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xovue"]
 atlas = ExtResource("3_lo74j")
 region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdikv"]
+atlas = ExtResource("4_d4r2g")
+region = Rect2(0, 3, 64, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b3f4"]
+atlas = ExtResource("4_d4r2g")
+region = Rect2(64, 3, 64, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qu45w"]
+atlas = ExtResource("4_d4r2g")
+region = Rect2(128, 3, 64, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2hdt"]
+atlas = ExtResource("4_d4r2g")
+region = Rect2(192, 3, 64, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kbr5"]
+atlas = ExtResource("4_d4r2g")
+region = Rect2(192, 75, 64, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rbo0"]
+atlas = ExtResource("4_d4r2g")
+region = Rect2(192, 147, 64, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vjgjf"]
 atlas = ExtResource("3_lo74j")
@@ -58,6 +86,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_tdikv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b3f4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qu45w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2hdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kbr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rbo0")
+}],
+"loop": false,
+"name": &"sword_attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_vjgjf")
 }, {
 "duration": 1.0,
@@ -86,6 +137,9 @@ bg_color = Color(0.865041, 0, 0.097925, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_07l0u"]
 size = Vector2(9, 13)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73lux"]
+size = Vector2(14.5, 15.5)
+
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 collision_layer = 2
@@ -96,8 +150,10 @@ inv = ExtResource("2_3yveb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_2crxa")
-animation = &"take_damage"
+animation = &"sword_attack"
 autoplay = "idle"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(0, -8)
@@ -110,19 +166,56 @@ offset_left = -11.0
 offset_top = -26.0
 offset_right = 8.0
 offset_bottom = -23.0
-mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_3yluo")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6r2yg")
 value = 100.0
 show_percentage = false
 
-[node name="Area2D" type="Area2D" parent="." groups=["Player"]]
+[node name="Area2d" type="Area2D" parent="." groups=["Player"]]
 collision_layer = 2
 collision_mask = 13
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2d" groups=["Player"]]
 position = Vector2(0.5, -11.5)
 shape = SubResource("RectangleShape2D_07l0u")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[node name="inventory_UI" parent="." instance=ExtResource("5_bibil")]
+offset_left = -42.0
+offset_top = -90.0
+offset_right = 41.0
+offset_bottom = -28.0
+
+[node name="dashCooldown" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+script = ExtResource("6_52574")
+
+[node name="SwordHitbox" type="Area2D" parent="."]
+position = Vector2(-1, 2)
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHitbox"]
+position = Vector2(14, -10)
+shape = SubResource("RectangleShape2D_73lux")
+
+[node name="SwordHitboxLeft" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHitboxLeft"]
+position = Vector2(-12, -8)
+shape = SubResource("RectangleShape2D_73lux")
+
+[node name="invincibilityTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+script = ExtResource("8_g5yw5")
+
+[node name="SoundEffectPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="area_entered" from="Area2d" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2d" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="dashCooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]
+[connection signal="body_entered" from="SwordHitboxLeft" to="." method="_on_sword_hitbox_body_entered"]

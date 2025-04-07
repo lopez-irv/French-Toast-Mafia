@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 Checkpoint="*res://scripts/checkpoint.gd"
+level_unlock_status="*res://scripts/level_unlock_status.gd"
+CoinGlobal="*res://scripts/coin_global.gd"
+LevelCompletionStatus="*res://scripts/level_completion_status.gd"
+GameState="*res://scripts/game_state.gd"
+player_level_global="*res://player_level_global.gd"
 
 [dotnet]
 
@@ -63,6 +68,11 @@ interact={
 inventory={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+attack={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 ]
 }
 

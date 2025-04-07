@@ -42,7 +42,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fo8bk"]
 size = Vector2(10, 12)
 
-[node name="slime" type="Node2D"]
+[node name="slime" type="CharacterBody2D" groups=["Enemy"]]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_yio2h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -69,5 +71,9 @@ shape = SubResource("RectangleShape2D_fo8bk")
 volume_db = -2.0
 max_distance = 300.0
 attenuation = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_fo8bk")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
