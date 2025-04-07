@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1tjmvrjjaiue"]
+[gd_scene load_steps=6 format=3 uid="uid://d1tjmvrjjaiue"]
 
-[ext_resource type="Texture2D" uid="uid://c1rxwmy63bjhu" path="res://customAssets/button.png" id="1_jlyfr"]
+[ext_resource type="Texture2D" uid="uid://cwvu0svna825" path="res://customAssets/button.png" id="1_jlyfr"]
 [ext_resource type="Script" path="res://scripts/levelSelectionButton0.gd" id="2_7q6es"]
 [ext_resource type="Script" path="res://scripts/levelSelectionButton1.gd" id="3_anfix"]
 [ext_resource type="Script" path="res://scenes/shop_selection_button.gd" id="4_pi56j"]
+[ext_resource type="Script" path="res://scripts/level_2.gd" id="4_tfh5p"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -77,6 +78,7 @@ theme_override_font_sizes/font_size = 32
 text = "2
 "
 icon = ExtResource("1_jlyfr")
+script = ExtResource("4_tfh5p")
 
 [node name="level3" type="Button" parent="MarginContainer/VBoxContainer/row1"]
 layout_mode = 2
