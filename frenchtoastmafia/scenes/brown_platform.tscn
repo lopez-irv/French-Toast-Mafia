@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cofutl83miiup"]
+
+[ext_resource type="Script" path="res://scripts/brown_platform.gd" id="1_2i6xy"]
+[ext_resource type="Texture2D" uid="uid://b8dc3bmrly8cy" path="res://assets/sprites/platforms.png" id="1_rap1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvkdb"]
+size = Vector2(48, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2vky"]
+atlas = ExtResource("1_rap1u")
+region = Rect2(0, 16, 48, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wcs7"]
+size = Vector2(48, 11)
+
+[node name="FallingPlatform" type="RigidBody2D"]
+collision_layer = 13
+collision_mask = 15
+gravity_scale = 0.25
+can_sleep = false
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_2i6xy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gvkdb")
+one_way_collision = true
+debug_color = Color(0.987904, 0.0996261, 0.0862281, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_n2vky")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_0wcs7")
+one_way_collision = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
