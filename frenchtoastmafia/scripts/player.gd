@@ -14,6 +14,8 @@ extends CharacterBody2D
 var facing_right = false 
 var health = 100.0
 var body_last_collided
+var playerLevel = 0
+var threshold = 100
 
 var speed = 130.0	#current speed
 const DEFAULT_SPEED = 130.0
@@ -271,6 +273,12 @@ func _on_sword_hitbox_body_entered(body: Node2D) -> void:
 	if body and body.has_method("take_damage"):
 		print("Calling take_damage on", body.name)
 		body.take_damage(30)
+		player_level_global.xp += 50 #NEW XP STUFF
+		print("XP increased to ", player_level_global.xp)
+		if player_level_global.xp %100 == 0: 
+			player_level_global.level_up()
+			print ("Player Level is: ", player_level_global.playerLevel)
+		
 
 
 
