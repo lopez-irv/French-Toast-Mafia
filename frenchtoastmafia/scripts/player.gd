@@ -55,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		canDoubleJump = true
+		#velocity.y = 0
 		velocity.y = JUMP_VELOCITY
 
 	#double jump
@@ -282,3 +283,10 @@ func _on_dash_cooldown_timeout() -> void:
 	modulate = Color(0.678431, 0.847059, 0.901961, 1)
 	await get_tree().create_timer(0.25).timeout
 	modulate = Color(1,1,1,1) #back to normal
+
+
+func _on_sword_hitbox_area_entered(area: Area2D) -> void:
+	print("Sword hit:", area.name)
+	if area and area.has_method("take_damage"):
+		print("Calling take_damage on", area.name)
+		area.take_damage(30)
