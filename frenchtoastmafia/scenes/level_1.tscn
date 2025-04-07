@@ -1,15 +1,15 @@
-[gd_scene load_steps=41 format=3 uid="uid://b6ij7w55xvbkc"]
+[gd_scene load_steps=42 format=3 uid="uid://b6ij7w55xvbkc"]
 
-[ext_resource type="Texture2D" uid="uid://q66soxlyrsat" path="res://customAssets/swamp/1 Tiles/Tileset.png" id="1_bq4tm"]
+[ext_resource type="Texture2D" uid="uid://dfhnfifhx84t6" path="res://customAssets/swamp/1 Tiles/Tileset.png" id="1_bq4tm"]
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="1_jj3tt"]
-[ext_resource type="Texture2D" uid="uid://bomfsil27owpd" path="res://customAssets/worldSet.png" id="3_11od7"]
-[ext_resource type="Texture2D" uid="uid://dhbksd5rpsnik" path="res://customAssets/swamp/2 Background/Background.png" id="4_8udiv"]
+[ext_resource type="Texture2D" uid="uid://chvi16dhmyu1p" path="res://customAssets/worldSet.png" id="3_11od7"]
+[ext_resource type="Texture2D" uid="uid://xvfin6q4s74q" path="res://customAssets/swamp/2 Background/Background.png" id="4_8udiv"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="5_sbpf1"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="6_3uu66"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_y81ue"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="7_fwkgs"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="7_s8w3o"]
-[ext_resource type="Texture2D" uid="uid://b2ajqcf2kub4d" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="8_vdx2w"]
+[ext_resource type="Texture2D" uid="uid://c3x0ti0huljck" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="8_vdx2w"]
 [ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="9_b17ab"]
 [ext_resource type="Script" path="res://scenes/knight.gd" id="9_edxxv"]
 [ext_resource type="AudioStream" uid="uid://cgds5wjvg3so1" path="res://assets/music/Vindsvept CC 4.0 License.wav" id="10_hr6oi"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cuuw0dg1lhj6c" path="res://scenes/coin.tscn" id="19_giwdr"]
 [ext_resource type="Script" path="res://scripts/playerLevelLabel.gd" id="20_uxxkv"]
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="21_afbxm"]
+[ext_resource type="PackedScene" uid="uid://ceggfjnadfcdj" path="res://scenes/flying_eye.tscn" id="23_klevt"]
 [ext_resource type="PackedScene" uid="uid://bwkoodbj4wv5l" path="res://scenes/slime.tscn" id="23_qmlff"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrup6"]
@@ -1494,3 +1495,12 @@ position = Vector2(173, -1196)
 
 [node name="slime" parent="." instance=ExtResource("23_qmlff")]
 position = Vector2(-312, -71)
+
+[node name="FlyingEye" parent="." instance=ExtResource("23_klevt")]
+position = Vector2(-539, -481)
+
+[node name="FlyingEye3" parent="." instance=ExtResource("23_klevt")]
+position = Vector2(2, -794)
+
+[node name="FlyingEye2" parent="." instance=ExtResource("23_klevt")]
+position = Vector2(-272, -100)
