@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://yiwaxw7m2xlj"]
+
+[ext_resource type="Script" path="res://scripts/lava_tile.gd" id="1_i5omg"]
+[ext_resource type="Texture2D" uid="uid://c6bvwtpe6ho0h" path="res://customAssets/worldSet.png" id="2_oh2we"]
+
+[node name="lavaTile" type="Node2D" groups=["Obstacle"]]
+script = ExtResource("1_i5omg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Enemy"]]
+texture = ExtResource("2_oh2we")
+region_enabled = true
+region_rect = Rect2(688, 719, 16, 17)
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+position = Vector2(-1, -1)
+rotation = 3.14121
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" groups=["Enemy"]]
+position = Vector2(-0.000760857, 2)
+polygon = PackedVector2Array(-9.00304, 7.99658, -9.00038, 0.996576, -0.000380397, 1, 6.99962, 1.00266, 7, 8)
+
+[node name="DamageTimer" type="Timer" parent="Area2D"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Area2D/DamageTimer" to="." method="_on_damage_timer_timeout"]

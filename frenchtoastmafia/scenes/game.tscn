@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=47 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_gwgku"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://scenes/knight.gd" id="22_46x6y"]
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="24_was7h"]
 [ext_resource type="PackedScene" uid="uid://c2rcd3n3d5dce" path="res://scenes/purpleSlime.tscn" id="27_tldwx"]
+[ext_resource type="PackedScene" uid="uid://yiwaxw7m2xlj" path="res://scenes/lavaTile.tscn" id="28_1utv4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_djqja"]
 atlas = ExtResource("21_mbd83")
@@ -558,3 +559,15 @@ position = Vector2(1143, -271)
 
 [node name="slime2" parent="." instance=ExtResource("27_tldwx")]
 position = Vector2(1064, -44)
+
+[node name="lavaTile" parent="." instance=ExtResource("28_1utv4")]
+position = Vector2(824, -23)
+
+[node name="lavaTile2" parent="." instance=ExtResource("28_1utv4")]
+position = Vector2(792, -23)
+
+[node name="lavaTile3" parent="." instance=ExtResource("28_1utv4")]
+position = Vector2(808, -23)
+
+[node name="lavaTile4" parent="." instance=ExtResource("28_1utv4")]
+position = Vector2(840, -23)
