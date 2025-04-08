@@ -1,4 +1,5 @@
 extends Area2D
+@onready var door_sfx = $DoorSFX
 
 func _ready(): 
 	pass
@@ -24,9 +25,8 @@ func _input(event):      #KEY TO ENTER DOORS IS "ENTER/RETURN"
 			print("checkpoint reset")
 			
 			CoinGlobal._commit_coins()
+			door_sfx.play()
 			next_level()
-			
-				
 			
 func next_level():                 #CHANGE ME LATER TO WORK FOR ALL SCENES
 	
