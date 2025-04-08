@@ -11,4 +11,4 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_level_selection_pressed():
-	get_tree().change_scene_to_file("res://scenes/levelSelection.tscn") 
+	SceneTransition.change_scene_to_file("res://scenes/levelSelection.tscn") 

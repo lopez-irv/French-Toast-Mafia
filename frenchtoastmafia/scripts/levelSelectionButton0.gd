@@ -21,4 +21,4 @@ func _on_start_button_pressed() -> void:
 			print("checkpoint reset")
 			
 		level_unlock_status.currentLevel = 0;	#update currentLevel
-		get_tree().change_scene_to_file("res://scenes/game.tscn") 
+		SceneTransition.change_scene_to_file("res://scenes/game.tscn") 
