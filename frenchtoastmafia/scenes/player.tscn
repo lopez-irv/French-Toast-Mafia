@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://c58tb8w1fpjvm" path="res://Resources/players_inventory.tres" id="2_3yveb"]
 [ext_resource type="Texture2D" uid="uid://b8kx0k64pq7si" path="res://assets/sprites/knight.png" id="3_lo74j"]
 [ext_resource type="PackedScene" uid="uid://cgxjbtu3k7s5b" path="res://scenes/dash_timer.tscn" id="3_vvwfw"]
-[ext_resource type="Texture2D" uid="uid://dsh8rlr2hrkec" path="res://assets/sprites/swordAttack.png" id="4_d4r2g"]
+[ext_resource type="Texture2D" uid="uid://dnoxsdh4hcbes" path="res://assets/sprites/swordAttack.png" id="4_d4r2g"]
 [ext_resource type="PackedScene" uid="uid://bla6oyewdsm0a" path="res://scenes/inventory_ui.tscn" id="5_bibil"]
 [ext_resource type="Script" path="res://dash_cooldown.gd" id="6_52574"]
 [ext_resource type="Script" path="res://scenes/invincibility_timer.gd" id="8_g5yw5"]
