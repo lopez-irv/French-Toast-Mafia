@@ -4,8 +4,8 @@ extends CharacterBody2D
 @export var interact_range: float = 100.0
 
 # Enemy behavior variables:
-@export var aggro_range: float = 200.0   # When the knight starts chasing the player
-@export var attack_range: float = 50.0   # When the knight is close enough to attack
+@export var aggro_range: float = 150.0   # When the knight starts chasing the player
+@export var attack_range: float = 30.0   # When the knight is close enough to attack
 @export var move_speed: float = 80.0     # Movement speed of the knight
 
 var can_attack: bool = true
@@ -87,6 +87,10 @@ func attack() -> void:
 	if player.has_method("decreaseHealth"):
 		player.decreaseHealth(30)
 	
-	await get_tree().create_timer(1.0).timeout  # Timer
+	if is_instance_valid(get_tree()):
+		await get_tree().create_timer(1.0).timeout # Timer
+	else:
+		return
+	
 	can_attack = true
 	is_attacking = false
