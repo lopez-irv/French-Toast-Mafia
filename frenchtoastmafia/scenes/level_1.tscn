@@ -1339,7 +1339,7 @@ shape = SubResource("WorldBoundaryShape2D_e0rsr")
 [node name="ParallaxLayer (close)" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer (close)"]
-position = Vector2(69, -396)
+position = Vector2(69, -523)
 scale = Vector2(5, 4.659)
 texture = ExtResource("4_8udiv")
 

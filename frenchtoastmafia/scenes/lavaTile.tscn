@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://yiwaxw7m2xlj"]
 
 [ext_resource type="Script" path="res://scripts/lava_tile.gd" id="1_i5omg"]
-[ext_resource type="Texture2D" uid="uid://c6bvwtpe6ho0h" path="res://customAssets/worldSet.png" id="2_oh2we"]
+[ext_resource type="Texture2D" uid="uid://bth8o883ryaku" path="res://customAssets/worldSet.png" id="2_oh2we"]
 
 [node name="lavaTile" type="Node2D" groups=["Obstacle"]]
 script = ExtResource("1_i5omg")
