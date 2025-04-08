@@ -1,11 +1,12 @@
 extends Control
 
+var level_select_music = preload("res://assets/music/level-select-music.wav")
 
-# Called when the node enters the scene tree for the first time.
+@onready var level_music_player: AudioStreamPlayer2D = $LevelMusicPlayer
+
 func _ready() -> void:
-	pass # Replace with function body.
+	level_music_player.stream = level_select_music
+	level_music_player.play()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

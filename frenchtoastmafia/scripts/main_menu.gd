@@ -1,11 +1,16 @@
 extends Control
 
+var main_menu_music = preload("res://assets/music/main-menu-music.wav")
 
-# Called when the node enters the scene tree for the first time.
+@onready var menu_music_player: AudioStreamPlayer2D = $MenuMusicPlayer
+
 func _ready() -> void:
-	pass # Replace with function body.
+	menu_music_player.stream = main_menu_music
+	menu_music_player.play()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func _on_levels_button_pressed() -> void:
+	# Change scene when the levels button is pressed.
+	get_tree().change_scene_to_file("res://scenes/levelSelection.tscn")
