@@ -31,3 +31,4 @@ res://scenes/spikes.tscn
 res://main_menu.tscn
 res://pause_menu.tscn
 res://scenes/yellowPlatform.tscn
+res://scripts/player.gd

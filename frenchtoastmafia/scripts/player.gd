@@ -40,6 +40,7 @@ var is_walking = false
 @onready var sound_effect_player: AudioStreamPlayer2D = $SoundEffectPlayer
 
 var dash_ready_sound = preload("res://assets/sounds/dashReady.wav")
+var dash_sound = preload("res://assets/sounds/dash-sound-effect.wav")
 
 func _ready():
 	# Make sure sword hitbox is off at the start
@@ -170,15 +171,21 @@ func play_footstep_sound():
 #lunges player forward in direction they are facing	
 func dash(direction):
 	
-	if not dash_cooldown.on_cooldown():	#change to if true for unlimited dashing
+	if not dash_cooldown.on_cooldown():	 #change to if true for unlimited dashing
 		#if player is moving, change speed
 		if Input.is_action_just_pressed("Dash") and direction:
 			dash_timer.start_dash(DASH_LENGTH)
 			dash_cooldown.start()
+			# Play dash sound
+			sound_effect_player.stream = dash_sound
+			sound_effect_player.play()
 	
 		#if player not moving, change velocity
 		elif Input.is_action_just_pressed("Dash") and !direction:
 			dash_cooldown.start()
+			# Play dash sound
+			sound_effect_player.stream = dash_sound
+			sound_effect_player.play()
 			if animated_sprite.flip_h:
 				velocity.x = -DASH_WHILE_STILL
 			else:
