@@ -25,6 +25,11 @@ GameState="*res://scripts/game_state.gd"
 player_level_global="*res://player_level_global.gd"
 SceneTransition="*res://scenes/scene_transition.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [dotnet]
 
 project/assembly_name="frenchtoastmafia"
