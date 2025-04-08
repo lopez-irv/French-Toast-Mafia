@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=36 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_gwgku"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="2_nycdd"]
 [ext_resource type="PackedScene" uid="uid://tien5o0qs8hg" path="res://scenes/greenPlatform.tscn" id="3_kqtp4"]
 [ext_resource type="PackedScene" uid="uid://cuuw0dg1lhj6c" path="res://scenes/coin.tscn" id="4_affm7"]
+[ext_resource type="AudioStream" uid="uid://keltst6h6xmw" path="res://assets/sounds/dash-sound-effect.wav" id="5_8pi8e"]
 [ext_resource type="PackedScene" uid="uid://bwkoodbj4wv5l" path="res://scenes/slime.tscn" id="5_pt8g3"]
 [ext_resource type="PackedScene" uid="uid://beko1ey73bn8j" path="res://knight.tscn" id="5_wuehp"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_n6sfx"]
@@ -264,6 +265,9 @@ position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="FootstepAudioPlayer" type="AudioStreamPlayer2D" parent="player"]
+
+[node name="dash_sound" type="AudioStreamPlayer2D" parent="player"]
+stream = ExtResource("5_8pi8e")
 
 [node name="Knight" parent="." instance=ExtResource("5_wuehp")]
 position = Vector2(-320, 12)
