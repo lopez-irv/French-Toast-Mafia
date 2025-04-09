@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c7jc5m7bfpa3l"]
+[gd_scene load_steps=38 format=3 uid="uid://c7jc5m7bfpa3l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_407jq"]
 [ext_resource type="Resource" uid="uid://c58tb8w1fpjvm" path="res://Resources/players_inventory.tres" id="2_3yveb"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bla6oyewdsm0a" path="res://scenes/inventory_ui.tscn" id="5_bibil"]
 [ext_resource type="Script" path="res://dash_cooldown.gd" id="6_52574"]
 [ext_resource type="Script" path="res://scenes/invincibility_timer.gd" id="8_g5yw5"]
+[ext_resource type="PackedScene" uid="uid://cjbi8oyimwwuo" path="res://scenes/torch.tscn" id="9_r5a7o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sbspw"]
 atlas = ExtResource("3_lo74j")
@@ -211,7 +212,7 @@ inv = ExtResource("2_3yveb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_2crxa")
-animation = &"run"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
@@ -272,6 +273,10 @@ one_shot = true
 script = ExtResource("8_g5yw5")
 
 [node name="SoundEffectPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Torch" parent="." instance=ExtResource("9_r5a7o")]
+position = Vector2(8, -13)
+rotation = 0.403171
 
 [connection signal="area_entered" from="Area2d" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2d" to="." method="_on_area_2d_area_exited"]

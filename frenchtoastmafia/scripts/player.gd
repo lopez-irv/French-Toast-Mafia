@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var dash_cooldown: Timer = $dashCooldown
 @onready var invincibilityTimer: Timer = $invincibilityTimer
 
+@onready var torch: Node2D = $Torch
+
 @export var inv: Inv
 @export var attacking = false # in the same animatedSprite2d as take_damage, 
 # we have an animation called sword_attack   , i want to play this animation
@@ -50,6 +52,8 @@ func _ready():
 	$SwordHitboxLeft.monitoring = false
 	$SwordHitboxLeft.get_node("CollisionShape2D").disabled = true
 	
+	torch.visible = false
+	
 func _physics_process(delta: float) -> void:
 		
 	if not is_on_floor():
@@ -89,12 +93,15 @@ func _physics_process(delta: float) -> void:
 		if direction > 0:
 			# moving right
 			animated_sprite.flip_h = false
+			torch.flip_torch_right()
 		elif direction < 0:
 			# moving left
 			animated_sprite.flip_h = true
+			torch.flip_torch_left()
+			
+			
 		# Flip the hitbox position
 		# Flip the sword hitbox based on direction
-
 
 
 	if direction:
@@ -139,6 +146,11 @@ func _physics_process(delta: float) -> void:
 		play_footstep_sound()
 	else:
 		is_walking = false
+		
+	#torch toggle
+	if Input.is_action_just_pressed("equip_torch"):
+		equip_torch()
+	
 	
 #if player is on a wall and holding down keys for l or r movement
 #they will fall down the wall slowly
@@ -326,3 +338,10 @@ func _on_sword_hitbox_area_entered(area: Area2D) -> void:
 	if area and area.has_method("take_damage"):
 		print("Calling take_damage on", area.name)
 		area.take_damage(30)
+
+
+func equip_torch():
+	if torch.visible:
+		torch.visible = false
+	else:
+		torch.visible = true

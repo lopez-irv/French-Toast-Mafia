@@ -19,3 +19,13 @@ func _process(delta: float) -> void:
 func _on_flicker_timer_timeout() -> void:
 	var random_energy = randf_range(-flicker_range, flicker_range)
 	point_light_2d.energy = base_energy + random_energy
+	
+func flip_torch_left():
+	position.x = -8
+	rotation = -0.4031710999999273	#-23.1 in radians
+	$AnimatedSprite2D.flip_h = true
+	
+func flip_torch_right():
+	position.x = 8
+	rotation = 0.4031710999999273
+	$AnimatedSprite2D.flip_h = false
