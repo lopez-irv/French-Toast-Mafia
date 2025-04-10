@@ -109,6 +109,9 @@ func _physics_process(delta: float) -> void:
 			velocity.x = (direction * speed)
 			if not attacking:
 				animated_sprite.play("run")
+		elif isWallSliding:
+			if not attacking:
+				animated_sprite.play("wall_slide")
 		else:
 			velocity.x = (direction * speed) / 2
 			if not attacking:
@@ -130,8 +133,11 @@ func _physics_process(delta: float) -> void:
 		
 	wallSlide(delta)
 	
-	if not attacking and animated_sprite.animation in ["idle", "run"]:
-		if direction:
+	
+	if not attacking and animated_sprite.animation in ["idle", "run","wall_slide"]:
+		if isWallSliding:
+			animated_sprite.play("wall_slide")
+		elif direction:
 			animated_sprite.play("run")
 		else:
 			animated_sprite.play("idle")
@@ -166,6 +172,8 @@ func wallSlide(delta):
 	if isWallSliding:
 		velocity.y += (WALL_SLIDE_GRAVITY * delta)
 		velocity.y = min(velocity.y, WALL_SLIDE_GRAVITY)
+		
+		
 	
 var can_play = true
 func play_footstep_sound():
