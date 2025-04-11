@@ -14,6 +14,10 @@ var attacking := false
 var dashing := false
 var attacking_direction := Vector2.ZERO
 
+@onready var sound_effect_player: AudioStreamPlayer2D = $sound_effect_player
+var attack_sound = preload("res://assets/sounds/bat_01.ogg")
+var hurt_sound = preload("res://assets/sounds/bat_03.ogg")
+
 
 @onready var attack_timer := $AttackCoolDown
 @onready var sprite := $AnimatedSprite2D
@@ -53,6 +57,8 @@ func _follow_player(delta):
 	global_position += direction * fly_speed * delta
 	
 func _start_attack():
+	sound_effect_player.stream = attack_sound
+	sound_effect_player.play()
 	attacking = true
 	$HitBox.monitoring = true
 	sprite.play("attack")
@@ -89,6 +95,8 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 			body.decreaseHealth(damage)
 
 func take_damage(amount: int):
+	sound_effect_player.stream = hurt_sound
+	sound_effect_player.play()
 	health -= amount
 	print("Bat took ", amount, " damage. Health now: ", health)
 	sprite.play("take damage")
