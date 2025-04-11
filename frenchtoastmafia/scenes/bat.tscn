@@ -130,4 +130,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_0bbct")
 
+[node name="sound_effect_player" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
