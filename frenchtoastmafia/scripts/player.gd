@@ -43,6 +43,8 @@ var is_walking = false
 
 var dash_ready_sound = preload("res://assets/sounds/dashReady.wav")
 var dash_sound = preload("res://assets/sounds/dash-sound-effect.wav")
+var torch_on = preload("res://assets/sounds/torch_on.wav")
+var torch_off = preload("res://assets/sounds/torch_off.wav")
 
 func _ready():
 	# Make sure sword hitbox is off at the start
@@ -351,5 +353,9 @@ func _on_sword_hitbox_area_entered(area: Area2D) -> void:
 func equip_torch():
 	if torch.visible:
 		torch.visible = false
+		sound_effect_player.stream = torch_off
+		sound_effect_player.play()
 	else:
 		torch.visible = true
+		sound_effect_player.stream = torch_on
+		sound_effect_player.play()
