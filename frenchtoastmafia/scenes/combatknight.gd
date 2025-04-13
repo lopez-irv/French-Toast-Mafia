@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var aggro_range: float = 150.0   # When the knight starts chasing the player
 @export var attack_range: float = 30.0   # When the knight is close enough to attack
 @export var move_speed: float = 80.0     # Movement speed of the knight
+@export var knight_health = 30           # Health of the knight
 
 var can_attack: bool = true
 var is_attacking: bool = false
@@ -85,7 +86,7 @@ func attack() -> void:
 	await get_tree().create_timer(0.5).timeout
 
 	if player.has_method("decreaseHealth"):
-		player.decreaseHealth(30)
+		player.decreaseHealth(20)
 	
 	if is_instance_valid(get_tree()):
 		await get_tree().create_timer(1.0).timeout # Timer
@@ -94,3 +95,11 @@ func attack() -> void:
 	
 	can_attack = true
 	is_attacking = false
+	
+	# NEW: Handle taking damage
+func take_damage(amount: int):
+	knight_health -= amount
+	print("knigh took", amount, "damage. Health now:", knight_health)
+
+	if knight_health <= 0:
+		queue_free()  # Destroy the slime
