@@ -18,6 +18,8 @@ var facing_right = false
 var body_last_collided
 var playerLevel = 0
 var threshold = 100
+var is_dead = false
+
 
 var speed = 130.0	#current speed
 const DEFAULT_SPEED = 130.0
@@ -65,6 +67,8 @@ func _ready():
 	healthBar.value = player_level_global.health
 	
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	if is_rolling:
@@ -260,7 +264,10 @@ func decreaseHealth(n, ignore_invincibility: bool = false):
 		player_level_global.health -= n
 		healthBar.value = player_level_global.health
 		if player_level_global.health <= 0:
-			player_level_global.health = player_level_global.healthCap
+			is_dead = true
+			animated_sprite.play("death")
+			await get_tree().process_frame  # Ensure the animation starts this frame
+			await animated_sprite.animation_finished
 			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
 func attack():
@@ -293,6 +300,8 @@ func attack():
 
 
 func _process(delta: float) -> void:
+	if is_dead:
+		return
 	if Input.is_action_just_pressed("attack"):
 		attack()
 	# If no animation is playing, ensure the default animation plays
