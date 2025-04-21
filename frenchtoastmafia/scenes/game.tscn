@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=37 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_gwgku"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="2_nycdd"]
 [ext_resource type="PackedScene" uid="uid://tien5o0qs8hg" path="res://scenes/greenPlatform.tscn" id="3_kqtp4"]
 [ext_resource type="PackedScene" uid="uid://cuuw0dg1lhj6c" path="res://scenes/coin.tscn" id="4_affm7"]
-[ext_resource type="AudioStream" uid="uid://lc0q36mkg704" path="res://assets/sounds/dash-sound-effect.wav" id="5_8pi8e"]
+[ext_resource type="AudioStream" uid="uid://25twnduv4bpb" path="res://assets/sounds/dash-sound-effect.wav" id="5_8pi8e"]
 [ext_resource type="PackedScene" uid="uid://bwkoodbj4wv5l" path="res://scenes/slime.tscn" id="5_pt8g3"]
 [ext_resource type="PackedScene" uid="uid://beko1ey73bn8j" path="res://knight.tscn" id="5_wuehp"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_n6sfx"]
@@ -15,19 +15,20 @@
 [ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="8_ybwu0"]
 [ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assests/backgrounds/background_layer_2.png" id="9_vx7va"]
 [ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assests/backgrounds/background_layer_3.png" id="10_dlu7f"]
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="15_bfv41"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="16_1wqr5"]
 [ext_resource type="PackedScene" uid="uid://dkxfosfghq5k" path="res://scenes/checkpoint_statue.tscn" id="18_gc304"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="19_8fxup"]
 [ext_resource type="Texture2D" uid="uid://clrjuifsu43u0" path="res://assets/sprites/coin.png" id="19_xi534"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="20_m8tkj"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="20_m8tkj"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="20_sb673"]
 [ext_resource type="Script" path="res://scripts/playerLevelLabel.gd" id="21_1lujr"]
 [ext_resource type="Script" path="res://scenes/coin_label.gd" id="21_pt23e"]
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="24_was7h"]
 [ext_resource type="PackedScene" uid="uid://c2rcd3n3d5dce" path="res://scenes/purpleSlime.tscn" id="27_tldwx"]
 [ext_resource type="PackedScene" uid="uid://yiwaxw7m2xlj" path="res://scenes/lavaTile.tscn" id="28_1utv4"]
+[ext_resource type="PackedScene" uid="uid://crk3nqdr4nfco" path="res://stats_menu.tscn" id="29_ifwsp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
 texture = ExtResource("2_c0vy0")
@@ -499,3 +500,6 @@ position = Vector2(1091, -278)
 
 [node name="Knight10" parent="." instance=ExtResource("5_wuehp")]
 position = Vector2(1123, -276)
+
+[node name="statsMenu" parent="." instance=ExtResource("29_ifwsp")]
+position = Vector2(33, -14)

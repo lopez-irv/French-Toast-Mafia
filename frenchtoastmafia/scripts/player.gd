@@ -12,12 +12,14 @@ extends CharacterBody2D
 @export var attacking = false # in the same animatedSprite2d as take_damage, 
 # we have an animation called sword_attack   , i want to play this animation
 # when the attack button is pressed. 
-
+var hurt_sound = preload("res://assets/sounds/hurt.wav")
 var facing_right = false 
-var health = 100.0
+#var health = player_level_global.healthCap
 var body_last_collided
 var playerLevel = 0
 var threshold = 100
+var is_dead = false
+
 
 var speed = 130.0	#current speed
 const DEFAULT_SPEED = 130.0
@@ -27,6 +29,10 @@ var canDoubleJump: bool
 var wall_pushback = speed
 const WALL_SLIDE_GRAVITY = 100
 var isWallSliding = false
+
+const ROLL_SPEED = 10
+const ROLL_DURATION = .7
+var is_rolling = false
 
 const DASH_WHILE_STILL = 800	#what to change velocity to when dashing while not moving
 const DASH_WHILE_MOVING = 800	#what to change speed to when dashing while moving
@@ -47,6 +53,7 @@ var torch_on = preload("res://assets/sounds/torch_on.wav")
 var torch_off = preload("res://assets/sounds/torch_off.wav")
 
 func _ready():
+	#print("health is", )
 	# Make sure sword hitbox is off at the start
 	$SwordHitbox.monitoring = false
 	$SwordHitbox.get_node("CollisionShape2D").disabled = true
@@ -56,11 +63,17 @@ func _ready():
 	
 	torch.visible = false
 	
+	healthBar.max_value = player_level_global.healthCap
+	healthBar.value = player_level_global.health
+	
 func _physics_process(delta: float) -> void:
-		
+	if is_dead:
+		return
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	if is_rolling:
+		move_and_slide()
+		return
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		canDoubleJump = true
@@ -79,7 +92,9 @@ func _physics_process(delta: float) -> void:
 		facing_right = true
 	elif direction < 0:
 		facing_right = false
-	
+	# Roll input check
+	if Input.is_action_just_pressed("roll") and not is_rolling and is_on_floor():
+		start_roll()
 	#dash 
 	dash(direction)
 	
@@ -159,6 +174,21 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("equip_torch"):
 		equip_torch()
 	
+func start_roll():
+	is_rolling = true
+	attacking = true  # Optional: Prevent attack during roll
+	print("rolling...")
+	animated_sprite.play("roll")
+	# Set initial roll velocity
+	if facing_right:
+		velocity.x = ROLL_SPEED
+	else:
+		velocity.x = -ROLL_SPEED
+
+	await get_tree().create_timer(ROLL_DURATION).timeout
+
+	is_rolling = false
+	attacking = false
 	
 #if player is on a wall and holding down keys for l or r movement
 #they will fall down the wall slowly
@@ -226,9 +256,18 @@ func decreaseHealth(n, ignore_invincibility: bool = false):
 		if not ignore_invincibility:
 			invincibilityTimer.start()
 		animated_sprite.play("take_damage")
-		health -= n
-		healthBar.value = health
-		if health <= 0:
+		
+		#plays hurt sound
+		sound_effect_player.stream = hurt_sound
+		sound_effect_player.play()
+		
+		player_level_global.health -= n
+		healthBar.value = player_level_global.health
+		if player_level_global.health <= 0:
+			is_dead = true
+			animated_sprite.play("death")
+			await get_tree().process_frame  # Ensure the animation starts this frame
+			await animated_sprite.animation_finished
 			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
 func attack():
@@ -261,6 +300,8 @@ func attack():
 
 
 func _process(delta: float) -> void:
+	if is_dead:
+		return
 	if Input.is_action_just_pressed("attack"):
 		attack()
 	# If no animation is playing, ensure the default animation plays
@@ -269,11 +310,14 @@ func _process(delta: float) -> void:
 
 
 func increaseHealth(n):
-	health += n
-	if health > 100:
-		health = 100
-	healthBar.value = health
-	print("health raised to: ", health)
+	player_level_global.health += n
+	if player_level_global.health > player_level_global.healthCap:
+		player_level_global.health = player_level_global.healthCap
+	if(player_level_global.health > 100): 
+		healthBar.max_value = player_level_global.health
+		print("health bar max value: ", healthBar.max_value)
+	healthBar.value = player_level_global.health
+	print("health raised to: ", player_level_global.health)
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -322,7 +366,7 @@ func _on_sword_hitbox_body_entered(body: Node2D) -> void:
 	#print("Sword hit:", body.name)
 	if body and body.has_method("take_damage"):
 		print("Calling take_damage on", body.name)
-		body.take_damage(30)
+		body.take_damage(player_level_global.attackDamage)
 		player_level_global.xp += 50 #NEW XP STUFF
 		print("XP increased to ", player_level_global.xp)
 		if player_level_global.xp %100 == 0: 
