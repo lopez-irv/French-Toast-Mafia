@@ -28,7 +28,7 @@ func _on_damage_timer_timeout() -> void:
 		player.decreaseHealth(1)
 		if player.has_node("healthBar"):
 			var healthBar = player.get_node("healthBar") as ProgressBar
-			healthBar.value = player.health
+			healthBar.value = player_level_global.health
 		damage_ticks += 1
 	else:
 		print("🔥 Done burning or no player")
