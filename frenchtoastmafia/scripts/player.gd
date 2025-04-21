@@ -12,7 +12,7 @@ extends CharacterBody2D
 @export var attacking = false # in the same animatedSprite2d as take_damage, 
 # we have an animation called sword_attack   , i want to play this animation
 # when the attack button is pressed. 
-
+var hurt_sound = preload("res://assets/sounds/hurt.wav")
 var facing_right = false 
 var health = 100.0
 var body_last_collided
@@ -226,6 +226,11 @@ func decreaseHealth(n, ignore_invincibility: bool = false):
 		if not ignore_invincibility:
 			invincibilityTimer.start()
 		animated_sprite.play("take_damage")
+		
+		#plays hurt sound
+		sound_effect_player.stream = hurt_sound
+		sound_effect_player.play()
+		
 		health -= n
 		healthBar.value = health
 		if health <= 0:
