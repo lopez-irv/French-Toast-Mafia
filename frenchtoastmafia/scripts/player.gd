@@ -268,11 +268,11 @@ func decreaseHealth(n, ignore_invincibility: bool = false):
 		if not ignore_invincibility:
 			invincibilityTimer.start()
 		animated_sprite.play("take_damage")
-		player_level_global.health -= n
 		health_bar.value = player_level_global.health
 		
 
 		player_level_global.health -= n
+		print("player took damage:", player_level_global.health)
 		healthBar.value = player_level_global.health
 		if player_level_global.health <= 0:
 			is_dead = true

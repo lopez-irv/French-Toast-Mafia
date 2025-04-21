@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=42 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_gwgku"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="2_nycdd"]
 [ext_resource type="PackedScene" uid="uid://tien5o0qs8hg" path="res://scenes/greenPlatform.tscn" id="3_kqtp4"]
 [ext_resource type="PackedScene" uid="uid://cuuw0dg1lhj6c" path="res://scenes/coin.tscn" id="4_affm7"]
-[ext_resource type="AudioStream" uid="uid://d3v2xrmk4pkp6" path="res://assets/sounds/dash-sound-effect.wav" id="5_8pi8e"]
+[ext_resource type="AudioStream" uid="uid://25twnduv4bpb" path="res://assets/sounds/dash-sound-effect.wav" id="5_8pi8e"]
 [ext_resource type="PackedScene" uid="uid://bwkoodbj4wv5l" path="res://scenes/slime.tscn" id="5_pt8g3"]
 [ext_resource type="PackedScene" uid="uid://beko1ey73bn8j" path="res://knight.tscn" id="5_wuehp"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_n6sfx"]
@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://c2rcd3n3d5dce" path="res://scenes/purpleSlime.tscn" id="27_tldwx"]
 [ext_resource type="PackedScene" uid="uid://yiwaxw7m2xlj" path="res://scenes/lavaTile.tscn" id="28_1utv4"]
 [ext_resource type="PackedScene" uid="uid://ctxf8ypxxn00n" path="res://scenes/shield.tscn" id="29_to1t4"]
-
+[ext_resource type="PackedScene" uid="uid://crk3nqdr4nfco" path="res://stats_menu.tscn" id="30_56bgn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
 texture = ExtResource("2_c0vy0")
@@ -537,3 +537,5 @@ position = Vector2(1123, -276)
 
 [node name="shield" parent="." instance=ExtResource("29_to1t4")]
 position = Vector2(-41, 27)
+
+[node name="statsMenu" parent="." instance=ExtResource("30_56bgn")]

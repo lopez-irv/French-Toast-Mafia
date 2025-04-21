@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://h7nf0ag6pw8s"]
+[gd_scene load_steps=52 format=3 uid="uid://h7nf0ag6pw8s"]
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_0s8ei"]
 [ext_resource type="Texture2D" uid="uid://1v8jcghbu8qk" path="res://Cave Tileset Pack/PNG files/CaveG.png" id="1_73y3v"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://scripts/playerLevelLabel.gd" id="21_wy51g"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="23_se1f4"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="24_7477w"]
+[ext_resource type="PackedScene" uid="uid://crk3nqdr4nfco" path="res://stats_menu.tscn" id="25_ohams"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0q7a2"]
 texture = ExtResource("1_73y3v")
@@ -4592,11 +4593,23 @@ _data = {
 "ssss": SubResource("Animation_uv8af")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_184gy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ksu7"]
 atlas = ExtResource("18_3f4mr")
 region = Rect2(3, 3, 10, 10)
 
-[node name="level3" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5w61"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70cqb"]
+bg_color = Color(0.968627, 0, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvpec"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eglog"]
+bg_color = Color(0.0666667, 0.227451, 1, 1)
+
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_0s8ei")
 
 [node name="player" parent="." instance=ExtResource("3_w2gdy")]
@@ -4988,46 +5001,6 @@ position = Vector2(2218, 1424)
 [node name="Door" parent="." instance=ExtResource("18_41mex")]
 position = Vector2(529, 2128)
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="LevelTimer" parent="HUD" instance=ExtResource("17_bf8ee")]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 124.0
-offset_right = -2.0
-offset_bottom = 26.0
-grow_horizontal = 2
-
-[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_184gy")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="HUD/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("19_b8rol")
-theme_override_font_sizes/font_size = 25
-text = "0"
-script = ExtResource("20_cbsr2")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="HUD"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 213.0
-offset_right = 87.0
-offset_bottom = 26.0
-grow_horizontal = 2
-
-[node name="Label" type="Label" parent="HUD/HBoxContainer2"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("19_b8rol")
-theme_override_font_sizes/font_size = 25
-text = "0"
-horizontal_alignment = 1
-script = ExtResource("21_wy51g")
-
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("23_se1f4")
@@ -5132,3 +5105,66 @@ position = Vector2(1321, -37)
 
 [node name="Coin9" parent="coins" instance=ExtResource("17_xxf1u")]
 position = Vector2(1240, -89)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 104.0
+offset_top = 1.0
+offset_right = 104.0
+offset_bottom = 58.0
+grow_horizontal = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelTimer" parent="HUD/VBoxContainer/HBoxContainer" instance=ExtResource("17_bf8ee")]
+
+[node name="TextureRect" type="TextureRect" parent="HUD/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_2ksu7")
+expand_mode = 2
+
+[node name="coins" type="Label" parent="HUD/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("19_b8rol")
+theme_override_font_sizes/font_size = 25
+text = "0"
+script = ExtResource("20_cbsr2")
+
+[node name="seperator" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 26)
+layout_mode = 2
+
+[node name="player_level" type="Label" parent="HUD/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("19_b8rol")
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("21_wy51g")
+
+[node name="health" type="ProgressBar" parent="HUD"]
+offset_left = 23.0
+offset_top = 28.0
+offset_right = 173.0
+offset_bottom = 43.0
+theme_override_styles/background = SubResource("StyleBoxFlat_m5w61")
+theme_override_styles/fill = SubResource("StyleBoxFlat_70cqb")
+value = 100.0
+show_percentage = false
+
+[node name="shield" type="ProgressBar" parent="HUD"]
+offset_left = 23.0
+offset_top = 48.0
+offset_right = 173.0
+offset_bottom = 63.0
+theme_override_styles/background = SubResource("StyleBoxFlat_qvpec")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eglog")
+max_value = 200.0
+show_percentage = false
+
+[node name="statsMenu" parent="." instance=ExtResource("25_ohams")]
