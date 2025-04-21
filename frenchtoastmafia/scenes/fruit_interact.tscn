@@ -1,7 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://blh1o2k7uifv7"]
 
 [ext_resource type="Script" path="res://scripts/fruit_interact.gd" id="1_2mlot"]
-[ext_resource type="Shader" path="res://scenes/pause_menu.gdshader" id="1_40rk5"]
+[ext_resource type="Shader" path="res://scenes/Menus/pause_menu.gdshader" id="1_40rk5"]
+
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ptkpd"]
 
