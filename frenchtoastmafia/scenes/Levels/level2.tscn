@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://tien5o0qs8hg" path="res://scenes/greenPlatform.tscn" id="6_iee4k"]
 [ext_resource type="AudioStream" uid="uid://sh7xgb0xn508" path="res://assets/music/level2-music.wav" id="9_c6pmn"]
 
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8r7r"]
 texture = ExtResource("1_gia1d")
 5:6/0 = 0
@@ -1088,7 +1087,7 @@ texture = ExtResource("1_gia1d")
 [sub_resource type="TileSet" id="TileSet_iqy4w"]
 sources/0 = SubResource("TileSetAtlasSource_k8r7r")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qr7ug"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptgm8"]
 texture = ExtResource("2_sg2ws")
 0:0/0 = 0
 1:0/0 = 0
@@ -1222,7 +1221,7 @@ texture = ExtResource("2_sg2ws")
 
 [sub_resource type="TileSet" id="TileSet_uisei"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_qr7ug")
+sources/0 = SubResource("TileSetAtlasSource_ptgm8")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_xjryj"]
 distance = -11.0
