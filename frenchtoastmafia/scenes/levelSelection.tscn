@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1tjmvrjjaiue"]
+[gd_scene load_steps=10 format=3 uid="uid://d1tjmvrjjaiue"]
 
-[ext_resource type="Texture2D" uid="uid://dnebht8asy7d1" path="res://customAssets/button.png" id="1_jlyfr"]
+[ext_resource type="Texture2D" uid="uid://dvltgcarlbf5g" path="res://customAssets/button.png" id="1_jlyfr"]
 [ext_resource type="Script" path="res://scenes/level_selection.gd" id="1_xtr1o"]
 [ext_resource type="Script" path="res://scripts/levelSelectionButton0.gd" id="2_7q6es"]
-[ext_resource type="AudioStream" uid="uid://cwisjsxfh2vvr" path="res://assets/music/level-select-music.wav" id="2_cytvr"]
+[ext_resource type="AudioStream" uid="uid://cuinohkc0xiyx" path="res://assets/music/level-select-music.wav" id="2_cytvr"]
 [ext_resource type="Script" path="res://scripts/levelSelectionButton1.gd" id="3_anfix"]
 [ext_resource type="Script" path="res://scenes/shop_selection_button.gd" id="4_pi56j"]
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="4_tfh5p"]
+[ext_resource type="Script" path="res://scenes/levelSelectionButton3.gd" id="7_mcddp"]
 
 [sub_resource type="GDScript" id="GDScript_6qdjr"]
 
@@ -116,6 +117,7 @@ theme_override_font_sizes/font_size = 32
 text = "3
 "
 icon = ExtResource("1_jlyfr")
+script = ExtResource("7_mcddp")
 
 [node name="level4" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row1"]
 layout_mode = 2

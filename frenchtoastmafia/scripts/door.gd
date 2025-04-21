@@ -18,6 +18,12 @@ func _input(event):      #KEY TO ENTER DOORS IS "ENTER/RETURN"
 				2: 
 					level_unlock_status.level3 = true
 					LevelCompletionStatus.level2 = true
+				3: 
+					level_unlock_status.level4 = true
+					LevelCompletionStatus.level3 = true
+				4: 
+					level_unlock_status.level5 = true
+					LevelCompletionStatus.level4 = true
 				#add the ones for other levels later
 				_: print("no current level")
 				
