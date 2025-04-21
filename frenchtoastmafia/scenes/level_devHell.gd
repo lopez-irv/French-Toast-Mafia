@@ -20,4 +20,5 @@ func _on_start_button_pressed() -> void:
 			print("checkpoint reset")
 			
 		level_unlock_status.currentLevel = 13;
-		SceneTransition.change_scene_to_file("res://scenes/level_devHell.tscn") 
+		SceneTransition.change_scene_to_file("res://scenes/Levels/level_devHell.tscn") 
+		

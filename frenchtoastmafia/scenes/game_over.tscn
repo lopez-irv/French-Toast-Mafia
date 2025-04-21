@@ -2,9 +2,9 @@
 
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="1_558bb"]
 [ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="2_boamd"]
-[ext_resource type="Script" path="res://scenes/Menus/main_menu/start_button.gd" id="3_lvseg"]
-[ext_resource type="Script" path="res://scenes/Menus/main_menu/exit_button.gd" id="4_70m0d"]
-[ext_resource type="Script" path="res://scripts/level_selection.gd" id="5_q3u3o"]
+[ext_resource type="Script" uid="uid://bmjjblobyfeoq" path="res://scenes/Menus/main_menu/start_button.gd" id="3_lvseg"]
+[ext_resource type="Script" uid="uid://cssruf3g7fqwm" path="res://scenes/Menus/main_menu/exit_button.gd" id="4_70m0d"]
+[ext_resource type="Script" uid="uid://b5w5cxe18wwvr" path="res://scripts/level_selection.gd" id="5_q3u3o"]
 
 [node name="game_over" type="Control"]
 layout_mode = 3

@@ -1,8 +1,8 @@
 [gd_scene load_steps=39 format=4 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_gwgku"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_i2mix"]
+[ext_resource type="Script" uid="uid://dd4vvryhv6njj" path="res://scenes/game.gd" id="1_gwgku"]
+[ext_resource type="Script" uid="uid://cg645p4t860in" path="res://scripts/game_manager.gd" id="1_i2mix"]
 [ext_resource type="Texture2D" uid="uid://gvrqi2116lr" path="res://assets/sprites/world_tileset.png" id="2_c0vy0"]
 [ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="2_nycdd"]
 [ext_resource type="PackedScene" uid="uid://tien5o0qs8hg" path="res://scenes/greenPlatform.tscn" id="3_kqtp4"]
@@ -24,13 +24,13 @@
 [ext_resource type="Texture2D" uid="uid://clrjuifsu43u0" path="res://assets/sprites/coin.png" id="19_xi534"]
 [ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="20_m8tkj"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="20_sb673"]
-[ext_resource type="Script" path="res://scripts/playerLevelLabel.gd" id="21_1lujr"]
-[ext_resource type="Script" path="res://scenes/coin_label.gd" id="21_pt23e"]
+[ext_resource type="Script" uid="uid://c16y1cwtv7ndx" path="res://scripts/playerLevelLabel.gd" id="21_1lujr"]
+[ext_resource type="Script" uid="uid://b3ppiyi1papco" path="res://scenes/coin_label.gd" id="21_pt23e"]
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="24_was7h"]
 [ext_resource type="PackedScene" uid="uid://c2rcd3n3d5dce" path="res://scenes/purpleSlime.tscn" id="27_tldwx"]
 [ext_resource type="PackedScene" uid="uid://yiwaxw7m2xlj" path="res://scenes/lavaTile.tscn" id="28_1utv4"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_suyxu"]
 texture = ExtResource("2_c0vy0")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -192,7 +192,7 @@ texture = ExtResource("2_c0vy0")
 
 [sub_resource type="TileSet" id="TileSet_s2s8e"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_btumb")
+sources/0 = SubResource("TileSetAtlasSource_suyxu")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_adx37"]
 texture = ExtResource("9_nnomh")
@@ -385,8 +385,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xcy5x"]
 _data = {
-"RESET": SubResource("Animation_s8kf2"),
-"move": SubResource("Animation_hjp1m")
+&"RESET": SubResource("Animation_s8kf2"),
+&"move": SubResource("Animation_hjp1m")
 }
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g5cgu"]
@@ -489,7 +489,7 @@ position = Vector2(337, 5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/greenPlatform"]
 libraries = {
-"": SubResource("AnimationLibrary_xcy5x")
+&"": SubResource("AnimationLibrary_xcy5x")
 }
 autoplay = "move"
 
