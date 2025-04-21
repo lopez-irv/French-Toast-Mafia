@@ -269,6 +269,7 @@ func decreaseHealth(n, ignore_invincibility: bool = false):
 			await get_tree().process_frame  # Ensure the animation starts this frame
 			await animated_sprite.animation_finished
 			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+			player_level_global.health = player_level_global.healthCap
 
 func attack():
 	if not attacking:
