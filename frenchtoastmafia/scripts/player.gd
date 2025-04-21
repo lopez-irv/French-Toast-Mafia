@@ -14,7 +14,7 @@ extends CharacterBody2D
 # when the attack button is pressed. 
 var hurt_sound = preload("res://assets/sounds/hurt.wav")
 var facing_right = false 
-var health = 100.0
+#var health = player_level_global.healthCap
 var body_last_collided
 var playerLevel = 0
 var threshold = 100
@@ -51,6 +51,7 @@ var torch_on = preload("res://assets/sounds/torch_on.wav")
 var torch_off = preload("res://assets/sounds/torch_off.wav")
 
 func _ready():
+	#print("health is", )
 	# Make sure sword hitbox is off at the start
 	$SwordHitbox.monitoring = false
 	$SwordHitbox.get_node("CollisionShape2D").disabled = true
@@ -59,6 +60,9 @@ func _ready():
 	$SwordHitboxLeft.get_node("CollisionShape2D").disabled = true
 	
 	torch.visible = false
+	
+	healthBar.max_value = player_level_global.healthCap
+	healthBar.value = player_level_global.health
 	
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -253,9 +257,10 @@ func decreaseHealth(n, ignore_invincibility: bool = false):
 		sound_effect_player.stream = hurt_sound
 		sound_effect_player.play()
 		
-		health -= n
-		healthBar.value = health
-		if health <= 0:
+		player_level_global.health -= n
+		healthBar.value = player_level_global.health
+		if player_level_global.health <= 0:
+			player_level_global.health = player_level_global.healthCap
 			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
 func attack():
@@ -296,11 +301,14 @@ func _process(delta: float) -> void:
 
 
 func increaseHealth(n):
-	health += n
-	if health > 100:
-		health = 100
-	healthBar.value = health
-	print("health raised to: ", health)
+	player_level_global.health += n
+	if player_level_global.health > player_level_global.healthCap:
+		player_level_global.health = player_level_global.healthCap
+	if(player_level_global.health > 100): 
+		healthBar.max_value = player_level_global.health
+		print("health bar max value: ", healthBar.max_value)
+	healthBar.value = player_level_global.health
+	print("health raised to: ", player_level_global.health)
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -349,7 +357,7 @@ func _on_sword_hitbox_body_entered(body: Node2D) -> void:
 	#print("Sword hit:", body.name)
 	if body and body.has_method("take_damage"):
 		print("Calling take_damage on", body.name)
-		body.take_damage(30)
+		body.take_damage(player_level_global.attackDamage)
 		player_level_global.xp += 50 #NEW XP STUFF
 		print("XP increased to ", player_level_global.xp)
 		if player_level_global.xp %100 == 0: 

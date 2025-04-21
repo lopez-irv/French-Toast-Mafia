@@ -4,6 +4,7 @@ extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
+	player_level_global.health = player_level_global.healthCap
 	print("game over")
 	#Engine.time_scale = 0.5 #slows down game
 	#body.get_node("CollisionShape2D").queue_free() #makes player fall off map
