@@ -8,6 +8,9 @@ extends Panel
 var tmp_name
 enum item_name {green_round, orange_round}
 
+func _ready():
+	choose_button.pressed.connect(_on_choose_pressed)
+
 func get_grid_container() -> GridContainer:
 	return get_parent()  # Move up to the GridContainer
 
@@ -45,12 +48,20 @@ func _on_choose_pressed() -> void:
 	
 
 func action_decide(item_name: String, inv_index: int):
+	print("in action decide")
 	inv.remove(inv_index)
 	var player1 = get_tree().current_scene.find_child("player", true, false)
 	if item_name == "green_round":
 		player1.increaseHealth(10)
 	elif item_name == "orange_round":
-		player1.increaseHealth(20)
+		player1.increaseHealth(40)
+	elif item_name == "shield":
+		print("is shield")
+		player1.increaseShield(30)
 	else:
 		print("no type found")
 	#inv.slots[inv_index].ampunt
+	
+func _input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		print("🖱️ Button clicked at all")

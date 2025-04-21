@@ -5,7 +5,7 @@ extends Label
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	text = str(CoinGlobal.total_coins)
-	var GM = get_node("../../../GameManager")
+	var GM = get_node("../../../../GameManager")
 	GM.connect("coins_changed", self._on_coins_changed)
 
 func _on_coins_changed(new_coin_count: int):

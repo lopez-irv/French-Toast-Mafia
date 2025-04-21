@@ -6,6 +6,7 @@ var is_open = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	inv.update.connect(update_slots)
+	SaveManager.inventory_ref = inv  # Connect inventory to SaveManager
 	update_slots()
 	close()
 
