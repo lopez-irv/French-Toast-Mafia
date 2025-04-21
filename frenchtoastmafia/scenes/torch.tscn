@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cjbi8oyimwwuo"]
 
 [ext_resource type="Script" path="res://scripts/torch.gd" id="1_gm0j7"]
-[ext_resource type="Texture2D" uid="uid://nglfgmxfxdqp" path="res://assets/sprites/Torch-Sprites/torches.png" id="1_wgfsp"]
+[ext_resource type="Texture2D" uid="uid://cr3m8eh7thrl6" path="res://assets/sprites/Torch-Sprites/torches.png" id="1_wgfsp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nelno"]
 atlas = ExtResource("1_wgfsp")
@@ -65,8 +65,9 @@ sprite_frames = SubResource("SpriteFrames_4fppu")
 autoplay = "default"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(1, 0.6, 0.2, 1)
-energy = 1.2
+position = Vector2(2, 3)
+scale = Vector2(6.43127, 4.43561)
+energy = 16.0
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 1.0

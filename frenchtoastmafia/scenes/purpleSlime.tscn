@@ -68,7 +68,7 @@ position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_fo8bk")
 
 [node name="SlimeSoundPlayer" type="AudioStreamPlayer2D" parent="."]
-volume_db = -2.0
+volume_db = 20.0
 max_distance = 300.0
 attenuation = 2.0
 

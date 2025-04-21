@@ -20,4 +20,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		player.decreaseHealth(30);
 		if body.has_node("healthBar"):
 			var healthBar = body.get_node("healthBar") as ProgressBar
-			healthBar.value = player.health  # update health bar visually
+			healthBar.value = player_level_global.health  # update health bar visually

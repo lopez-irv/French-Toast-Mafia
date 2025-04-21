@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://yiwaxw7m2xlj" path="res://scenes/lavaTile.tscn" id="28_1utv4"]
 [ext_resource type="PackedScene" uid="uid://ctxf8ypxxn00n" path="res://scenes/shield.tscn" id="29_to1t4"]
 
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
 texture = ExtResource("2_c0vy0")
 0:0/0 = 0
