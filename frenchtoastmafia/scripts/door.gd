@@ -1,4 +1,5 @@
 extends Area2D
+@onready var door_sfx = $DoorSFX
 
 func _ready(): 
 	pass
@@ -24,12 +25,15 @@ func _input(event):      #KEY TO ENTER DOORS IS "ENTER/RETURN"
 			print("checkpoint reset")
 			
 			CoinGlobal._commit_coins()
+			door_sfx.play()
 			next_level()
 			
-				
-			
 func next_level():                 #CHANGE ME LATER TO WORK FOR ALL SCENES
-	var ERR = get_tree().change_scene_to_file("res://scenes/levelSelection.tscn")
 	
-	if ERR != OK:
-		print("something failed in this door scene")
+	SceneTransition.change_scene_to_file("res://scenes/levelSelection.tscn", "circle")
+	
+	#SceneTransition function returns void so cant do the error check below
+	#var ERR = get_tree().change_scene_to_file("res://scenes/levelSelection.tscn")
+	
+	#if ERR != OK:
+	#	print("something failed in this door scene")

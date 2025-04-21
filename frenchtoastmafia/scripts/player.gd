@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var dash_cooldown: Timer = $dashCooldown
 @onready var invincibilityTimer: Timer = $invincibilityTimer
 
+@onready var torch: Node2D = $Torch
+
 @export var inv: Inv
 @export var attacking = false # in the same animatedSprite2d as take_damage, 
 # we have an animation called sword_attack   , i want to play this animation
@@ -40,6 +42,9 @@ var is_walking = false
 @onready var sound_effect_player: AudioStreamPlayer2D = $SoundEffectPlayer
 
 var dash_ready_sound = preload("res://assets/sounds/dashReady.wav")
+var dash_sound = preload("res://assets/sounds/dash-sound-effect.wav")
+var torch_on = preload("res://assets/sounds/torch_on.wav")
+var torch_off = preload("res://assets/sounds/torch_off.wav")
 
 func _ready():
 	# Make sure sword hitbox is off at the start
@@ -48,6 +53,8 @@ func _ready():
 	# Make sure sword hitbox is off at the start
 	$SwordHitboxLeft.monitoring = false
 	$SwordHitboxLeft.get_node("CollisionShape2D").disabled = true
+	
+	torch.visible = false
 	
 func _physics_process(delta: float) -> void:
 		
@@ -88,20 +95,34 @@ func _physics_process(delta: float) -> void:
 		if direction > 0:
 			# moving right
 			animated_sprite.flip_h = false
+			torch.flip_torch_right()
 		elif direction < 0:
 			# moving left
 			animated_sprite.flip_h = true
+			torch.flip_torch_left()
+			
+			
 		# Flip the hitbox position
 		# Flip the sword hitbox based on direction
 
 
-
-	if direction and Input.is_action_pressed("run"):
-		velocity.x = (direction * speed)
-	elif direction:
-		velocity.x = (direction * speed)/2
+	if direction:
+		if Input.is_action_pressed("run"):
+			velocity.x = (direction * speed)
+			if not attacking:
+				animated_sprite.play("run")
+		elif isWallSliding:
+			if not attacking:
+				animated_sprite.play("wall_slide")
+		else:
+			velocity.x = (direction * speed) / 2
+			if not attacking:
+				animated_sprite.play("run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+		if is_on_floor() and not attacking:
+			animated_sprite.play("idle")
+
 
 	
 	#wall jump
@@ -114,6 +135,17 @@ func _physics_process(delta: float) -> void:
 		
 	wallSlide(delta)
 	
+	
+	if not attacking and animated_sprite.animation in ["idle", "run","wall_slide"]:
+		if isWallSliding:
+			animated_sprite.play("wall_slide")
+		elif direction:
+			animated_sprite.play("run")
+		else:
+			animated_sprite.play("idle")
+
+
+	
 	move_and_slide()
 	
 		# Check if walking for footsteps
@@ -122,6 +154,11 @@ func _physics_process(delta: float) -> void:
 		play_footstep_sound()
 	else:
 		is_walking = false
+		
+	#torch toggle
+	if Input.is_action_just_pressed("equip_torch"):
+		equip_torch()
+	
 	
 #if player is on a wall and holding down keys for l or r movement
 #they will fall down the wall slowly
@@ -137,6 +174,8 @@ func wallSlide(delta):
 	if isWallSliding:
 		velocity.y += (WALL_SLIDE_GRAVITY * delta)
 		velocity.y = min(velocity.y, WALL_SLIDE_GRAVITY)
+		
+		
 	
 var can_play = true
 func play_footstep_sound():
@@ -154,15 +193,21 @@ func play_footstep_sound():
 #lunges player forward in direction they are facing	
 func dash(direction):
 	
-	if not dash_cooldown.on_cooldown():	#change to if true for unlimited dashing
+	if not dash_cooldown.on_cooldown():	 #change to if true for unlimited dashing
 		#if player is moving, change speed
 		if Input.is_action_just_pressed("Dash") and direction:
 			dash_timer.start_dash(DASH_LENGTH)
 			dash_cooldown.start()
+			# Play dash sound
+			sound_effect_player.stream = dash_sound
+			sound_effect_player.play()
 	
 		#if player not moving, change velocity
 		elif Input.is_action_just_pressed("Dash") and !direction:
 			dash_cooldown.start()
+			# Play dash sound
+			sound_effect_player.stream = dash_sound
+			sound_effect_player.play()
 			if animated_sprite.flip_h:
 				velocity.x = -DASH_WHILE_STILL
 			else:
@@ -190,24 +235,29 @@ func attack():
 	if not attacking:
 		attacking = true
 		
-		# 🟢 Activate the hitbox
-		if (facing_right): #moving right 
+		# 🟢 Activate the correct hitbox
+		if facing_right:
 			$SwordHitbox.monitoring = true
 			$SwordHitbox.get_node("CollisionShape2D").disabled = false
-		if (!facing_right): # moving left
+		else:
 			$SwordHitboxLeft.monitoring = true
 			$SwordHitboxLeft.get_node("CollisionShape2D").disabled = false
-		animated_sprite.play("sword_attack")
-		await animated_sprite.animation_finished
-	
 
-		# 🔴 Deactivate the hitbox
+		# 🔥 Play attack animation
+		animated_sprite.play("sword_attack")
+
+		# Wait for the animation OR a short timeout as a fallback
+		var timer := get_tree().create_timer(0.4)
+		await animated_sprite.animation_finished or timer.timeout
+
+		# 🔴 Cleanup
 		$SwordHitbox.monitoring = false
 		$SwordHitbox.get_node("CollisionShape2D").disabled = true
 		$SwordHitboxLeft.monitoring = false
 		$SwordHitboxLeft.get_node("CollisionShape2D").disabled = true
 
 		attacking = false
+
 
 
 func _process(delta: float) -> void:
@@ -298,3 +348,14 @@ func _on_sword_hitbox_area_entered(area: Area2D) -> void:
 	if area and area.has_method("take_damage"):
 		print("Calling take_damage on", area.name)
 		area.take_damage(30)
+
+
+func equip_torch():
+	if torch.visible:
+		torch.visible = false
+		sound_effect_player.stream = torch_off
+		sound_effect_player.play()
+	else:
+		torch.visible = true
+		sound_effect_player.stream = torch_on
+		sound_effect_player.play()

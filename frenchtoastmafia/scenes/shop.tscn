@@ -1,12 +1,13 @@
-[gd_scene load_steps=33 format=3 uid="uid://ccb80t2du7h7s"]
+[gd_scene load_steps=34 format=3 uid="uid://ccb80t2du7h7s"]
 
-[ext_resource type="Texture2D" uid="uid://cwttcxvnsivjf" path="res://customAssets/worldSet.png" id="1_7ifw3"]
+[ext_resource type="Texture2D" uid="uid://bn57044shbfqa" path="res://customAssets/worldSet.png" id="1_7ifw3"]
+[ext_resource type="AudioStream" uid="uid://uyt32cfbjy2j" path="res://assets/music/shop-music.wav" id="1_l3ods"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="2_3v2fx"]
-[ext_resource type="Texture2D" uid="uid://cstsgucexkdpj" path="res://customAssets/worldSet2.png" id="2_qfqab"]
-[ext_resource type="Texture2D" uid="uid://dvlir1o1123o2" path="res://customAssets/characters.png" id="2_y4imm"]
+[ext_resource type="Texture2D" uid="uid://d2jq46lifyxh3" path="res://customAssets/worldSet2.png" id="2_qfqab"]
+[ext_resource type="Texture2D" uid="uid://bpi6mk3aotobh" path="res://customAssets/characters.png" id="2_y4imm"]
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="4_fonc7"]
 [ext_resource type="Script" path="res://scripts/npc.gd" id="6_crsim"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="7_5xaxj"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="7_5xaxj"]
 [ext_resource type="Texture2D" uid="uid://clrjuifsu43u0" path="res://assets/sprites/coin.png" id="8_ou00l"]
 [ext_resource type="Script" path="res://scripts/shop_ui.gd" id="8_xr2qq"]
 [ext_resource type="Script" path="res://scripts/shop_coin_label.gd" id="9_5thkc"]
@@ -16,7 +17,7 @@
 [ext_resource type="Resource" uid="uid://culsti1lyd1jo" path="res://Resources/orange_round.tres" id="14_xwvdo"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="16_35u1e"]
 [ext_resource type="Script" path="res://scripts/shop_statue.gd" id="17_8g6cq"]
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="17_yr4wv"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="17_yr4wv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8witj"]
 texture = ExtResource("1_7ifw3")
@@ -9845,6 +9846,10 @@ region = Rect2(3, 3, 10, 10)
 radius = 19.0
 
 [node name="shop" type="Node2D"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_l3ods")
+autoplay = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_qfqwp")

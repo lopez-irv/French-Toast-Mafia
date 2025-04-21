@@ -1,24 +1,24 @@
 [gd_scene load_steps=42 format=3 uid="uid://b6ij7w55xvbkc"]
 
-[ext_resource type="Texture2D" uid="uid://dfhnfifhx84t6" path="res://customAssets/swamp/1 Tiles/Tileset.png" id="1_bq4tm"]
+[ext_resource type="Texture2D" uid="uid://qty3n41mlhfc" path="res://customAssets/swamp/1 Tiles/Tileset.png" id="1_bq4tm"]
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="1_jj3tt"]
-[ext_resource type="Texture2D" uid="uid://chvi16dhmyu1p" path="res://customAssets/worldSet.png" id="3_11od7"]
-[ext_resource type="Texture2D" uid="uid://xvfin6q4s74q" path="res://customAssets/swamp/2 Background/Background.png" id="4_8udiv"]
+[ext_resource type="Texture2D" uid="uid://bn57044shbfqa" path="res://customAssets/worldSet.png" id="3_11od7"]
+[ext_resource type="Texture2D" uid="uid://b1hm76e3y72kn" path="res://customAssets/swamp/2 Background/Background.png" id="4_8udiv"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="5_sbpf1"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="6_3uu66"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_y81ue"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="7_fwkgs"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="7_s8w3o"]
-[ext_resource type="Texture2D" uid="uid://c3x0ti0huljck" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="8_vdx2w"]
+[ext_resource type="Texture2D" uid="uid://1m6g1g52epk6" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="8_vdx2w"]
 [ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="9_b17ab"]
 [ext_resource type="Script" path="res://scenes/knight.gd" id="9_edxxv"]
-[ext_resource type="AudioStream" uid="uid://cgds5wjvg3so1" path="res://assets/music/Vindsvept CC 4.0 License.wav" id="10_hr6oi"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="11_a8k55"]
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="12_300bq"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="12_300bq"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="13_8h11d"]
+[ext_resource type="AudioStream" uid="uid://byr3ahngkv2s1" path="res://assets/music/level1-music.wav" id="13_30hks"]
 [ext_resource type="PackedScene" uid="uid://dkxfosfghq5k" path="res://scenes/checkpoint_statue.tscn" id="14_ru5uk"]
 [ext_resource type="Texture2D" uid="uid://clrjuifsu43u0" path="res://assets/sprites/coin.png" id="16_k3uoe"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="17_wsj3s"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="17_wsj3s"]
 [ext_resource type="Script" path="res://scenes/coin_label.gd" id="18_4iuw6"]
 [ext_resource type="PackedScene" uid="uid://cuuw0dg1lhj6c" path="res://scenes/coin.tscn" id="19_giwdr"]
 [ext_resource type="Script" path="res://scripts/playerLevelLabel.gd" id="20_uxxkv"]
@@ -1339,7 +1339,7 @@ shape = SubResource("WorldBoundaryShape2D_e0rsr")
 [node name="ParallaxLayer (close)" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer (close)"]
-position = Vector2(69, -396)
+position = Vector2(69, -523)
 scale = Vector2(5, 4.659)
 texture = ExtResource("4_8udiv")
 
@@ -1424,7 +1424,7 @@ offset_bottom = 31.0
 text = "Press \"E\" to Interact"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_hr6oi")
+stream = ExtResource("13_30hks")
 volume_db = -5.047
 autoplay = true
 

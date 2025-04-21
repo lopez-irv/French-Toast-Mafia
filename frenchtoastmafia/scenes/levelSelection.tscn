@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1tjmvrjjaiue"]
+[gd_scene load_steps=9 format=3 uid="uid://d1tjmvrjjaiue"]
 
-[ext_resource type="Texture2D" uid="uid://cwvu0svna825" path="res://customAssets/button.png" id="1_jlyfr"]
+[ext_resource type="Texture2D" uid="uid://dnebht8asy7d1" path="res://customAssets/button.png" id="1_jlyfr"]
+[ext_resource type="Script" path="res://scenes/level_selection.gd" id="1_xtr1o"]
 [ext_resource type="Script" path="res://scripts/levelSelectionButton0.gd" id="2_7q6es"]
+[ext_resource type="AudioStream" uid="uid://cwisjsxfh2vvr" path="res://assets/music/level-select-music.wav" id="2_cytvr"]
 [ext_resource type="Script" path="res://scripts/levelSelectionButton1.gd" id="3_anfix"]
 [ext_resource type="Script" path="res://scenes/shop_selection_button.gd" id="4_pi56j"]
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="4_tfh5p"]
+
+[sub_resource type="GDScript" id="GDScript_6qdjr"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,6 +19,26 @@ offset_left = 1.0
 offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xtr1o")
+
+[node name="LevelMusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_cytvr")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 461.5
+offset_right = -461.5
+offset_bottom = -603.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.32549, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Level Selection"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
@@ -34,10 +58,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 138.0
-offset_top = 85.0
-offset_right = -376.0
-offset_bottom = -75.0
+offset_left = -78.0
+offset_top = -3.0
+offset_right = -78.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 150
@@ -45,15 +69,20 @@ theme_override_constants/margin_top = 70
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_direction = 1
+layout_mode = 2
+script = SubResource("GDScript_6qdjr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 52
 
-[node name="row1" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="row1" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="level0" type="Button" parent="MarginContainer/VBoxContainer/row1"]
+[node name="level0" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row1"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -62,7 +91,7 @@ text = "0
 icon = ExtResource("1_jlyfr")
 script = ExtResource("2_7q6es")
 
-[node name="level1" type="Button" parent="MarginContainer/VBoxContainer/row1"]
+[node name="level1" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row1"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -71,7 +100,7 @@ text = "1
 icon = ExtResource("1_jlyfr")
 script = ExtResource("3_anfix")
 
-[node name="level2" type="Button" parent="MarginContainer/VBoxContainer/row1"]
+[node name="level2" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row1"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -80,7 +109,7 @@ text = "2
 icon = ExtResource("1_jlyfr")
 script = ExtResource("4_tfh5p")
 
-[node name="level3" type="Button" parent="MarginContainer/VBoxContainer/row1"]
+[node name="level3" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row1"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -88,7 +117,7 @@ text = "3
 "
 icon = ExtResource("1_jlyfr")
 
-[node name="level4" type="Button" parent="MarginContainer/VBoxContainer/row1"]
+[node name="level4" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row1"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -98,11 +127,11 @@ text = "4
 "
 icon = ExtResource("1_jlyfr")
 
-[node name="row2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="row2" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/row2"]
+[node name="Button" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -110,7 +139,7 @@ text = "5
 "
 icon = ExtResource("1_jlyfr")
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/row2"]
+[node name="Button2" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -118,7 +147,7 @@ text = "6
 "
 icon = ExtResource("1_jlyfr")
 
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/row2"]
+[node name="Button3" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -126,7 +155,7 @@ text = "7
 "
 icon = ExtResource("1_jlyfr")
 
-[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/row2"]
+[node name="Button4" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -134,7 +163,7 @@ text = "8
 "
 icon = ExtResource("1_jlyfr")
 
-[node name="Button5" type="Button" parent="MarginContainer/VBoxContainer/row2"]
+[node name="Button5" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -142,11 +171,11 @@ text = "9
 "
 icon = ExtResource("1_jlyfr")
 
-[node name="row3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="row3" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/row3"]
+[node name="Button" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -154,7 +183,7 @@ text = "10
 "
 icon = ExtResource("1_jlyfr")
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/row3"]
+[node name="Button2" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -162,7 +191,7 @@ text = "11
 "
 icon = ExtResource("1_jlyfr")
 
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/row3"]
+[node name="Button3" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -170,14 +199,14 @@ text = "12
 "
 icon = ExtResource("1_jlyfr")
 
-[node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/row3"]
+[node name="Button4" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row3"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "13"
 icon = ExtResource("1_jlyfr")
 
-[node name="Button5" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Button5" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
@@ -185,16 +214,3 @@ text = "SHOP
 "
 icon = ExtResource("1_jlyfr")
 script = ExtResource("4_pi56j")
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 413.0
-offset_top = 83.0
-offset_right = 413.0
-offset_bottom = 128.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.839216, 0.32549, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Level Selection"
