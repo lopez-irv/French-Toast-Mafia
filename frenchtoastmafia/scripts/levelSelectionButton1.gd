@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 		icon = ResourceLoader.load("res://customAssets/goldButton.png")	#do this to change the icon
 
 func _on_start_button_pressed() -> void:
+	GameState.current_level_path = "res://scenes/level_1.tscn"
 	if level_unlock_status.level1:
 		
 		#reset checkpoint if switching to different level

@@ -93,3 +93,5 @@ theme_override_fonts/font = ExtResource("2_boamd")
 theme_override_font_sizes/font_size = 25
 text = "EXIT GAME"
 script = ExtResource("4_70m0d")
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/restart_button" to="MarginContainer/HBoxContainer/VBoxContainer/restart_button" method="_on_pressed"]

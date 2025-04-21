@@ -1,11 +1,18 @@
 extends Button
 
 func _ready():
-	connect("pressed", _on_start_button_pressed) 
+	pass#connect("pressed", _on_start_button_pressed) 
 
 
 func _process(delta: float) -> void:
 	pass
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game.tscn") 
+	print(GameState.current_level_path)
+	get_tree().change_scene_to_file(GameState.current_level_path) 
+
+
+func _on_pressed() -> void:
+	print("1")
+	print(GameState.current_level_path)
+	get_tree().change_scene_to_file(GameState.current_level_path) 
