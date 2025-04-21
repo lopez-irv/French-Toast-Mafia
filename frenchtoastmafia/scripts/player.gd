@@ -28,6 +28,10 @@ var wall_pushback = speed
 const WALL_SLIDE_GRAVITY = 100
 var isWallSliding = false
 
+const ROLL_SPEED = 10
+const ROLL_DURATION = .7
+var is_rolling = false
+
 const DASH_WHILE_STILL = 800	#what to change velocity to when dashing while not moving
 const DASH_WHILE_MOVING = 800	#what to change speed to when dashing while moving
 const DASH_LENGTH = .1
@@ -57,10 +61,11 @@ func _ready():
 	torch.visible = false
 	
 func _physics_process(delta: float) -> void:
-		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	if is_rolling:
+		move_and_slide()
+		return
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		canDoubleJump = true
@@ -79,7 +84,9 @@ func _physics_process(delta: float) -> void:
 		facing_right = true
 	elif direction < 0:
 		facing_right = false
-	
+	# Roll input check
+	if Input.is_action_just_pressed("roll") and not is_rolling and is_on_floor():
+		start_roll()
 	#dash 
 	dash(direction)
 	
@@ -159,6 +166,21 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("equip_torch"):
 		equip_torch()
 	
+func start_roll():
+	is_rolling = true
+	attacking = true  # Optional: Prevent attack during roll
+	print("rolling...")
+	animated_sprite.play("roll")
+	# Set initial roll velocity
+	if facing_right:
+		velocity.x = ROLL_SPEED
+	else:
+		velocity.x = -ROLL_SPEED
+
+	await get_tree().create_timer(ROLL_DURATION).timeout
+
+	is_rolling = false
+	attacking = false
 	
 #if player is on a wall and holding down keys for l or r movement
 #they will fall down the wall slowly
