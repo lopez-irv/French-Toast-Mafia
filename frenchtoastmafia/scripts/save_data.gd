@@ -31,7 +31,10 @@ func save_game():
 		"player_level": player_level_global.playerLevel,
 		"coins": CoinGlobal.total_coins,
 		"unlocked_levels": unlocked_levels_data,
-		"inventory": inventory_ref.get_save_data()
+		"inventory": inventory_ref.get_save_data(),
+		"health_cap": player_level_global.healthCap,
+		"exp": player_level_global.xp,
+		"attack_damage": player_level_global.attackDamage
 	}
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -53,6 +56,9 @@ func load_game():
 	var data = JSON.parse_string(content)
 	if data is Dictionary:
 		player_level_global.playerLevel = data.get("player_level", 1)
+		player_level_global.attackDamage = data.get("attack_damage", 30)
+		player_level_global.healthCap = data.get("health_cap", 100)
+		player_level_global.xp = data.get("exp", 0)
 		CoinGlobal.total_coins = data.get("coins", 0)
 
 		var unlocked = data.get("unlocked_levels", {})
