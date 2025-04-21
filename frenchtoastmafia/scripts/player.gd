@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var shield_bar: ProgressBar = get_tree().root.get_node("Node2D/HUD/shield")
 
 @onready var torch: Node2D = $Torch
+@onready var wall_dust_effect_scene = preload("res://scenes/WallDustEffect.tscn")
+@onready var dust_effect_scene = preload("res://scenes/LandDustEffect.tscn")
 
 @export var inv: Inv
 @export var attacking = false # in the same animatedSprite2d as take_damage, 
@@ -23,6 +25,7 @@ var body_last_collided
 var playerLevel = 0
 var threshold = 100
 var is_dead = false
+var was_on_floor = true
 
 
 var speed = 130.0	#current speed
@@ -100,8 +103,18 @@ func _physics_process(delta: float) -> void:
 	# Roll input check
 	if Input.is_action_just_pressed("roll") and not is_rolling and is_on_floor():
 		start_roll()
-	#dash 
+	#dash
 	dash(direction)
+
+	# Landing dust
+	if not was_on_floor and is_on_floor():
+		var dust = dust_effect_scene.instantiate()
+		dust.global_position = global_position + Vector2(0, -10)
+		get_tree().current_scene.add_child(dust)
+		dust.play("dust")
+		dust.connect("animation_finished", Callable(dust, "queue_free"))
+
+	was_on_floor = is_on_floor()
 	
 
 
@@ -146,13 +159,33 @@ func _physics_process(delta: float) -> void:
 
 	
 	#wall jump
+
+	var wall_dust
+
+	# Wall jump right
 	if is_on_wall_only() and Input.is_action_just_pressed("move_right"):
 		velocity.y = JUMP_VELOCITY
 		velocity.x = -wall_pushback
-	if is_on_wall_only() and Input.is_action_just_pressed("move_left"):
+
+		wall_dust = wall_dust_effect_scene.instantiate()
+		wall_dust.global_position = global_position + Vector2(2, 0)
+		wall_dust.rotation_degrees = 90
+
+	# Wall jump left
+	elif is_on_wall_only() and Input.is_action_just_pressed("move_left"):
 		velocity.y = JUMP_VELOCITY
 		velocity.x = wall_pushback
-		
+
+		wall_dust = wall_dust_effect_scene.instantiate()
+		wall_dust.global_position = global_position + Vector2(-2, 0)
+		wall_dust.rotation_degrees = -90
+
+	# If we spawned one, add to scene and play
+	if wall_dust:
+		get_tree().current_scene.add_child(wall_dust)
+		wall_dust.play("wall_dust")
+		wall_dust.connect("animation_finished", Callable(wall_dust, "queue_free"))
+
 	wallSlide(delta)
 	
 	
