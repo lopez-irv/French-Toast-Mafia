@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://s1a7h846thbr"]
+
+[ext_resource type="Texture2D" uid="uid://c0sektne1ds4c" path="res://assets/sprites/dust/wall_dust1.png" id="1_e8osj"]
+[ext_resource type="Texture2D" uid="uid://dlgc6gepf30ya" path="res://assets/sprites/dust/wall_dust2.png" id="2_6soe8"]
+[ext_resource type="Texture2D" uid="uid://huns471qwnxt" path="res://assets/sprites/dust/wall_dust3.png" id="3_c4u8j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cfdxf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e8osj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6soe8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c4u8j")
+}],
+"loop": false,
+"name": &"wall_dust",
+"speed": 15.0
+}]
+
+[node name="WallDustEffect" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_cfdxf")
+animation = &"wall_dust"
+frame = 2
+frame_progress = 1.0
