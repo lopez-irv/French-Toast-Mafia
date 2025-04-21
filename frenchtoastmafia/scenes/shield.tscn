@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctxf8ypxxn00n"]
+
+[ext_resource type="Script" path="res://scripts/shield.gd" id="1_8j5g7"]
+[ext_resource type="Texture2D" uid="uid://cdiobq0joudr3" path="res://customAssets/weapons.png" id="1_yj24m"]
+[ext_resource type="Resource" uid="uid://l32xa5read2k" path="res://Resources/shield.tres" id="2_chaqc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w33l8"]
+atlas = ExtResource("1_yj24m")
+region = Rect2(130, 178, 13, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d7eo2"]
+size = Vector2(10, 11)
+
+[node name="shield" type="Node2D"]
+script = ExtResource("1_8j5g7")
+item = ExtResource("2_chaqc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_w33l8")
+
+[node name="shield1" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shield1"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_d7eo2")
+
+[connection signal="body_entered" from="shield1" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="shield1" to="." method="_on_area_2d_body_exited"]

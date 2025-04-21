@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1iokn3i7ukng"]
+
+[ext_resource type="PackedScene" uid="uid://tien5o0qs8hg" path="res://scenes/greenPlatform.tscn" id="1_0g7bf"]
+[ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="2_0u5qy"]
+[ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="3_uu01w"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="greenPlatform" parent="." instance=ExtResource("1_0g7bf")]
+
+[node name="player" parent="." instance=ExtResource("2_0u5qy")]
+position = Vector2(7, -5)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+
+[node name="green_round_fruit" parent="." instance=ExtResource("3_uu01w")]
+position = Vector2(-11, -13)

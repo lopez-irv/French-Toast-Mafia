@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var healthBar: ProgressBar = $healthBar
 @onready var dash_cooldown: Timer = $dashCooldown
 @onready var invincibilityTimer: Timer = $invincibilityTimer
+@onready var health_bar: ProgressBar = get_tree().root.get_node("Node2D/HUD/health")
+@onready var shield_bar: ProgressBar = get_tree().root.get_node("Node2D/HUD/shield")
 
 @onready var torch: Node2D = $Torch
 
@@ -15,6 +17,7 @@ extends CharacterBody2D
 
 var facing_right = false 
 var health = 100.0
+var shield = 0
 var body_last_collided
 var playerLevel = 0
 var threshold = 100
@@ -53,7 +56,8 @@ func _ready():
 	# Make sure sword hitbox is off at the start
 	$SwordHitboxLeft.monitoring = false
 	$SwordHitboxLeft.get_node("CollisionShape2D").disabled = true
-	
+	if shield_bar:
+		shield_bar.visible = false
 	torch.visible = false
 	
 func _physics_process(delta: float) -> void:
@@ -223,11 +227,14 @@ func dash(direction):
 	#health and damage
 func decreaseHealth(n, ignore_invincibility: bool = false):
 	if ignore_invincibility or invincibilityTimer.is_stopped():
+		if shield_bar.value > 0:
+			decreaseShield(n)
+			return
 		if not ignore_invincibility:
 			invincibilityTimer.start()
 		animated_sprite.play("take_damage")
 		health -= n
-		healthBar.value = health
+		health_bar.value = health
 		if health <= 0:
 			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
@@ -272,10 +279,28 @@ func increaseHealth(n):
 	health += n
 	if health > 100:
 		health = 100
-	healthBar.value = health
+	health_bar.value = health
 	print("health raised to: ", health)
-
-
+	
+func increaseShield(n):
+	shield += n
+	if shield > 0:
+		shield_bar.visible = true
+	if shield > 200:
+		shield = 200
+	shield_bar.value = shield
+	print("shiled raised to: ", shield)
+	
+func decreaseShield(n, ignore_invincibility: bool = false):
+	if ignore_invincibility or invincibilityTimer.is_stopped():
+		if not ignore_invincibility:
+			invincibilityTimer.start()
+		animated_sprite.play("take_damage")
+		shield -= n
+		shield_bar.value = shield
+		if shield <= 0:
+			shield_bar.visible = false
+	
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	body_last_collided = area.get_parent()
 	#print(body_last_collided)

@@ -24,6 +24,7 @@ LevelCompletionStatus="*res://scripts/level_completion_status.gd"
 GameState="*res://scripts/game_state.gd"
 player_level_global="*res://player_level_global.gd"
 SceneTransition="*res://scenes/scene_transition.tscn"
+SaveManager="*res://scripts/save_data.gd"
 
 [display]
 
