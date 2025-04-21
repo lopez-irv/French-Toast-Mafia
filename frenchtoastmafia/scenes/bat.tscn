@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bxoqjpdnluhdp"]
 
 [ext_resource type="Script" path="res://scripts/bat.gd" id="1_k6dkv"]
-[ext_resource type="Texture2D" uid="uid://chqhjyuci3fht" path="res://assets/sprites/enemies/32x32-bat-sprite.png" id="2_pufnf"]
+[ext_resource type="Texture2D" uid="uid://ji8rewrnlfn6" path="res://assets/sprites/enemies/32x32-bat-sprite.png" id="2_pufnf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jowpm"]
 size = Vector2(34, 25)
