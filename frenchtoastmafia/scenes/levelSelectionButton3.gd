@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 		icon = ResourceLoader.load("res://customAssets/goldButton.png")
 
 func _on_start_button_pressed() -> void:
+	GameState.current_level_path = "res://scenes/level2.tscn"
 	if level_unlock_status.level3:
 		
 		#reset checkpoint if switching to different level

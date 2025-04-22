@@ -2,20 +2,29 @@ extends Control
 
 var consumable = 0
 var current_fruit
+var input_locked := false  # prevent toggling right after opening
+
 
 func _ready():
 	$AnimationPlayer.play("RESET")
 	visible = false
 
 func resume():
+	#print("resume called")
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("blur")
 	visible = false
 
 func pause():
+	#print("💬 Interact menu pause() called — visible set to true")
+	visible = true
+	#raise()
+	input_locked = true
+	await get_tree().create_timer(0.15).timeout  # small delay before accepting input
+	input_locked = false
 	get_tree().paused = true
 	$AnimationPlayer.play("blur")
-	visible = true
+
 	
 func testInteract():
 	if Input.is_action_just_pressed("interact") and get_tree().paused == false:
@@ -32,15 +41,23 @@ func toggle_menu():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event: InputEvent) -> void:
+	if input_locked:
+		return
 	if event.is_action_pressed("interact") and visible:
-		toggle_menu();
+		toggle_menu()
+
+
 
 func _on_eat_pressed() -> void:
 	var player1 = get_tree().current_scene.find_child("player", true, false)
-	player1.increaseHealth(consumable)
 	current_fruit = player1.body_last_collided
-	print(current_fruit)
-	_delete_fruit(current_fruit.name)
+	if current_fruit.name == "shield":
+		player1.increaseShield(consumable)
+	else:
+		player1.increaseHealth(consumable)
+	print(current_fruit.name)
+	#_delete_fruit(current_fruit.name)
+	current_fruit.queue_free()
 	resume()  # Close menu after eating
 	
 func _delete_fruit(name: String):
@@ -61,5 +78,6 @@ func _on_stash_pressed() -> void:
 	var player1 = get_tree().current_scene.find_child("player", true, false)
 	current_fruit = player1.body_last_collided
 	player1.collect(current_fruit.item)
-	_delete_fruit(current_fruit.name)
+	#_delete_fruit(current_fruit.name)
+	current_fruit.queue_free()
 	resume()  # Close menu after eating

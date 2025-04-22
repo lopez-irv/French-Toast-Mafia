@@ -1,30 +1,31 @@
-[gd_scene load_steps=42 format=3 uid="uid://b6ij7w55xvbkc"]
+[gd_scene load_steps=47 format=3 uid="uid://b6ij7w55xvbkc"]
 
-[ext_resource type="Texture2D" uid="uid://qty3n41mlhfc" path="res://customAssets/swamp/1 Tiles/Tileset.png" id="1_bq4tm"]
+[ext_resource type="Texture2D" uid="uid://cts4tifsbce6n" path="res://customAssets/swamp/1 Tiles/Tileset.png" id="1_bq4tm"]
 [ext_resource type="Script" path="res://scenes/level_1.gd" id="1_jj3tt"]
-[ext_resource type="Texture2D" uid="uid://bn57044shbfqa" path="res://customAssets/worldSet.png" id="3_11od7"]
-[ext_resource type="Texture2D" uid="uid://b1hm76e3y72kn" path="res://customAssets/swamp/2 Background/Background.png" id="4_8udiv"]
+[ext_resource type="Texture2D" uid="uid://b7eyt4c56tnk1" path="res://customAssets/worldSet.png" id="3_11od7"]
+[ext_resource type="Texture2D" uid="uid://dyu4sqxy4xmxs" path="res://customAssets/swamp/2 Background/Background.png" id="4_8udiv"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="5_sbpf1"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="6_3uu66"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_y81ue"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="7_fwkgs"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="7_s8w3o"]
-[ext_resource type="Texture2D" uid="uid://1m6g1g52epk6" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="8_vdx2w"]
+[ext_resource type="Texture2D" uid="uid://rtn0b6yishn" path="res://assets/sprites/Knight/120x80_PNGSheets/_Idle.png" id="8_vdx2w"]
 [ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="9_b17ab"]
 [ext_resource type="Script" path="res://scenes/knight.gd" id="9_edxxv"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="11_a8k55"]
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="12_300bq"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="12_300bq"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="13_8h11d"]
-[ext_resource type="AudioStream" uid="uid://byr3ahngkv2s1" path="res://assets/music/level1-music.wav" id="13_30hks"]
+[ext_resource type="AudioStream" uid="uid://muemit1jubx8" path="res://assets/music/level1-music.wav" id="13_30hks"]
 [ext_resource type="PackedScene" uid="uid://dkxfosfghq5k" path="res://scenes/checkpoint_statue.tscn" id="14_ru5uk"]
 [ext_resource type="Texture2D" uid="uid://clrjuifsu43u0" path="res://assets/sprites/coin.png" id="16_k3uoe"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="17_wsj3s"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="17_wsj3s"]
 [ext_resource type="Script" path="res://scenes/coin_label.gd" id="18_4iuw6"]
 [ext_resource type="PackedScene" uid="uid://cuuw0dg1lhj6c" path="res://scenes/coin.tscn" id="19_giwdr"]
 [ext_resource type="Script" path="res://scripts/playerLevelLabel.gd" id="20_uxxkv"]
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="21_afbxm"]
 [ext_resource type="PackedScene" uid="uid://ceggfjnadfcdj" path="res://scenes/flying_eye.tscn" id="23_klevt"]
 [ext_resource type="PackedScene" uid="uid://bwkoodbj4wv5l" path="res://scenes/slime.tscn" id="23_qmlff"]
+[ext_resource type="PackedScene" uid="uid://crk3nqdr4nfco" path="res://stats_menu.tscn" id="26_gntwh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mrup6"]
 texture = ExtResource("1_bq4tm")
@@ -1306,11 +1307,23 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6dbms"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_65rcg"]
 atlas = ExtResource("16_k3uoe")
 region = Rect2(3, 3, 10, 10)
 
-[node name="level1" type="Node"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hyjbh"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlpln"]
+bg_color = Color(0.968627, 0, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqnec"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lyh0w"]
+bg_color = Color(0.0666667, 0.227451, 1, 1)
+
+[node name="Node2D" type="Node"]
 script = ExtResource("1_jj3tt")
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -1450,46 +1463,6 @@ position = Vector2(470, -595)
 [node name="Coin" parent="." instance=ExtResource("19_giwdr")]
 position = Vector2(-655, -49)
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="LevelTimer" parent="HUD" instance=ExtResource("13_8h11d")]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 124.0
-offset_right = -2.0
-offset_bottom = 26.0
-grow_horizontal = 2
-
-[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer"]
-layout_mode = 2
-texture = SubResource("AtlasTexture_6dbms")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="HUD/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("17_wsj3s")
-theme_override_font_sizes/font_size = 25
-text = "0"
-script = ExtResource("18_4iuw6")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="HUD"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 213.0
-offset_right = 87.0
-offset_bottom = 26.0
-grow_horizontal = 2
-
-[node name="Label" type="Label" parent="HUD/HBoxContainer2"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("17_wsj3s")
-theme_override_font_sizes/font_size = 25
-text = "0"
-horizontal_alignment = 1
-script = ExtResource("20_uxxkv")
-
 [node name="Door" parent="." instance=ExtResource("21_afbxm")]
 position = Vector2(173, -1196)
 
@@ -1504,3 +1477,66 @@ position = Vector2(2, -794)
 
 [node name="FlyingEye2" parent="." instance=ExtResource("23_klevt")]
 position = Vector2(-272, -100)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 104.0
+offset_top = 1.0
+offset_right = 104.0
+offset_bottom = 58.0
+grow_horizontal = 2
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelTimer" parent="HUD/VBoxContainer/HBoxContainer" instance=ExtResource("13_8h11d")]
+
+[node name="TextureRect" type="TextureRect" parent="HUD/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_65rcg")
+expand_mode = 2
+
+[node name="coins" type="Label" parent="HUD/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_wsj3s")
+theme_override_font_sizes/font_size = 25
+text = "0"
+script = ExtResource("18_4iuw6")
+
+[node name="seperator" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 26)
+layout_mode = 2
+
+[node name="player_level" type="Label" parent="HUD/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_wsj3s")
+theme_override_font_sizes/font_size = 25
+text = "0"
+horizontal_alignment = 1
+script = ExtResource("20_uxxkv")
+
+[node name="health" type="ProgressBar" parent="HUD"]
+offset_left = 23.0
+offset_top = 28.0
+offset_right = 173.0
+offset_bottom = 43.0
+theme_override_styles/background = SubResource("StyleBoxFlat_hyjbh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xlpln")
+value = 100.0
+show_percentage = false
+
+[node name="shield" type="ProgressBar" parent="HUD"]
+offset_left = 23.0
+offset_top = 48.0
+offset_right = 173.0
+offset_bottom = 63.0
+theme_override_styles/background = SubResource("StyleBoxFlat_dqnec")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lyh0w")
+max_value = 200.0
+show_percentage = false
+
+[node name="statsMenu" parent="." instance=ExtResource("26_gntwh")]

@@ -35,3 +35,8 @@ func _on_restart_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_load_pressed() -> void:
+	print("loading game")
+	SaveManager.load_game();

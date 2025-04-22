@@ -2,6 +2,7 @@ extends Button
 
 func _ready():
 	connect("pressed", _on_start_button_pressed) 
+	
 
 
 func _process(delta: float) -> void:
@@ -13,6 +14,7 @@ func _process(delta: float) -> void:
 		icon = ResourceLoader.load("res://customAssets/goldButton.png")
 
 func _on_start_button_pressed() -> void:
+	GameState.current_level_path = "res://scenes/game.tscn"
 	if level_unlock_status.level0:
 		
 		#reset checkpoint if switching to different level

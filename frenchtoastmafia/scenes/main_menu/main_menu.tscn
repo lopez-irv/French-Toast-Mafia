@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6dew7w6yfxd2"]
+[gd_scene load_steps=13 format=3 uid="uid://b6dew7w6yfxd2"]
 
 [ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="1_rkbhb"]
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_udoj2"]
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="2_85jrc"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="3_bkv8m"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_85jrc"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="3_bkv8m"]
 [ext_resource type="Script" path="res://scenes/main_menu/exit_button.gd" id="5_tl7qf"]
 [ext_resource type="Script" path="res://scenes/start_button.gd" id="5_v2jj8"]
 [ext_resource type="Script" path="res://scenes/controls_button.gd" id="6_hatwt"]
 [ext_resource type="Script" path="res://scripts/level_selection.gd" id="6_me3k5"]
-[ext_resource type="AudioStream" uid="uid://c33nvjqnrfliu" path="res://assets/music/main-menu-music.wav" id="9_v0fmk"]
+[ext_resource type="Script" path="res://scenes/main_menu/load_save.gd" id="8_x0hdt"]
+[ext_resource type="AudioStream" uid="uid://dgkafskvkemq0" path="res://assets/music/main-menu-music.wav" id="9_v0fmk"]
+[ext_resource type="Script" path="res://scenes/main_menu/delete_save.gd" id="10_0bbut"]
+[ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="12_acvcm"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -95,13 +98,33 @@ theme_override_font_sizes/font_size = 25
 text = "CONTROLS: ARROW"
 script = ExtResource("6_hatwt")
 
+[node name="load_save" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bkv8m")
+theme_override_font_sizes/font_size = 25
+text = "Load Game"
+script = ExtResource("8_x0hdt")
+
 [node name="exit_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_bkv8m")
 theme_override_font_sizes/font_size = 25
-text = "EXIT GAME"
+text = "Exit Game"
 script = ExtResource("5_tl7qf")
+
+[node name="delete_save" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bkv8m")
+theme_override_font_sizes/font_size = 25
+text = "Delete Save"
+script = ExtResource("10_0bbut")
 
 [node name="MenuMusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_v0fmk")
+
+[node name="player" parent="." instance=ExtResource("12_acvcm")]
+visible = false
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/load_save" to="MarginContainer/HBoxContainer/VBoxContainer/load_save" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/delete_save" to="MarginContainer/HBoxContainer/VBoxContainer/delete_save" method="_on_pressed"]

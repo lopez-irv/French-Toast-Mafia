@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="consumable_item" load_steps=4 format=3 uid="uid://l32xa5read2k"]
+
+[ext_resource type="Script" path="res://scripts/consumable_item.gd" id="1_lf48x"]
+[ext_resource type="Texture2D" uid="uid://cdiobq0joudr3" path="res://customAssets/weapons.png" id="2_5uu54"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3ox6"]
+atlas = ExtResource("2_5uu54")
+region = Rect2(131, 178, 11, 14)
+
+[resource]
+script = ExtResource("1_lf48x")
+texture = SubResource("AtlasTexture_f3ox6")
+name = "shield"
+hp = 30

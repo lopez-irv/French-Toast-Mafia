@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=42 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_gwgku"]
@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://beko1ey73bn8j" path="res://knight.tscn" id="5_wuehp"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_n6sfx"]
 [ext_resource type="AudioStream" uid="uid://cgds5wjvg3so1" path="res://assets/music/Vindsvept CC 4.0 License.wav" id="7_lglbo"]
-[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="8_ybwu0"]
-[ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assests/backgrounds/background_layer_2.png" id="9_vx7va"]
-[ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assests/backgrounds/background_layer_3.png" id="10_dlu7f"]
+[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assets/backgrounds/background_layer_1.png" id="8_ybwu0"]
+[ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assets/backgrounds/background_layer_2.png" id="9_vx7va"]
+[ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assets/backgrounds/background_layer_3.png" id="10_dlu7f"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="15_bfv41"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="16_1wqr5"]
@@ -28,7 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="24_was7h"]
 [ext_resource type="PackedScene" uid="uid://c2rcd3n3d5dce" path="res://scenes/purpleSlime.tscn" id="27_tldwx"]
 [ext_resource type="PackedScene" uid="uid://yiwaxw7m2xlj" path="res://scenes/lavaTile.tscn" id="28_1utv4"]
-[ext_resource type="PackedScene" uid="uid://crk3nqdr4nfco" path="res://stats_menu.tscn" id="29_ifwsp"]
+[ext_resource type="PackedScene" uid="uid://ctxf8ypxxn00n" path="res://scenes/shield.tscn" id="29_to1t4"]
+[ext_resource type="PackedScene" uid="uid://crk3nqdr4nfco" path="res://stats_menu.tscn" id="30_56bgn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
 texture = ExtResource("2_c0vy0")
@@ -238,6 +239,18 @@ distance = 42.0
 atlas = ExtResource("19_xi534")
 region = Rect2(3, 3, 10, 10)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8wvh"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72jn7"]
+bg_color = Color(0.968627, 0, 0.0980392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5f1b"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an4tc"]
+bg_color = Color(0.0666667, 0.227451, 1, 1)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_gwgku")
 
@@ -390,43 +403,64 @@ autowrap_mode = 2
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="LevelTimer" parent="HUD" instance=ExtResource("15_bfv41")]
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 124.0
-offset_right = -2.0
-offset_bottom = 26.0
+offset_left = 104.0
+offset_top = 1.0
+offset_right = 104.0
+offset_bottom = 58.0
 grow_horizontal = 2
+size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="HUD/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelTimer" parent="HUD/VBoxContainer/HBoxContainer" instance=ExtResource("15_bfv41")]
+
+[node name="TextureRect" type="TextureRect" parent="HUD/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = SubResource("AtlasTexture_ba3uv")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="HUD/HBoxContainer"]
+[node name="coins" type="Label" parent="HUD/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("20_m8tkj")
 theme_override_font_sizes/font_size = 25
 text = "0"
 script = ExtResource("21_pt23e")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HUD"]
-anchors_preset = 10
-anchor_right = 1.0
-offset_left = 213.0
-offset_right = 87.0
-offset_bottom = 26.0
-grow_horizontal = 2
+[node name="seperator" type="Control" parent="HUD/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(15, 26)
+layout_mode = 2
 
-[node name="Label" type="Label" parent="HUD/HBoxContainer2"]
+[node name="player_level" type="Label" parent="HUD/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("20_m8tkj")
 theme_override_font_sizes/font_size = 25
 text = "0"
 horizontal_alignment = 1
 script = ExtResource("21_1lujr")
+
+[node name="health" type="ProgressBar" parent="HUD"]
+offset_left = 23.0
+offset_top = 28.0
+offset_right = 173.0
+offset_bottom = 43.0
+theme_override_styles/background = SubResource("StyleBoxFlat_o8wvh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_72jn7")
+value = 100.0
+show_percentage = false
+
+[node name="shield" type="ProgressBar" parent="HUD"]
+offset_left = 23.0
+offset_top = 48.0
+offset_right = 173.0
+offset_bottom = 63.0
+theme_override_styles/background = SubResource("StyleBoxFlat_r5f1b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_an4tc")
+max_value = 200.0
+show_percentage = false
 
 [node name="spikes" parent="." instance=ExtResource("16_1wqr5")]
 position = Vector2(71, 25)
@@ -501,5 +535,7 @@ position = Vector2(1091, -278)
 [node name="Knight10" parent="." instance=ExtResource("5_wuehp")]
 position = Vector2(1123, -276)
 
-[node name="statsMenu" parent="." instance=ExtResource("29_ifwsp")]
-position = Vector2(33, -14)
+[node name="shield" parent="." instance=ExtResource("29_to1t4")]
+position = Vector2(-41, 27)
+
+[node name="statsMenu" parent="." instance=ExtResource("30_56bgn")]

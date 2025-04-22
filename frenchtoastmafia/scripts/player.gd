@@ -5,8 +5,12 @@ extends CharacterBody2D
 @onready var healthBar: ProgressBar = $healthBar
 @onready var dash_cooldown: Timer = $dashCooldown
 @onready var invincibilityTimer: Timer = $invincibilityTimer
+@onready var health_bar: ProgressBar = get_tree().root.get_node("Node2D/HUD/health")
+@onready var shield_bar: ProgressBar = get_tree().root.get_node("Node2D/HUD/shield")
 
 @onready var torch: Node2D = $Torch
+@onready var wall_dust_effect_scene = preload("res://scenes/WallDustEffect.tscn")
+@onready var dust_effect_scene = preload("res://scenes/LandDustEffect.tscn")
 
 @export var inv: Inv
 @export var attacking = false # in the same animatedSprite2d as take_damage, 
@@ -14,11 +18,14 @@ extends CharacterBody2D
 # when the attack button is pressed. 
 var hurt_sound = preload("res://assets/sounds/hurt.wav")
 var facing_right = false 
+#var health = 100.0
+var shield = 0
 #var health = player_level_global.healthCap
 var body_last_collided
 var playerLevel = 0
 var threshold = 100
 var is_dead = false
+var was_on_floor = true
 
 
 var speed = 130.0	#current speed
@@ -60,7 +67,8 @@ func _ready():
 	# Make sure sword hitbox is off at the start
 	$SwordHitboxLeft.monitoring = false
 	$SwordHitboxLeft.get_node("CollisionShape2D").disabled = true
-	
+	if shield_bar:
+		shield_bar.visible = false
 	torch.visible = false
 	
 	healthBar.max_value = player_level_global.healthCap
@@ -95,8 +103,18 @@ func _physics_process(delta: float) -> void:
 	# Roll input check
 	if Input.is_action_just_pressed("roll") and not is_rolling and is_on_floor():
 		start_roll()
-	#dash 
+	#dash
 	dash(direction)
+
+	# Landing dust
+	if not was_on_floor and is_on_floor():
+		var dust = dust_effect_scene.instantiate()
+		dust.global_position = global_position + Vector2(0, -10)
+		get_tree().current_scene.add_child(dust)
+		dust.play("dust")
+		dust.connect("animation_finished", Callable(dust, "queue_free"))
+
+	was_on_floor = is_on_floor()
 	
 
 
@@ -141,13 +159,33 @@ func _physics_process(delta: float) -> void:
 
 	
 	#wall jump
+
+	var wall_dust
+
+	# Wall jump right
 	if is_on_wall_only() and Input.is_action_just_pressed("move_right"):
 		velocity.y = JUMP_VELOCITY
 		velocity.x = -wall_pushback
-	if is_on_wall_only() and Input.is_action_just_pressed("move_left"):
+
+		wall_dust = wall_dust_effect_scene.instantiate()
+		wall_dust.global_position = global_position + Vector2(2, 0)
+		wall_dust.rotation_degrees = 90
+
+	# Wall jump left
+	elif is_on_wall_only() and Input.is_action_just_pressed("move_left"):
 		velocity.y = JUMP_VELOCITY
 		velocity.x = wall_pushback
-		
+
+		wall_dust = wall_dust_effect_scene.instantiate()
+		wall_dust.global_position = global_position + Vector2(-2, 0)
+		wall_dust.rotation_degrees = -90
+
+	# If we spawned one, add to scene and play
+	if wall_dust:
+		get_tree().current_scene.add_child(wall_dust)
+		wall_dust.play("wall_dust")
+		wall_dust.connect("animation_finished", Callable(wall_dust, "queue_free"))
+
 	wallSlide(delta)
 	
 	
@@ -253,15 +291,21 @@ func dash(direction):
 	#health and damage
 func decreaseHealth(n, ignore_invincibility: bool = false):
 	if ignore_invincibility or invincibilityTimer.is_stopped():
-		if not ignore_invincibility:
-			invincibilityTimer.start()
-		animated_sprite.play("take_damage")
-		
 		#plays hurt sound
 		sound_effect_player.stream = hurt_sound
 		sound_effect_player.play()
+
+		if shield_bar.value > 0:
+			decreaseShield(n)
+			return
+		if not ignore_invincibility:
+			invincibilityTimer.start()
+		animated_sprite.play("take_damage")
+		health_bar.value = player_level_global.health
 		
+
 		player_level_global.health -= n
+		print("player took damage:", player_level_global.health)
 		healthBar.value = player_level_global.health
 		if player_level_global.health <= 0:
 			is_dead = true
@@ -320,7 +364,26 @@ func increaseHealth(n):
 	healthBar.value = player_level_global.health
 	print("health raised to: ", player_level_global.health)
 
-
+	
+func increaseShield(n):
+	shield += n
+	if shield > 0:
+		shield_bar.visible = true
+	if shield > 200:
+		shield = 200
+	shield_bar.value = shield
+	print("shiled raised to: ", shield)
+	
+func decreaseShield(n, ignore_invincibility: bool = false):
+	if ignore_invincibility or invincibilityTimer.is_stopped():
+		if not ignore_invincibility:
+			invincibilityTimer.start()
+		animated_sprite.play("take_damage")
+		shield -= n
+		shield_bar.value = shield
+		if shield <= 0:
+			shield_bar.visible = false
+	
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	body_last_collided = area.get_parent()
 	#print(body_last_collided)
