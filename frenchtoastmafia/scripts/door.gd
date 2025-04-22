@@ -4,8 +4,8 @@ extends Area2D
 func _ready(): 
 	pass
 
-func _input(event):      #KEY TO ENTER DOORS IS "ENTER/RETURN"
-	if event.is_action_pressed("ui_accept"): 
+func _input(event):      #KEY TO ENTER DOORS IS "i"
+	if event.is_action_pressed("interact"): 
 		if get_overlapping_bodies().size() > 0: 	
 			#unlock next level based on which one was just at
 			match level_unlock_status.currentLevel:
