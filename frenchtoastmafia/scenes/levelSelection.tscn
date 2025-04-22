@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://d1tjmvrjjaiue"]
+[gd_scene load_steps=12 format=3 uid="uid://d1tjmvrjjaiue"]
 
-[ext_resource type="Texture2D" uid="uid://c1rxwmy63bjhu" path="res://customAssets/button.png" id="1_jlyfr"]
+[ext_resource type="Texture2D" uid="uid://cvyba1cmah3am" path="res://customAssets/button.png" id="1_jlyfr"]
 [ext_resource type="Script" path="res://scenes/level_selection.gd" id="1_xtr1o"]
 [ext_resource type="Script" path="res://scripts/levelSelectionButton0.gd" id="2_7q6es"]
-[ext_resource type="AudioStream" uid="uid://cmw75nyxjwwhv" path="res://assets/music/level-select-music.wav" id="2_cytvr"]
+[ext_resource type="AudioStream" uid="uid://dmvotmss1xln7" path="res://assets/music/level-select-music.wav" id="2_cytvr"]
 [ext_resource type="Script" path="res://scripts/levelSelectionButton1.gd" id="3_anfix"]
 [ext_resource type="Script" path="res://scenes/shop_selection_button.gd" id="4_pi56j"]
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="4_tfh5p"]
 [ext_resource type="Script" path="res://scenes/levelSelectionButton3.gd" id="7_mcddp"]
 [ext_resource type="Script" path="res://scripts/save_game.gd" id="9_prjw7"]
+[ext_resource type="Script" path="res://scripts/button_to_main_menu.gd" id="10_ndf8q"]
 
 [sub_resource type="GDScript" id="GDScript_6qdjr"]
 
@@ -78,7 +79,7 @@ script = SubResource("GDScript_6qdjr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
-theme_override_constants/separation = 52
+theme_override_constants/separation = 40
 
 [node name="row1" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -224,5 +225,12 @@ theme_override_colors/font_color = Color(0.839216, 0.32549, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "SAVE GAME"
 script = ExtResource("9_prjw7")
+
+[node name="main_menu" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.32549, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "MAIN MENU"
+script = ExtResource("10_ndf8q")
 
 [connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer/save" to="MarginContainer/CenterContainer/VBoxContainer/save" method="_on_pressed"]
