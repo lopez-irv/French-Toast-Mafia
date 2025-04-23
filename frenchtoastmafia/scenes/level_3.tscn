@@ -1,17 +1,17 @@
-[gd_scene load_steps=52 format=3 uid="uid://h7nf0ag6pw8s"]
+[gd_scene load_steps=53 format=3 uid="uid://h7nf0ag6pw8s"]
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_0s8ei"]
-[ext_resource type="Texture2D" uid="uid://1v8jcghbu8qk" path="res://Cave Tileset Pack/PNG files/CaveG.png" id="1_73y3v"]
-[ext_resource type="AudioStream" uid="uid://25twnduv4bpb" path="res://assets/sounds/dash-sound-effect.wav" id="2_anqya"]
-[ext_resource type="Texture2D" uid="uid://dknpy5m342cgl" path="res://Cave Tileset Pack/PNG files/CaveBG.png" id="2_u2lsd"]
+[ext_resource type="Texture2D" uid="uid://dacs5aiedwn68" path="res://Cave Tileset Pack/PNG files/CaveG.png" id="1_73y3v"]
+[ext_resource type="AudioStream" uid="uid://cmfiot85akslg" path="res://assets/sounds/dash-sound-effect.wav" id="2_anqya"]
+[ext_resource type="Texture2D" uid="uid://ctvb4scmmqbhi" path="res://Cave Tileset Pack/PNG files/CaveBG.png" id="2_u2lsd"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="3_w2gdy"]
-[ext_resource type="Texture2D" uid="uid://b7eyt4c56tnk1" path="res://customAssets/worldSet.png" id="5_8xf8j"]
+[ext_resource type="Texture2D" uid="uid://cwttcxvnsivjf" path="res://customAssets/worldSet.png" id="5_8xf8j"]
 [ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="5_kpt3k"]
-[ext_resource type="Texture2D" uid="uid://tldyksv8kwfo" path="res://customAssets/worldSet2.png" id="6_6dj1r"]
-[ext_resource type="AudioStream" uid="uid://cwcyvaku8s5f4" path="res://Cave Tileset Pack/ominous background music 1.mp3" id="12_itd2g"]
+[ext_resource type="Texture2D" uid="uid://cstsgucexkdpj" path="res://customAssets/worldSet2.png" id="6_6dj1r"]
+[ext_resource type="AudioStream" uid="uid://f7iarh4vua2y" path="res://Cave Tileset Pack/ominous background music 1.mp3" id="12_itd2g"]
 [ext_resource type="PackedScene" uid="uid://beko1ey73bn8j" path="res://knight.tscn" id="13_pfi2l"]
 [ext_resource type="PackedScene" uid="uid://fweojgfa7iad" path="res://scenes/green_round.tscn" id="14_yup3r"]
-[ext_resource type="Texture2D" uid="uid://dg6mdajenskco" path="res://seasonsAssets/background_/Solid_black.png" id="15_hyyeo"]
+[ext_resource type="Texture2D" uid="uid://chr3ou17ogevj" path="res://seasonsAssets/background_/Solid_black.png" id="15_hyyeo"]
 [ext_resource type="PackedScene" uid="uid://blh1o2k7uifv7" path="res://scenes/fruit_interact.tscn" id="15_lg6rh"]
 [ext_resource type="PackedScene" uid="uid://bxoqjpdnluhdp" path="res://scenes/bat.tscn" id="16_e8eq6"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="17_bf8ee"]
@@ -23,8 +23,9 @@
 [ext_resource type="Script" path="res://scenes/coin_label.gd" id="20_cbsr2"]
 [ext_resource type="Script" path="res://scripts/playerLevelLabel.gd" id="21_wy51g"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="23_se1f4"]
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="24_7477w"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="24_7477w"]
 [ext_resource type="PackedScene" uid="uid://crk3nqdr4nfco" path="res://stats_menu.tscn" id="25_ohams"]
+[ext_resource type="PackedScene" uid="uid://dgc1285fw7et7" path="res://scenes/key.tscn" id="26_s4mdw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0q7a2"]
 texture = ExtResource("1_73y3v")
@@ -4613,7 +4614,7 @@ bg_color = Color(0.0666667, 0.227451, 1, 1)
 script = ExtResource("1_0s8ei")
 
 [node name="player" parent="." instance=ExtResource("3_w2gdy")]
-position = Vector2(-21, 20)
+position = Vector2(-31, 12)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(2, 2)
@@ -5168,3 +5169,6 @@ max_value = 200.0
 show_percentage = false
 
 [node name="statsMenu" parent="." instance=ExtResource("25_ohams")]
+
+[node name="key" parent="." instance=ExtResource("26_s4mdw")]
+position = Vector2(-973, 907)

@@ -1,5 +1,8 @@
 extends Node
 
+var keyFlag = false		#shows if player has collected key in current level they're in
+
+var shop_level = false
 var level0 = false
 var level1 = false
 var level2 = false

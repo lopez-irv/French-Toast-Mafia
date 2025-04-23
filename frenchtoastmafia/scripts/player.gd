@@ -58,6 +58,7 @@ var dash_ready_sound = preload("res://assets/sounds/dashReady.wav")
 var dash_sound = preload("res://assets/sounds/dash-sound-effect.wav")
 var torch_on = preload("res://assets/sounds/torch_on.wav")
 var torch_off = preload("res://assets/sounds/torch_off.wav")
+var sword_sound = preload("res://assets/sounds/sword_sfx.wav")
 
 var current_skin := "default"
 
@@ -323,6 +324,9 @@ func decreaseHealth(n, ignore_invincibility: bool = false):
 func attack():
 	if not attacking:
 		attacking = true
+	
+		sound_effect_player.stream = sword_sound
+		sound_effect_player.play()
 		
 		# 🟢 Activate the correct hitbox
 		if facing_right:

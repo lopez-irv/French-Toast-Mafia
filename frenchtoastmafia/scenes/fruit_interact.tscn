@@ -88,17 +88,23 @@ mouse_filter = 2
 
 [node name="eat" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../exit")
+focus_neighbor_bottom = NodePath("../stash")
 text = "EAT
 "
 
 [node name="stash" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../eat")
+focus_neighbor_bottom = NodePath("../../exit")
 text = "STASH"
 
 [node name="exit" type="Button" parent="PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+focus_neighbor_top = NodePath("../VBoxContainer/stash")
+focus_neighbor_bottom = NodePath("../VBoxContainer/eat")
 text = "X"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
