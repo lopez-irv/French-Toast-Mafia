@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://d34p5hv1fx2og"]
+[gd_scene load_steps=17 format=3 uid="uid://d34p5hv1fx2og"]
 
-[ext_resource type="Texture2D" uid="uid://b7eyt4c56tnk1" path="res://customAssets/worldSet.png" id="1_gia1d"]
+[ext_resource type="Texture2D" uid="uid://cwttcxvnsivjf" path="res://customAssets/worldSet.png" id="1_gia1d"]
 [ext_resource type="Texture2D" uid="uid://gvrqi2116lr" path="res://assets/sprites/world_tileset.png" id="2_sg2ws"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="2_ys122"]
 [ext_resource type="PackedScene" uid="uid://cofutl83miiup" path="res://scenes/brown_platform.tscn" id="3_ia2s2"]
@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="4_v5t62"]
 [ext_resource type="PackedScene" uid="uid://bs1f4qabkgwf7" path="res://scenes/saw.tscn" id="5_6ijue"]
 [ext_resource type="PackedScene" uid="uid://tien5o0qs8hg" path="res://scenes/greenPlatform.tscn" id="6_iee4k"]
-[ext_resource type="AudioStream" uid="uid://bkaevw607brai" path="res://assets/music/level2-music.wav" id="9_c6pmn"]
+[ext_resource type="AudioStream" uid="uid://byelc6s7eckxb" path="res://assets/music/level2-music.wav" id="9_c6pmn"]
 [ext_resource type="PackedScene" uid="uid://crk3nqdr4nfco" path="res://stats_menu.tscn" id="10_a5vgf"]
+[ext_resource type="PackedScene" uid="uid://dgc1285fw7et7" path="res://scenes/key.tscn" id="11_rfvvj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k8r7r"]
 texture = ExtResource("1_gia1d")
@@ -1346,3 +1347,6 @@ stream = ExtResource("9_c6pmn")
 autoplay = true
 
 [node name="statsMenu" parent="." instance=ExtResource("10_a5vgf")]
+
+[node name="key" parent="." instance=ExtResource("11_rfvvj")]
+position = Vector2(678, -118)
