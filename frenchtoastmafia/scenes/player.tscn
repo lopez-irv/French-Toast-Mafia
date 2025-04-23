@@ -35,6 +35,7 @@ inv = ExtResource("2_3yveb")
 position = Vector2(0, -15)
 sprite_frames = ExtResource("3_1p6ff")
 animation = &"wall_slide"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(0, -8)

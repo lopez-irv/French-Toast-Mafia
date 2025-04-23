@@ -191,9 +191,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cr8wl")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -210,7 +210,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -239,7 +239,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"roll",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -292,7 +292,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -310,9 +310,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wk4rm")
 }],
-"loop": true,
+"loop": false,
 "name": &"sword_attack",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -327,7 +327,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bryfv")
 }],
-"loop": true,
+"loop": false,
 "name": &"take_damage",
 "speed": 5.0
 }, {
