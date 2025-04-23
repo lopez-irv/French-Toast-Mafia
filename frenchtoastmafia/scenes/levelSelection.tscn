@@ -221,14 +221,14 @@ script = ExtResource("4_pi56j")
 
 [node name="save" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.839216, 0.32549, 0, 1)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "SAVE GAME"
 script = ExtResource("9_prjw7")
 
 [node name="main_menu" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.839216, 0.32549, 0, 1)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "MAIN MENU"
 script = ExtResource("10_ndf8q")
