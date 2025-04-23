@@ -59,6 +59,8 @@ var dash_sound = preload("res://assets/sounds/dash-sound-effect.wav")
 var torch_on = preload("res://assets/sounds/torch_on.wav")
 var torch_off = preload("res://assets/sounds/torch_off.wav")
 
+var current_skin := "default"
+
 func _ready():
 	#print("health is", )
 	# Make sure sword hitbox is off at the start
@@ -73,6 +75,9 @@ func _ready():
 	
 	healthBar.max_value = player_level_global.healthCap
 	healthBar.value = player_level_global.health
+	set_skin("blue-red-aqua")
+	
+	
 	
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -467,3 +472,15 @@ func equip_torch():
 		torch.visible = true
 		sound_effect_player.stream = torch_on
 		sound_effect_player.play()
+
+
+func set_skin(skin_name: String):
+	var path = "res://Resources/skins/%s.tres" % skin_name
+	#print(path)
+	if ResourceLoader.exists(path):
+		var sprite_frames = load(path) as SpriteFrames
+		animated_sprite.sprite_frames = sprite_frames
+		current_skin = skin_name
+		print("✅ Skin set to:", skin_name)
+	else:
+		print("❌ Skin not found:", path)
