@@ -6,6 +6,7 @@ var input_locked := false  # prevent toggling right after opening
 
 
 func _ready():
+
 	$AnimationPlayer.play("RESET")
 	visible = false
 
@@ -16,6 +17,7 @@ func resume():
 	visible = false
 
 func pause():
+	$PanelContainer/VBoxContainer/eat.grab_focus()
 	#print("💬 Interact menu pause() called — visible set to true")
 	visible = true
 	#raise()
