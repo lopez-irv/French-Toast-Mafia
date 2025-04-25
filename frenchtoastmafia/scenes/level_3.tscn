@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://h7nf0ag6pw8s"]
+[gd_scene load_steps=54 format=3 uid="uid://h7nf0ag6pw8s"]
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_0s8ei"]
 [ext_resource type="Texture2D" uid="uid://dacs5aiedwn68" path="res://Cave Tileset Pack/PNG files/CaveG.png" id="1_73y3v"]
@@ -23,9 +23,10 @@
 [ext_resource type="Script" path="res://scenes/coin_label.gd" id="20_cbsr2"]
 [ext_resource type="Script" path="res://scripts/playerLevelLabel.gd" id="21_wy51g"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="23_se1f4"]
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="24_7477w"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="24_7477w"]
 [ext_resource type="PackedScene" uid="uid://crk3nqdr4nfco" path="res://stats_menu.tscn" id="25_ohams"]
 [ext_resource type="PackedScene" uid="uid://dgc1285fw7et7" path="res://scenes/key.tscn" id="26_s4mdw"]
+[ext_resource type="PackedScene" uid="uid://2wrqiu3fgiq7" path="res://scenes/red_coin.tscn" id="27_b0vb7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0q7a2"]
 texture = ExtResource("1_73y3v")
@@ -5172,3 +5173,18 @@ show_percentage = false
 
 [node name="key" parent="." instance=ExtResource("26_s4mdw")]
 position = Vector2(-973, 907)
+
+[node name="Red_Coin" parent="." instance=ExtResource("27_b0vb7")]
+position = Vector2(1009, -70)
+
+[node name="Red_Coin2" parent="." instance=ExtResource("27_b0vb7")]
+position = Vector2(3210, 799)
+
+[node name="Red_Coin3" parent="." instance=ExtResource("27_b0vb7")]
+position = Vector2(-850, 1783)
+
+[node name="Red_Coin4" parent="." instance=ExtResource("27_b0vb7")]
+position = Vector2(-1254, 523)
+
+[node name="Red_Coin5" parent="." instance=ExtResource("27_b0vb7")]
+position = Vector2(349, 1195)
