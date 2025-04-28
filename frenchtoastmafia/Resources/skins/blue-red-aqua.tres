@@ -1,8 +1,8 @@
 [gd_resource type="SpriteFrames" load_steps=47 format=3 uid="uid://tavvf5tiyvx8"]
 
-[ext_resource type="Texture2D" uid="uid://b3hsxvqjjamyk" path="res://assets/sprites/knight_alt/knight-blue-red-aqua.png" id="1_q0cg8"]
-[ext_resource type="Texture2D" uid="uid://deeojrspk3657" path="res://assets/sprites/knight_alt/attack-blue-red-aqua.png" id="2_qrhys"]
-[ext_resource type="Texture2D" uid="uid://b2rl33031egj8" path="res://assets/sprites/knight_alt/slide-blue-red-aqua.png" id="3_sm31p"]
+[ext_resource type="Texture2D" uid="uid://bqrgslktjgu5v" path="res://assets/sprites/knight_alt/knight-blue-red-aqua.png" id="1_q0cg8"]
+[ext_resource type="Texture2D" uid="uid://b5sdccomqrvip" path="res://assets/sprites/knight_alt/attack-blue-red-aqua.png" id="2_qrhys"]
+[ext_resource type="Texture2D" uid="uid://8rp2u5cuennw" path="res://assets/sprites/knight_alt/slide-blue-red-aqua.png" id="3_sm31p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5qtxr"]
 atlas = ExtResource("1_q0cg8")

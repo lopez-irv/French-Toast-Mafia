@@ -70,13 +70,17 @@ func _ready():
 	# Make sure sword hitbox is off at the start
 	$SwordHitboxLeft.monitoring = false
 	$SwordHitboxLeft.get_node("CollisionShape2D").disabled = true
+	$swordHitboxUp.monitoring = false
+	$swordHitboxUp.get_node("CollisionShape2D").disabled = true
+	$swordHitboxDown.monitoring = false
+	$swordHitboxDown.get_node("CollisionShape2D").disabled = true
 	if shield_bar:
 		shield_bar.visible = false
 	torch.visible = false
 	
 	healthBar.max_value = player_level_global.healthCap
 	healthBar.value = player_level_global.health
-	set_skin("blue-red-aqua")
+	#set_skin("blue-red-aqua")
 	
 	
 	
@@ -321,44 +325,76 @@ func decreaseHealth(n, ignore_invincibility: bool = false):
 			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 			player_level_global.health = player_level_global.healthCap
 
-func attack():
-	if not attacking:
-		attacking = true
-	
-		sound_effect_player.stream = sword_sound
-		sound_effect_player.play()
-		
-		# 🟢 Activate the correct hitbox
-		if facing_right:
-			$SwordHitbox.monitoring = true
-			$SwordHitbox.get_node("CollisionShape2D").disabled = false
-		else:
-			$SwordHitboxLeft.monitoring = true
-			$SwordHitboxLeft.get_node("CollisionShape2D").disabled = false
+func attack(attack_type: String = "normal") -> void:
+	#print("im in attack")
+	if attacking:
+		return
 
-		# 🔥 Play attack animation
-		animated_sprite.play("sword_attack")
+	attacking = true
+	sound_effect_player.stream = sword_sound
+	sound_effect_player.play()
 
-		# Wait for the animation OR a short timeout as a fallback
-		var timer := get_tree().create_timer(0.4)
-		await animated_sprite.animation_finished or timer.timeout
+	# 🔥 First, deactivate ALL hitboxes (safety first)
+	$SwordHitbox.monitoring = false
+	$SwordHitbox.get_node("CollisionShape2D").disabled = true
+	$SwordHitboxLeft.monitoring = false
+	$SwordHitboxLeft.get_node("CollisionShape2D").disabled = true
+	$swordHitboxUp.monitoring = false
+	$swordHitboxUp.get_node("CollisionShape2D").disabled = true
+	$swordHitboxDown.monitoring = false
+	$swordHitboxDown.get_node("CollisionShape2D").disabled = true
+	#print("i made it past the first chunk")
+	# 🔥 Activate the correct hitbox and play the correct animation
+	# 🔥 Now use the attack_type to decide
+	match attack_type:
+		"attack_up":
+			$swordHitboxUp.monitoring = true
+			$swordHitboxUp.get_node("CollisionShape2D").disabled = false
+			animated_sprite.play("attack_up")
+		"attack_down":
+			$swordHitboxDown.monitoring = true
+			$swordHitboxDown.get_node("CollisionShape2D").disabled = false
+			animated_sprite.play("attack_down")
+		"normal":
+			if facing_right:
+				$SwordHitbox.monitoring = true
+				$SwordHitbox.get_node("CollisionShape2D").disabled = false
+			else:
+				$SwordHitboxLeft.monitoring = true
+				$SwordHitboxLeft.get_node("CollisionShape2D").disabled = false
+			animated_sprite.play("sword_attack")
 
-		# 🔴 Cleanup
-		$SwordHitbox.monitoring = false
-		$SwordHitbox.get_node("CollisionShape2D").disabled = true
-		$SwordHitboxLeft.monitoring = false
-		$SwordHitboxLeft.get_node("CollisionShape2D").disabled = true
 
-		attacking = false
+
+	# 🕑 Wait for the animation OR timeout fallback
+	var timer := get_tree().create_timer(0.4)
+	await animated_sprite.animation_finished or timer.timeout
+
+	# 🔴 After attack, disable all hitboxes
+	$SwordHitbox.monitoring = false
+	$SwordHitbox.get_node("CollisionShape2D").disabled = true
+	$SwordHitboxLeft.monitoring = false
+	$SwordHitboxLeft.get_node("CollisionShape2D").disabled = true
+	$swordHitboxUp.monitoring = false
+	$swordHitboxUp.get_node("CollisionShape2D").disabled = true
+	$swordHitboxDown.monitoring = false
+	$swordHitboxDown.get_node("CollisionShape2D").disabled = true
+
+	attacking = false
+
 
 
 
 func _process(delta: float) -> void:
 	if is_dead:
 		return
-	if Input.is_action_just_pressed("attack"):
-		attack()
-	# If no animation is playing, ensure the default animation plays
+	if Input.is_action_just_pressed("attackUp"):
+		attack("attack_up")
+	elif Input.is_action_just_pressed("attackDown"):
+		attack("attack_down")
+	elif Input.is_action_just_pressed("attack"):
+		attack("normal")
+
 	if not animated_sprite.is_playing():
 		animated_sprite.play("idle")
 

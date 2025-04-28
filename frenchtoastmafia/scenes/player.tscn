@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7jc5m7bfpa3l"]
+[gd_scene load_steps=16 format=3 uid="uid://c7jc5m7bfpa3l"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_407jq"]
 [ext_resource type="Resource" uid="uid://c58tb8w1fpjvm" path="res://Resources/players_inventory.tres" id="2_3yveb"]
@@ -24,6 +24,12 @@ size = Vector2(9, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73lux"]
 size = Vector2(14.5, 15.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6h58v"]
+size = Vector2(22.25, 16.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_385wo"]
+size = Vector2(22, 16)
+
 [node name="player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 collision_layer = 2
@@ -34,8 +40,10 @@ inv = ExtResource("2_3yveb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 position = Vector2(0, -15)
 sprite_frames = ExtResource("3_1p6ff")
-animation = &"wall_slide"
+animation = &"sword_attack"
 autoplay = "idle"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(0, -8)
@@ -100,6 +108,22 @@ script = ExtResource("8_g5yw5")
 position = Vector2(8, -13)
 rotation = 0.403171
 
+[node name="swordHitboxUp" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="swordHitboxUp"]
+position = Vector2(-1, -24)
+shape = SubResource("RectangleShape2D_6h58v")
+
+[node name="swordHitboxDown" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="swordHitboxDown"]
+position = Vector2(-1, 7)
+shape = SubResource("RectangleShape2D_385wo")
+
 [connection signal="area_entered" from="Area2d" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2d" to="." method="_on_area_2d_area_exited"]
 [connection signal="timeout" from="dashCooldown" to="." method="_on_dash_cooldown_timeout"]
@@ -107,3 +131,5 @@ rotation = 0.403171
 [connection signal="body_entered" from="SwordHitbox" to="." method="_on_sword_hitbox_body_entered"]
 [connection signal="area_entered" from="SwordHitboxLeft" to="." method="_on_sword_hitbox_area_entered"]
 [connection signal="body_entered" from="SwordHitboxLeft" to="." method="_on_sword_hitbox_body_entered"]
+[connection signal="body_entered" from="swordHitboxUp" to="." method="_on_sword_hitbox_body_entered"]
+[connection signal="body_entered" from="swordHitboxDown" to="." method="_on_sword_hitbox_body_entered"]

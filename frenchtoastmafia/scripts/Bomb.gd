@@ -41,11 +41,11 @@ func _on_StartDetector_body_entered(body: Node) -> void:
 		is_boom = true
 
 func _on_BoomDetector_body_entered(body: Node) -> void:
-	print("im in _on_BoomDetector_body_entered ", body)
+	#print("im in _on_BoomDetector_body_entered ", body)
 	if body.has_method("take_damage"): #enemies will also take damage from bombs
 		body.take_damage(100)
 	if body.is_in_group("Player") and body.has_method("decreaseHealth"):
-		print("player should decrease health now")
+		#print("player should decrease health now")
 		body.decreaseHealth(20)
 
 func _on_StartDetecting_timeout() -> void:
