@@ -1,0 +1,259 @@
+[gd_scene load_steps=19 format=3 uid="uid://bc66d7f8jrygn"]
+
+[ext_resource type="Script" path="res://scripts/Pig.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dnkmm3wdp0jtf" path="res://seasonsAssets/05-Pig Thowing a Bomb/pig.png" id="2"]
+[ext_resource type="AudioStream" uid="uid://dsaky4eph1e0k" path="res://seasonsAssets/05-Pig Thowing a Bomb/pig_attack.wav" id="3"]
+[ext_resource type="AudioStream" uid="uid://cnwaug8w38ug3" path="res://seasonsAssets/05-Pig Thowing a Bomb/pig_die.wav" id="4"]
+
+[sub_resource type="Animation" id="1"]
+resource_name = "Attack"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EffectPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="2"]
+resource_name = "Dead"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 13, 14]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EffectPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"check_body_free"
+}]
+}
+
+[sub_resource type="Animation" id="3"]
+resource_name = "Fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [22]
+}
+
+[sub_resource type="Animation" id="4"]
+resource_name = "Ground"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [33]
+}
+
+[sub_resource type="Animation" id="5"]
+resource_name = "Hit"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [44, 45]
+}
+
+[sub_resource type="Animation" id="6"]
+resource_name = "Idle"
+length = 1.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65]
+}
+
+[sub_resource type="Animation" id="7"]
+resource_name = "Jump"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [66]
+}
+
+[sub_resource type="Animation" id="8"]
+resource_name = "Run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [77, 78, 79, 80, 81, 82]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nf58n"]
+_data = {
+"Attack": SubResource("1"),
+"Dead": SubResource("2"),
+"Fall": SubResource("3"),
+"Ground": SubResource("4"),
+"Hit": SubResource("5"),
+"Idle": SubResource("6"),
+"Jump": SubResource("7"),
+"Run": SubResource("8")
+}
+
+[sub_resource type="RectangleShape2D" id="9"]
+size = Vector2(16, 14)
+
+[sub_resource type="RectangleShape2D" id="10"]
+size = Vector2(22, 2)
+
+[sub_resource type="RectangleShape2D" id="11"]
+size = Vector2(26, 14)
+
+[sub_resource type="Animation" id="12"]
+resource_name = "Normal"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ewsbi"]
+_data = {
+"Normal": SubResource("12")
+}
+
+[node name="Pig" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(2, -14)
+texture = ExtResource("2")
+hframes = 11
+vframes = 8
+frame = 14
+
+[node name="ani" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nf58n")
+}
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, -7)
+shape = SubResource("9")
+
+[node name="StompDetector" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
+modulate = Color(0.0784314, 0, 1, 1)
+position = Vector2(5, -15)
+rotation = 3.14159
+shape = SubResource("10")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(5, -6)
+rotation = 3.14159
+shape = SubResource("11")
+
+[node name="EffectPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3")
+volume_db = -3.0
+
+[node name="Color" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ewsbi")
+}
+
+[connection signal="body_entered" from="StompDetector" to="." method="_on_StompDetector_body_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]

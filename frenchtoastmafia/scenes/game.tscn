@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=44 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_gwgku"]
@@ -7,15 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="2_nycdd"]
 [ext_resource type="PackedScene" uid="uid://tien5o0qs8hg" path="res://scenes/greenPlatform.tscn" id="3_kqtp4"]
 [ext_resource type="PackedScene" uid="uid://cuuw0dg1lhj6c" path="res://scenes/coin.tscn" id="4_affm7"]
-[ext_resource type="AudioStream" uid="uid://cmfiot85akslg" path="res://assets/sounds/dash-sound-effect.wav" id="5_8pi8e"]
+[ext_resource type="AudioStream" uid="uid://cxcosh4e4j2yc" path="res://assets/sounds/dash-sound-effect.wav" id="5_8pi8e"]
 [ext_resource type="PackedScene" uid="uid://bwkoodbj4wv5l" path="res://scenes/slime.tscn" id="5_pt8g3"]
 [ext_resource type="PackedScene" uid="uid://beko1ey73bn8j" path="res://knight.tscn" id="5_wuehp"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_n6sfx"]
 [ext_resource type="AudioStream" uid="uid://cgds5wjvg3so1" path="res://assets/music/Vindsvept CC 4.0 License.wav" id="7_lglbo"]
-[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="8_ybwu0"]
-[ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assests/backgrounds/background_layer_2.png" id="9_vx7va"]
-[ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assests/backgrounds/background_layer_3.png" id="10_dlu7f"]
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
+[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assets/backgrounds/background_layer_1.png" id="8_ybwu0"]
+[ext_resource type="Texture2D" uid="uid://dx8tlnk4g2lhw" path="res://assets/backgrounds/background_layer_2.png" id="9_vx7va"]
+[ext_resource type="Texture2D" uid="uid://dyv43iwgq6gko" path="res://assets/backgrounds/background_layer_3.png" id="10_dlu7f"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="14_dtybv"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="15_bfv41"]
 [ext_resource type="PackedScene" uid="uid://d3bnr08tlp7c" path="res://scenes/spikes.tscn" id="16_1wqr5"]
 [ext_resource type="PackedScene" uid="uid://dkxfosfghq5k" path="res://scenes/checkpoint_statue.tscn" id="18_gc304"]
@@ -28,11 +28,12 @@
 [ext_resource type="PackedScene" uid="uid://cqdxu46j7jm7r" path="res://scenes/door.tscn" id="24_was7h"]
 [ext_resource type="PackedScene" uid="uid://c2rcd3n3d5dce" path="res://scenes/purpleSlime.tscn" id="27_tldwx"]
 [ext_resource type="PackedScene" uid="uid://yiwaxw7m2xlj" path="res://scenes/lavaTile.tscn" id="28_1utv4"]
-[ext_resource type="PackedScene" path="res://scenes/shield.tscn" id="29_to1t4"]
+[ext_resource type="PackedScene" uid="uid://ctxf8ypxxn00n" path="res://scenes/shield.tscn" id="29_to1t4"]
 [ext_resource type="PackedScene" uid="uid://crk3nqdr4nfco" path="res://stats_menu.tscn" id="30_56bgn"]
 [ext_resource type="PackedScene" uid="uid://dgc1285fw7et7" path="res://scenes/key.tscn" id="31_ibjwo"]
+[ext_resource type="PackedScene" uid="uid://du1prtitnulg7" path="res://scenes/PigWithBomb.tscn" id="32_uqpg5"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btumb"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcob4"]
 texture = ExtResource("2_c0vy0")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -194,7 +195,7 @@ texture = ExtResource("2_c0vy0")
 
 [sub_resource type="TileSet" id="TileSet_s2s8e"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_btumb")
+sources/0 = SubResource("TileSetAtlasSource_wcob4")
 
 [sub_resource type="Animation" id="Animation_s8kf2"]
 length = 0.001
@@ -300,10 +301,10 @@ layer_0/tile_data = PackedInt32Array(65535, 0, 0, 0, 0, 0, 131071, 0, 1, 196607,
 [node name="coins" type="Node" parent="."]
 
 [node name="Coin" parent="coins" instance=ExtResource("4_affm7")]
-position = Vector2(59, -85)
+position = Vector2(56, -86)
 
 [node name="Coin12" parent="coins" instance=ExtResource("4_affm7")]
-position = Vector2(59, -85)
+position = Vector2(-8, -125)
 
 [node name="Coin10" parent="coins" instance=ExtResource("4_affm7")]
 position = Vector2(128, 25)
@@ -345,9 +346,6 @@ libraries = {
 "": SubResource("AnimationLibrary_xcy5x")
 }
 autoplay = "move"
-
-[node name="greenPlatform2" parent="Platforms" instance=ExtResource("3_kqtp4")]
-position = Vector2(-9, -43)
 
 [node name="slime" parent="." instance=ExtResource("5_pt8g3")]
 position = Vector2(130, -60)
@@ -510,9 +508,6 @@ position = Vector2(808, -23)
 [node name="lavaTile4" parent="." instance=ExtResource("28_1utv4")]
 position = Vector2(840, -23)
 
-[node name="Knight2" parent="." instance=ExtResource("5_wuehp")]
-position = Vector2(73, -100)
-
 [node name="Knight3" parent="." instance=ExtResource("5_wuehp")]
 position = Vector2(234, -53)
 
@@ -544,3 +539,9 @@ position = Vector2(-41, 27)
 
 [node name="key" parent="." instance=ExtResource("31_ibjwo")]
 position = Vector2(665, -406)
+
+[node name="PigWithBomb" parent="." instance=ExtResource("32_uqpg5")]
+position = Vector2(427, 0)
+
+[node name="PigWithBomb2" parent="." instance=ExtResource("32_uqpg5")]
+position = Vector2(1453, -192)
