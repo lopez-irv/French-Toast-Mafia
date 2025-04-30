@@ -45,6 +45,8 @@ const DASH_WHILE_STILL = 800	#what to change velocity to when dashing while not 
 const DASH_WHILE_MOVING = 800	#what to change speed to when dashing while moving
 const DASH_LENGTH = .1
 
+var controls_enabled: bool = true
+
 # Footstep sound and tilemap for footsteps
 @onready var tilemap = $"../TileMap"
 @onready var footstep_sound = $FootstepAudioPlayer
@@ -86,6 +88,8 @@ func _ready():
 	
 func _physics_process(delta: float) -> void:
 	if is_dead:
+		return
+	if not controls_enabled: 
 		return
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -387,6 +391,8 @@ func attack(attack_type: String = "normal") -> void:
 
 func _process(delta: float) -> void:
 	if is_dead:
+		return
+	if not controls_enabled: 
 		return
 	if Input.is_action_just_pressed("attackUp"):
 		attack("attack_up")
