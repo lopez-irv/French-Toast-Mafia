@@ -328,6 +328,17 @@ func decreaseHealth(n, ignore_invincibility: bool = false):
 			await animated_sprite.animation_finished
 			get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 			player_level_global.health = player_level_global.healthCap
+			
+func determine_attack_type() -> String:
+	# Attack down if holding down
+	if Input.is_action_pressed("move_down"):
+		return "attack_down"
+	# Attack up if in air
+	elif Input.is_action_pressed("jump"):
+		return "attack_up"
+	# Otherwise, normal attack (left/right)
+	else:
+		return "normal"
 
 func attack(attack_type: String = "normal") -> void:
 	#print("im in attack")
@@ -401,9 +412,12 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_pressed("attack"):
 		attack("normal")
 
+	if Input.is_action_just_pressed("attack"):
+		var attack_type := determine_attack_type()
+		attack(attack_type)
+
 	if not animated_sprite.is_playing():
 		animated_sprite.play("idle")
-
 
 func increaseHealth(n):
 	player_level_global.health += n
