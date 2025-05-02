@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	
 	if state == State.MOVING:
 		set_animation()
-		set_flip()
+		#set_flip()
 
 func _on_StompDetector_body_entered(body: Node) -> void:
 	var stomp_y = $StompDetector/CollisionShape2D.global_position.y + $StompDetector/CollisionShape2D.shape.extents.y
@@ -55,10 +55,10 @@ func _on_StompDetector_body_entered(body: Node) -> void:
 func _on_PlayerDetector_body_entered(body: Node) -> void:
 	if $ani:
 		$ani.play("Attack")
-	if body.global_position.x > global_position.x:
-		flip(true)
-	else:
-		flip(false)
+	#if body.global_position.x > global_position.x:
+	#	flip(true)
+	#else:
+		#flip(false)
 
 	state = State.STOP
 	if body.has_method("die"):
@@ -114,8 +114,8 @@ func set_animation() -> void:
 
 	anim_play(anim_name)
 
-func set_flip() -> void:
-	if velocity.x == 0:
+func set_flip(force: bool = false) -> void:
+	if not force and velocity.x == 0:
 		return
 	var is_flipped = velocity.x > 0
 	flip(is_flipped)
