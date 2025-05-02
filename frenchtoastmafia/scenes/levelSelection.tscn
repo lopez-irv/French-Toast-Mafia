@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1tjmvrjjaiue"]
+[gd_scene load_steps=13 format=3 uid="uid://d1tjmvrjjaiue"]
 
 [ext_resource type="Texture2D" uid="uid://cvyba1cmah3am" path="res://customAssets/button.png" id="1_jlyfr"]
 [ext_resource type="Script" path="res://scenes/level_selection.gd" id="1_xtr1o"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/shop_selection_button.gd" id="4_pi56j"]
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="4_tfh5p"]
 [ext_resource type="Script" path="res://scenes/levelSelectionButton3.gd" id="7_mcddp"]
+[ext_resource type="Script" path="res://scripts/level_4.gd" id="8_3fa05"]
 [ext_resource type="Script" path="res://scripts/save_game.gd" id="9_prjw7"]
 [ext_resource type="Script" path="res://scripts/button_to_main_menu.gd" id="10_ndf8q"]
 
@@ -130,6 +131,7 @@ theme_override_font_sizes/font_size = 32
 text = "4
 "
 icon = ExtResource("1_jlyfr")
+script = ExtResource("8_3fa05")
 
 [node name="row2" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2

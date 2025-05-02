@@ -26,7 +26,7 @@ func _input(event):      #KEY TO ENTER DOORS IS "i"
 					if LevelCompletionStatus.keyFlag == true:
 						LevelCompletionStatus.level2 = true
 				3: 
-					level_unlock_status.level4 = true
+					#level_unlock_status.level4 = true #don't unlock boss level unless have all keys
 					if LevelCompletionStatus.keyFlag == true:
 						LevelCompletionStatus.level3 = true
 				4: 
@@ -45,7 +45,7 @@ func _input(event):      #KEY TO ENTER DOORS IS "i"
 			door_sfx.play()
 			next_level()
 			
-func next_level():                 #CHANGE ME LATER TO WORK FOR ALL SCENES
+func next_level():             
 	
 	SceneTransition.change_scene_to_file("res://scenes/levelSelection.tscn", "circle")
 	
