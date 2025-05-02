@@ -88,6 +88,9 @@ theme_override_constants/separation = 32
 
 [node name="level0" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row1"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../main_menu")
+focus_neighbor_right = NodePath("../level1")
+focus_neighbor_bottom = NodePath("../../row2/Button")
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "0
@@ -97,6 +100,10 @@ script = ExtResource("2_7q6es")
 
 [node name="level1" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row1"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../level0")
+focus_neighbor_top = NodePath("../../main_menu")
+focus_neighbor_right = NodePath("../level2")
+focus_neighbor_bottom = NodePath("../../row2/Button2")
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "1
@@ -106,6 +113,10 @@ script = ExtResource("3_anfix")
 
 [node name="level2" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row1"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../level1")
+focus_neighbor_top = NodePath("../../main_menu")
+focus_neighbor_right = NodePath("../level3")
+focus_neighbor_bottom = NodePath("../../row2/Button3")
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "2
@@ -115,6 +126,10 @@ script = ExtResource("4_tfh5p")
 
 [node name="level3" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer/row1"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../level2")
+focus_neighbor_top = NodePath("../../main_menu")
+focus_neighbor_right = NodePath("../level4")
+focus_neighbor_bottom = NodePath("../../row2/Button4")
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "3
@@ -126,6 +141,9 @@ script = ExtResource("7_mcddp")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_neighbor_left = NodePath("../level3")
+focus_neighbor_top = NodePath("../../main_menu")
+focus_neighbor_bottom = NodePath("../../row2/Button5")
 theme_override_colors/font_color = Color(0.84024, 0.324211, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "4
@@ -230,6 +248,7 @@ script = ExtResource("9_prjw7")
 
 [node name="main_menu" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer"]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../row1/level0")
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "MAIN MENU"
