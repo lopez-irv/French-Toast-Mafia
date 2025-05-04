@@ -7,13 +7,13 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player := get_tree().get_first_node_in_group("Player")
 @onready var hit_sound = $HitSoundPlayer
-@export var max_health: int = 750
+@export var max_health: int = 1000
 @onready var healthBar: ProgressBar = $healthBar
 
 
 var attackName
 var isHit = false
-var health = 240
+var health = 1000
 var attacking = false
 var can_play = true
 var last_attack
@@ -219,7 +219,6 @@ func take_damage(amount: int) -> void:
 		await sprite.animation_finished
 		await get_tree().create_timer(0.2).timeout
 		queue_free()
-
 
 
 func _on_reached_half_health() -> void:
