@@ -173,7 +173,7 @@ func _on_hit_box_entered(body: Node2D) -> void:
 	print("hitbox entered by: ", body.name)
 	
 	if body.is_in_group("Player") and isHit == false:
-		player.decreaseHealth(10)
+		player.decreaseHealth(15)
 		
 func take_damage(amount: int) -> void:
 	if health <= 0 or isDead:

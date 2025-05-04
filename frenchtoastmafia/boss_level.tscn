@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dlih6sauh8jwk"]
+[gd_scene load_steps=23 format=3 uid="uid://dlih6sauh8jwk"]
 
 [ext_resource type="Script" path="res://boss_level.gd" id="1_1uke7"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_fsihh"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/playerLevelLabel.gd" id="11_r0yrb"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="12_ckkyh"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="13_8bk7h"]
+[ext_resource type="PackedScene" uid="uid://53e3qgishnxv" path="res://Archer.tscn" id="15_hbdy5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h07e3"]
 texture = ExtResource("3_u8y75")
@@ -2123,6 +2124,9 @@ show_percentage = false
 position = Vector2i(0, 36)
 size = Vector2i(161, 80)
 dialog_text = "Press B for Fireball"
+
+[node name="Archer" parent="." instance=ExtResource("15_hbdy5")]
+position = Vector2(-206, -96)
 
 [connection signal="canceled" from="HUD/FireballDialog" to="HUD" method="_on_FireballDialog_popup_hide"]
 [connection signal="confirmed" from="HUD/FireballDialog" to="HUD" method="_on_FireballDialog_confirmed"]
