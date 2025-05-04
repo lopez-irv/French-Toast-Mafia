@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://boss_level.gd" id="1_1uke7"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_fsihh"]
-[ext_resource type="AudioStream" uid="uid://i2kovfkswhfu" path="res://assets/sounds/dash-sound-effect.wav" id="2_s2x8r"]
-[ext_resource type="Texture2D" uid="uid://bjer58qqgk0wc" path="res://customAssets/boss/main_lev_build.png" id="3_u8y75"]
+[ext_resource type="AudioStream" uid="uid://cxcosh4e4j2yc" path="res://assets/sounds/dash-sound-effect.wav" id="2_s2x8r"]
+[ext_resource type="Texture2D" uid="uid://d1mgrc7kr8qng" path="res://customAssets/boss/main_lev_build.png" id="3_u8y75"]
 [ext_resource type="PackedScene" uid="uid://bebr2xepq2w1g" path="res://goblin_boss.tscn" id="4_3pdi3"]
 [ext_resource type="PackedScene" uid="uid://du1prtitnulg7" path="res://scenes/PigWithBomb.tscn" id="5_ux1f8"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="7_xbqui"]
@@ -2040,9 +2040,6 @@ position = Vector2(110, -31)
 [node name="PigWithBomb" parent="." instance=ExtResource("5_ux1f8")]
 position = Vector2(785, -145)
 flip_on_start = true
-
-[node name="PigWithBomb2" parent="." instance=ExtResource("5_ux1f8")]
-position = Vector2(-206, -81)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
