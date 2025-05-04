@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bd7dia5r3kepi"]
+[gd_scene load_steps=45 format=3 uid="uid://bd7dia5r3kepi"]
 
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_csu0g"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_gwgku"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dvo60vlq62fwc" path="res://scenes/pause_menu.tscn" id="2_nycdd"]
 [ext_resource type="PackedScene" uid="uid://tien5o0qs8hg" path="res://scenes/greenPlatform.tscn" id="3_kqtp4"]
 [ext_resource type="PackedScene" uid="uid://cuuw0dg1lhj6c" path="res://scenes/coin.tscn" id="4_affm7"]
-[ext_resource type="AudioStream" uid="uid://cxcosh4e4j2yc" path="res://assets/sounds/dash-sound-effect.wav" id="5_8pi8e"]
+[ext_resource type="AudioStream" uid="uid://i2kovfkswhfu" path="res://assets/sounds/dash-sound-effect.wav" id="5_8pi8e"]
 [ext_resource type="PackedScene" uid="uid://bwkoodbj4wv5l" path="res://scenes/slime.tscn" id="5_pt8g3"]
 [ext_resource type="PackedScene" uid="uid://beko1ey73bn8j" path="res://knight.tscn" id="5_wuehp"]
 [ext_resource type="PackedScene" uid="uid://bp2sn3owdek5b" path="res://scenes/killzone.tscn" id="6_n6sfx"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://crk3nqdr4nfco" path="res://stats_menu.tscn" id="30_56bgn"]
 [ext_resource type="PackedScene" uid="uid://dgc1285fw7et7" path="res://scenes/key.tscn" id="31_ibjwo"]
 [ext_resource type="PackedScene" uid="uid://du1prtitnulg7" path="res://scenes/PigWithBomb.tscn" id="32_uqpg5"]
+[ext_resource type="PackedScene" uid="uid://53e3qgishnxv" path="res://Archer.tscn" id="33_76jqm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcob4"]
 texture = ExtResource("2_c0vy0")
@@ -549,3 +550,6 @@ position = Vector2(1453, -192)
 [node name="PigWithBomb3" parent="." instance=ExtResource("32_uqpg5")]
 position = Vector2(755, -321)
 flip_on_start = true
+
+[node name="Archer" parent="." instance=ExtResource("33_76jqm")]
+position = Vector2(-113, 12)

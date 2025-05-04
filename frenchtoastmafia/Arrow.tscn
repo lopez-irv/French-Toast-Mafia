@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://xxb4y85w73tm"]
+
+[ext_resource type="Script" path="res://arrow.gd" id="1_8n4tl"]
+[ext_resource type="Texture2D" uid="uid://0jtx34gv1niu" path="res://assets/sprites/enemies/archer/Arrows_pack.png" id="2_prcs0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkilk"]
+size = Vector2(534, 135)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8wnw"]
+atlas = ExtResource("2_prcs0")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugadk"]
+atlas = ExtResource("2_prcs0")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnifq"]
+atlas = ExtResource("2_prcs0")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tflb1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8wnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugadk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnifq")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 12.0
+}]
+
+[node name="Arrow" type="Area2D"]
+scale = Vector2(0.05, 0.05)
+collision_layer = 5
+collision_mask = 2
+script = ExtResource("1_8n4tl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-49, -41.5)
+shape = SubResource("RectangleShape2D_rkilk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tflb1")
+animation = &"fly"
+frame_progress = 0.227029
+
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
