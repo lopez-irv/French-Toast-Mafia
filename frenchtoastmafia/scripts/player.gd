@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+# New Fireball
+@export var fireball_scene: PackedScene = preload("res://Fireball.tscn")
+@onready var fireball_cooldown_timer: Timer = $FireballCooldownTimer
+@export var fireball_damage: int = 50
+@export var fireball_unlocked: bool = false
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_timer: Timer = $DashTimer
 @onready var healthBar: ProgressBar = $healthBar
@@ -15,6 +21,10 @@ extends CharacterBody2D
 @export var inv: Inv
 @export var attacking = false # in the same animatedSprite2d as take_damage, 
 # we have an animation called sword_attack   , i want to play this animation
+
+func enable_fireball() -> void:
+	fireball_unlocked = true
+
 # when the attack button is pressed. 
 var hurt_sound = preload("res://assets/sounds/hurt.wav")
 var facing_right = false 
@@ -418,6 +428,10 @@ func _process(delta: float) -> void:
 
 	if not animated_sprite.is_playing():
 		animated_sprite.play("idle")
+		
+	if fireball_unlocked and Input.is_action_just_pressed("fire") and fireball_cooldown_timer.is_stopped():
+		_shoot_fireball()
+		fireball_cooldown_timer.start()
 
 func increaseHealth(n):
 	player_level_global.health += n
@@ -544,3 +558,21 @@ func set_skin(skin_name: String):
 		print("✅ Skin set to:", skin_name)
 	else:
 		print("❌ Skin not found:", path)
+
+func _shoot_fireball() -> void:
+	var fb = fireball_scene.instantiate() as Area2D
+
+	# spawn at torch (hand/face) instead of feet
+	fb.global_position = torch.global_position
+
+	fb.global_position = torch.global_position
+	fb.direction = Vector2.RIGHT if facing_right else Vector2.LEFT
+
+	fb.damage = fireball_damage
+
+	# flip sprite if you need
+	if fb.has_node("AnimatedSprite2D"):
+		var sp = fb.get_node("AnimatedSprite2D") as AnimatedSprite2D
+		sp.flip_h = not facing_right
+
+	get_tree().current_scene.add_child(fb)

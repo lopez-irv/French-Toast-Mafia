@@ -2125,6 +2125,7 @@ show_percentage = false
 [node name="FireballDialog" type="AcceptDialog" parent="HUD"]
 position = Vector2i(0, 36)
 size = Vector2i(161, 80)
+visible = true
 dialog_text = "Press B for Fireball"
 
 [connection signal="canceled" from="HUD/FireballDialog" to="HUD" method="_on_FireballDialog_popup_hide"]

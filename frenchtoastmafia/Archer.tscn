@@ -457,6 +457,8 @@ animations = [{
 size = Vector2(14, 38)
 
 [node name="Archer" type="CharacterBody2D"]
+scale = Vector2(0.75, 0.75)
+collision_layer = 5
 script = ExtResource("1_cm7we")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

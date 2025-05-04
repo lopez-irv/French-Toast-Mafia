@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dlih6sauh8jwk"]
+[gd_scene load_steps=21 format=3 uid="uid://dlih6sauh8jwk"]
 
 [ext_resource type="Script" path="res://boss_level.gd" id="1_1uke7"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_fsihh"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="7_xbqui"]
 [ext_resource type="Texture2D" uid="uid://clrjuifsu43u0" path="res://assets/sprites/coin.png" id="8_6pxac"]
 [ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="9_8y65a"]
-[ext_resource type="Script" path="res://hud.gd" id="9_brsec"]
 [ext_resource type="Script" path="res://scenes/coin_label.gd" id="10_yo1vc"]
 [ext_resource type="Script" path="res://scripts/playerLevelLabel.gd" id="11_r0yrb"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="12_ckkyh"]
@@ -2061,7 +2060,6 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="HUD" type="CanvasLayer" parent="."]
-script = ExtResource("9_brsec")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
 anchors_preset = 10
@@ -2121,11 +2119,3 @@ theme_override_styles/background = SubResource("StyleBoxFlat_e4jcp")
 theme_override_styles/fill = SubResource("StyleBoxFlat_vjt1v")
 max_value = 200.0
 show_percentage = false
-
-[node name="FireballDialog" type="AcceptDialog" parent="HUD"]
-position = Vector2i(0, 36)
-size = Vector2i(161, 80)
-dialog_text = "Press B for Fireball"
-
-[connection signal="canceled" from="HUD/FireballDialog" to="HUD" method="_on_FireballDialog_popup_hide"]
-[connection signal="confirmed" from="HUD/FireballDialog" to="HUD" method="_on_FireballDialog_confirmed"]

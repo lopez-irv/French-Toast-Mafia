@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var move_speed: float      = 100.0
 @export var gravity: float         = 980.0
 @export var attack_cooldown: float = 1.5
-@export var archer_health: int     = 50
+@export var archer_health: int     = 20
 @export var arrow_scene: PackedScene = preload("res://Arrow.tscn")
 
 var can_attack: bool    = true
@@ -102,6 +102,8 @@ func take_damage(amount: int) -> void:
 		animated_sprite.play("death")
 		await get_tree().create_timer(0.5).timeout
 		queue_free()
+func decreaseHealth(amount: int) -> void:
+	take_damage(amount)
 
 
 func _on_AnimatedSprite2D_animation_finished(name: String) -> void:
