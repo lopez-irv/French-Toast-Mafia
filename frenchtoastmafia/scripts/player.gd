@@ -429,13 +429,7 @@ func _process(delta: float) -> void:
 		return
 	if not controls_enabled: 
 		return
-	if Input.is_action_just_pressed("attackUp"):
-		attack("attack_up")
-	elif Input.is_action_just_pressed("attackDown"):
-		attack("attack_down")
-	elif Input.is_action_just_pressed("attack"):
-		attack("normal")
-
+	
 	if Input.is_action_just_pressed("attack"):
 		var attack_type := determine_attack_type()
 		attack(attack_type)

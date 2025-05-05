@@ -37,4 +37,6 @@ func _on_pink_pressed() -> void:
 	visible = false
 	
 func _on_secret_pressed() -> void:
-	pass # Replace with function body.
+	SkinGlobal.current_skin = "res://Resources/skins/gold.tres"
+	#print(SkinGlobal.current_skin)
+	visible = false
