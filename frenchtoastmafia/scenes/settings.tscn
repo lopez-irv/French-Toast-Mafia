@@ -1,0 +1,112 @@
+[gd_scene load_steps=11 format=3 uid="uid://c2kwlxkda6xy8"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_ed6u2"]
+[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assets/backgrounds/background_layer_1.png" id="2_fvt8y"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_slcdw"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="4_qpp4x"]
+[ext_resource type="Script" path="res://scripts/select_skin.gd" id="6_w6loy"]
+[ext_resource type="Script" path="res://scenes/controls_button.gd" id="7_42j3s"]
+[ext_resource type="Script" path="res://scripts/back_button.gd" id="7_ueybq"]
+[ext_resource type="PackedScene" uid="uid://btggniu2ojra5" path="res://scenes/skin_select.tscn" id="8_alqko"]
+[ext_resource type="AudioStream" uid="uid://dgkafskvkemq0" path="res://assets/music/main-menu-music.wav" id="11_gtdgp"]
+[ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="12_jkmf7"]
+
+[node name="settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ed6u2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_fvt8y")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Game_Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2724, 0.569813, 0.614168, 1)
+theme_override_constants/shadow_offset_x = 50
+theme_override_constants/shadow_offset_y = 50
+theme_override_constants/outline_size = 32
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("3_slcdw")
+theme_override_font_sizes/font_size = 64
+text = "Settings
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="seperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="controls_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_qpp4x")
+theme_override_font_sizes/font_size = 25
+text = "CONTROLS: ARROW"
+script = ExtResource("7_42j3s")
+
+[node name="select_skin" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_qpp4x")
+theme_override_font_sizes/font_size = 25
+text = "SKIN SELECTION"
+script = ExtResource("6_w6loy")
+
+[node name="back" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_qpp4x")
+theme_override_font_sizes/font_size = 25
+text = "BACK"
+script = ExtResource("7_ueybq")
+
+[node name="MenuMusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_gtdgp")
+
+[node name="player" parent="." instance=ExtResource("12_jkmf7")]
+visible = false
+
+[node name="skin_select" parent="." instance=ExtResource("8_alqko")]
+layout_mode = 1
+offset_left = 768.0
+offset_top = 290.0
+offset_right = 768.0
+offset_bottom = 290.0
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/select_skin" to="MarginContainer/HBoxContainer/VBoxContainer/select_skin" method="_on_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/back" to="MarginContainer/HBoxContainer/VBoxContainer/back" method="_on_pressed"]

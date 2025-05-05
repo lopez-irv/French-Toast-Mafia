@@ -1,0 +1,111 @@
+[gd_scene load_steps=8 format=3 uid="uid://btggniu2ojra5"]
+
+[ext_resource type="Script" path="res://scripts/skin_select.gd" id="1_4aemg"]
+[ext_resource type="Shader" path="res://scenes/pause_menu.gdshader" id="2_ye7xu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ptkpd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_opgsk"]
+shader = ExtResource("2_ye7xu")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_73au7"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_0unyh"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 0.965, -0.15, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bpb6y"]
+_data = {
+"RESET": SubResource("Animation_73au7"),
+"blur": SubResource("Animation_0unyh")
+}
+
+[node name="skin_select" type="Control"]
+process_mode = 3
+material = SubResource("ShaderMaterial_ptkpd")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4aemg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_opgsk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bpb6y")
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_right = 116.0
+offset_bottom = 103.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+alignment = 1
+
+[node name="default" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../blue")
+text = "default
+"
+
+[node name="blue" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../default")
+text = "blue"
+
+[node name="green" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../default")
+text = "green
+"
+
+[node name="pink" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../default")
+text = "pink
+"
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/default" to="." method="_on_default_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/blue" to="." method="_on_blue_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/green" to="." method="_on_green_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/pink" to="." method="_on_pink_pressed"]

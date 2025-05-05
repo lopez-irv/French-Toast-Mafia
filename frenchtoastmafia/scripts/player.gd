@@ -82,7 +82,7 @@ func _ready():
 	
 	healthBar.max_value = player_level_global.healthCap
 	healthBar.value = player_level_global.health
-	#set_skin("blue-red-aqua")
+	set_skin()
 	
 	
 	
@@ -534,13 +534,13 @@ func equip_torch():
 		sound_effect_player.play()
 
 
-func set_skin(skin_name: String):
-	var path = "res://Resources/skins/%s.tres" % skin_name
-	#print(path)
+func set_skin():
+	var path = SkinGlobal.current_skin
+	print(path)
 	if ResourceLoader.exists(path):
 		var sprite_frames = load(path) as SpriteFrames
 		animated_sprite.sprite_frames = sprite_frames
-		current_skin = skin_name
-		print("✅ Skin set to:", skin_name)
+		#current_skin = skin_name
+		#print("✅ Skin set to:", skin_name)
 	else:
 		print("❌ Skin not found:", path)

@@ -8,6 +8,9 @@ extends CharacterBody2D
 @onready var player := get_tree().get_first_node_in_group("Player")
 @onready var hit_sound = $HitSoundPlayer
 
+@onready var btext = $boss_text
+
+var control: bool
 var isHit = false
 var health = 240
 var attacking = false
@@ -15,6 +18,7 @@ var can_play = true
 var last_attack
 
 func _ready() -> void: #turns hitboxes off at start 
+	control = false
 	$hitBoxLeft.monitoring = false
 	$hitBoxLeft.get_node("CollisionShape2D").disabled = true
 	
@@ -23,7 +27,7 @@ func _ready() -> void: #turns hitboxes off at start
 	
 	
 func _physics_process(delta: float) -> void:
-	if not player:
+	if not control or not player:
 		return
 
 	var to_player = player.global_position - global_position
@@ -121,3 +125,9 @@ func _on_hit_box_entered(body: Node2D) -> void:
 	
 	if body.is_in_group("Player") and isHit == false:
 		player.decreaseHealth(5)
+
+func play_boss_text(text_name: String, time1: float):
+	btext.visible = true
+	btext.text = text_name
+	await get_tree().create_timer(time1).timeout
+	btext.visible = false

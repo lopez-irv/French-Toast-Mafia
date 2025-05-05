@@ -5,7 +5,7 @@ var main_menu_music = preload("res://assets/music/main-menu-music.wav")
 @onready var menu_music_player: AudioStreamPlayer2D = $MenuMusicPlayer
 
 func _ready() -> void:
-	$MarginContainer/HBoxContainer/VBoxContainer/level_selection.grab_focus()
+#	$MarginContainer/HBoxContainer/VBoxContainer/level_selection.grab_focus()
 	menu_music_player.stream = main_menu_music
 	menu_music_player.play()
 

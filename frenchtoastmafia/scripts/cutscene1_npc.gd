@@ -7,6 +7,8 @@ const JUMP_VELOCITY = -400.0
 @onready var box1 = $box1
 @onready var target = get_tree().get_root().find_child("player", true, false)
 
+@onready var me = $AnimatedSprite2D
+
 
 
 #func _process(delta):
@@ -25,8 +27,18 @@ func _ready() -> void:
 
 
 
-func play_text_1(text_name: String):
+func play_npc_text(text_name: String, time1: float):
 	box1.visible = true
 	box1.text = text_name
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(time1).timeout
 	box1.visible = false
+	
+func flip_npc_x():
+	if me.flip_h:
+		me.flip_h = false
+	else:
+		me.flip_h = true
+		
+		
+		
+		

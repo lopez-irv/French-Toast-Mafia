@@ -1,9 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://dlih6sauh8jwk"]
+[gd_scene load_steps=26 format=3 uid="uid://dlih6sauh8jwk"]
 
 [ext_resource type="Script" path="res://boss_level.gd" id="1_1uke7"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="1_fsihh"]
-[ext_resource type="AudioStream" uid="uid://cxcosh4e4j2yc" path="res://assets/sounds/dash-sound-effect.wav" id="2_s2x8r"]
-[ext_resource type="Texture2D" uid="uid://d1mgrc7kr8qng" path="res://customAssets/boss/main_lev_build.png" id="3_u8y75"]
+[ext_resource type="AudioStream" uid="uid://d3v2xrmk4pkp6" path="res://assets/sounds/dash-sound-effect.wav" id="2_s2x8r"]
+[ext_resource type="Texture2D" uid="uid://dtk37nv3dna8g" path="res://customAssets/boss/main_lev_build.png" id="3_u8y75"]
 [ext_resource type="PackedScene" uid="uid://bebr2xepq2w1g" path="res://goblin_boss.tscn" id="4_3pdi3"]
 [ext_resource type="PackedScene" uid="uid://du1prtitnulg7" path="res://scenes/PigWithBomb.tscn" id="5_ux1f8"]
 [ext_resource type="PackedScene" uid="uid://bpc6xx01y1ei0" path="res://scenes/level_timer.tscn" id="7_xbqui"]
@@ -13,6 +13,10 @@
 [ext_resource type="Script" path="res://scripts/playerLevelLabel.gd" id="11_r0yrb"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="12_ckkyh"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="13_8bk7h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d8nt3"]
+font_size = 12
+font_color = Color(0.175743, 0.400101, 0.99124, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h07e3"]
 texture = ExtResource("3_u8y75")
@@ -1988,6 +1992,10 @@ texture = ExtResource("3_u8y75")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_h07e3")
 
+[sub_resource type="LabelSettings" id="LabelSettings_akn3i"]
+font_size = 12
+font_color = Color(0.507191, 0, 0.00546587, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_u810a"]
 atlas = ExtResource("8_6pxac")
 region = Rect2(3, 3, 10, 10)
@@ -2004,14 +2012,87 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjt1v"]
 bg_color = Color(0.0666667, 0.227451, 1, 1)
 
+[sub_resource type="Animation" id="Animation_5yvbo"]
+resource_name = "goblin gets back up "
+length = 20.0
+
+[sub_resource type="Animation" id="Animation_7hyeo"]
+resource_name = "initial dialog"
+length = 18.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 4.7, 10.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["This is it Jimbithy, I have come to end your terror on this land", 4.5],
+"method": &"show_players_text"
+}, {
+"args": [5.0, 1.2],
+"method": &"shake_camera"
+}, {
+"args": ["Bring it, ugly", 3.0],
+"method": &"show_players_text"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("goblinBoss")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.7, 7, 13.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["HAHAHA", 1.5],
+"method": &"play_boss_text"
+}, {
+"args": ["LITTLE MAN. YOU THINK YOU STAND A CHANCE ", 3.0],
+"method": &"play_boss_text"
+}, {
+"args": ["RWAAAAAAA", 2.0],
+"method": &"play_boss_text"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 13.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"flip_goblin_x"
+}, {
+"args": [10.0, 2.0],
+"method": &"shake_camera"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t8h0k"]
+_data = {
+"goblin gets back up ": SubResource("Animation_5yvbo"),
+"initial dialog": SubResource("Animation_7hyeo")
+}
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_1uke7")
 
 [node name="player" parent="." instance=ExtResource("1_fsihh")]
-position = Vector2(-2, -7)
+position = Vector2(-2, 0)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(2, 2)
+limit_left = -367
+limit_right = 1335
 limit_bottom = 130
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -2021,6 +2102,16 @@ rotation_smoothing_enabled = true
 
 [node name="dash_sound" type="AudioStreamPlayer2D" parent="player"]
 stream = ExtResource("2_s2x8r")
+
+[node name="player_text" type="Label" parent="player"]
+offset_left = -127.0
+offset_top = -96.0
+offset_right = 70.0
+offset_bottom = -27.0
+label_settings = SubResource("LabelSettings_d8nt3")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_mh1e7")
@@ -2035,6 +2126,16 @@ layer_2/tile_data = PackedInt32Array(-589820, 6422529, 58, -524284, 6422529, 59,
 
 [node name="goblinBoss" parent="." instance=ExtResource("4_3pdi3")]
 position = Vector2(110, -31)
+
+[node name="boss_text" type="Label" parent="goblinBoss"]
+offset_left = -99.0
+offset_top = -76.0
+offset_right = 54.0
+offset_bottom = -39.0
+label_settings = SubResource("LabelSettings_akn3i")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="PigWithBomb" parent="." instance=ExtResource("5_ux1f8")]
 position = Vector2(785, -145)
@@ -2119,3 +2220,8 @@ theme_override_styles/background = SubResource("StyleBoxFlat_e4jcp")
 theme_override_styles/fill = SubResource("StyleBoxFlat_vjt1v")
 max_value = 200.0
 show_percentage = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t8h0k")
+}

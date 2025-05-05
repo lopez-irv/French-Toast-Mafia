@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://datm02q4ghjq7"]
+[gd_scene load_steps=23 format=3 uid="uid://datm02q4ghjq7"]
 
 [ext_resource type="Script" path="res://first_cut_scene.gd" id="1_8e4il"]
 [ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assets/backgrounds/background_layer_1.png" id="1_wijo2"]
@@ -6,10 +6,39 @@
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="3_tafex"]
 [ext_resource type="SpriteFrames" uid="uid://tavvf5tiyvx8" path="res://Resources/skins/blue-red-aqua.tres" id="5_5pnqa"]
 [ext_resource type="Script" path="res://scripts/cutscene1_npc.gd" id="5_fx6qs"]
+[ext_resource type="Texture2D" uid="uid://bgxknsgjm0jm" path="res://assets/sprites/skeleton.png" id="7_ipy51"]
+[ext_resource type="Texture2D" uid="uid://cdiobq0joudr3" path="res://customAssets/weapons.png" id="8_eqstx"]
+
+[sub_resource type="Animation" id="Animation_j0d5m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("npc:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-244, 131)]
+}
 
 [sub_resource type="Animation" id="Animation_nc1lv"]
 resource_name = "arise"
-length = 10.0
+length = 13.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -17,13 +46,16 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(6, 7.63333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(6, 7.5, 11),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": ["death", 1],
 "method": &"play_player_animation"
 }, {
-"args": ["Now what?"],
+"args": ["Now What?", 1],
+"method": &"show_players_text"
+}, {
+"args": ["Not again.  Lets Go!", 2],
 "method": &"show_players_text"
 }]
 }
@@ -63,33 +95,199 @@ tracks/3/path = NodePath("npc")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(4),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(4, 8.6),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": ["Captain wake up its an emergency!!!"],
-"method": &"play_text_1"
+"args": ["CAPTAIN WAKE UP IT'S AN EMERGENCY!!!", 2],
+"method": &"play_npc_text"
+}, {
+"args": ["The Monsers are attacking the kingdom", 2.5],
+"method": &"play_npc_text"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
 
-[sub_resource type="Animation" id="Animation_j0d5m"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_fkqv4"]
+resource_name = "head out"
+length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("npc:position")
+tracks/0/path = NodePath("player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(609, 131), Vector2(1600, 131)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("npc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(520, 0), Vector2(1520, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["run", 0],
+"method": &"play_player_animation"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["run", 0],
+"method": &"play_npc_animation"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_i27pm"]
+resource_name = "walk and talk"
+length = 18.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-244, 131), Vector2(609, 131)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("npc:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-325, 0), Vector2(520, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("npc")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.1, 7.3, 13),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"flip_npc_x"
+}, {
+"args": ["The monsters launched a full blown attack against the kingdom.", 3.0],
+"method": &"play_npc_text"
+}, {
+"args": [" They have broken through the main barrier and they are now goinf for the castle.", 3.0],
+"method": &"play_npc_text"
+}, {
+"args": ["Its the giant orc, he broken out and is leading all this", 2.5],
+"method": &"play_npc_text"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.133333, 1, 2.6, 10.6333, 10.8667, 16.0333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"values": [{
+"args": ["idle", 0],
+"method": &"play_player_animation"
+}, {
+"args": ["Okay then, give me a run down. ", 1.5],
+"method": &"show_players_text"
+}, {
+"args": [" What is the situation?", 1.5],
+"method": &"show_players_text"
+}, {
+"args": ["idle", 3],
+"method": &"play_player_animation"
+}, {
+"args": ["How did all this happen.", 1.5],
+"method": &"show_players_text"
+}, {
+"args": ["He must be stopped. Lets go!", 2.0],
+"method": &"show_players_text"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.166667, 10.6),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": ["idle", 0],
+"method": &"play_npc_animation"
+}, {
+"args": ["idle", 3],
+"method": &"play_npc_animation"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0i7dc"]
 _data = {
 "RESET": SubResource("Animation_j0d5m"),
-"arise": SubResource("Animation_nc1lv")
+"arise": SubResource("Animation_nc1lv"),
+"head out": SubResource("Animation_fkqv4"),
+"walk and talk": SubResource("Animation_i27pm")
 }
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wt06d"]
@@ -549,8 +747,32 @@ texture = ExtResource("2_jc7qp")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wt06d")
 
+[sub_resource type="LabelSettings" id="LabelSettings_0uly2"]
+font_size = 10
+font_color = Color(0.845266, 0.360178, 0.266426, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahm1n"]
 size = Vector2(11, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_geedw"]
+font_size = 10
+font_color = Color(0.337255, 0.317647, 0.858824, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqp2l"]
+atlas = ExtResource("7_ipy51")
+region = Rect2(172.681, 202.777, 25.889, 16.9548)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbeq6"]
+atlas = ExtResource("8_eqstx")
+region = Rect2(26.7902, 208.705, 56.7743, 16.2212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tsiw"]
+atlas = ExtResource("8_eqstx")
+region = Rect2(123.775, 66.2419, 18.648, 15.8103)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbufo"]
+atlas = ExtResource("8_eqstx")
+region = Rect2(128.901, 128.834, 16.2877, 15.6752)
 
 [node name="first_cut_scene" type="Node2D"]
 script = ExtResource("1_8e4il")
@@ -568,6 +790,21 @@ libraries = {
 position = Vector2(1.14441e-05, 0.5)
 scale = Vector2(1.79375, 1.76111)
 texture = ExtResource("1_wijo2")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/far"]
+position = Vector2(806, 104)
+scale = Vector2(1.79375, 1.76111)
+texture = ExtResource("1_wijo2")
+offset = Vector2(-129.895, -59.0537)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/far"]
+position = Vector2(1380, 106)
+scale = Vector2(1.79375, 1.76111)
+texture = ExtResource("1_wijo2")
+offset = Vector2(-129.895, -59.0537)
+metadata/_edit_lock_ = true
 
 [node name="mid" type="ParallaxLayer" parent="ParallaxBackground"]
 
@@ -576,7 +813,7 @@ texture = ExtResource("1_wijo2")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_srkl1")
 format = 2
-layer_0/tile_data = PackedInt32Array(589806, 917504, 8, 655342, 917504, 9, 589807, 983040, 8, 655343, 983040, 9, 589808, 1048576, 8, 655344, 1048576, 9, 589809, 1114112, 8, 655345, 1114112, 9, 589810, 1179648, 8, 655346, 1179648, 9, 589811, 1245184, 8, 655347, 1245184, 9, 589812, 917504, 8, 655348, 917504, 9, 589813, 983040, 8, 655349, 983040, 9, 589814, 1048576, 8, 655350, 1048576, 9, 589815, 1114112, 8, 655351, 1114112, 9, 589816, 1179648, 8, 655352, 1179648, 9, 589817, 1245184, 8, 655353, 1245184, 9, 589818, 917504, 8, 655354, 917504, 9, 589819, 983040, 8, 655355, 983040, 9, 589820, 1048576, 8, 655356, 1048576, 9, 589821, 1114112, 8, 655357, 1114112, 9, 589822, 1179648, 8, 655358, 1179648, 9, 589823, 1245184, 8, 655359, 1245184, 9, 524288, 917504, 8, 589824, 917504, 9, 524289, 983040, 8, 589825, 983040, 9, 524290, 1048576, 8, 589826, 1048576, 9, 524291, 1114112, 8, 589827, 1114112, 9, 524292, 1179648, 8, 589828, 1179648, 9, 524293, 1245184, 8, 589829, 1245184, 9, 524294, 917504, 8, 589830, 917504, 9, 524295, 983040, 8, 589831, 983040, 9, 524296, 1048576, 8, 589832, 1048576, 9, 524297, 1114112, 8, 589833, 1114112, 9, 524298, 1179648, 8, 589834, 1179648, 9, 524299, 1245184, 8, 589835, 1245184, 9)
+layer_0/tile_data = PackedInt32Array(589806, 917504, 8, 655342, 917504, 9, 589807, 983040, 8, 655343, 983040, 9, 589808, 1048576, 8, 655344, 1048576, 9, 589809, 1114112, 8, 655345, 1114112, 9, 589810, 1179648, 8, 655346, 1179648, 9, 589811, 1245184, 8, 655347, 1245184, 9, 589812, 917504, 8, 655348, 917504, 9, 589813, 983040, 8, 655349, 983040, 9, 589814, 1048576, 8, 655350, 1048576, 9, 589815, 1114112, 8, 655351, 1114112, 9, 589816, 1179648, 8, 655352, 1179648, 9, 589817, 1245184, 8, 655353, 1245184, 9, 589818, 917504, 8, 655354, 917504, 9, 589819, 983040, 8, 655355, 983040, 9, 589820, 1048576, 8, 655356, 1048576, 9, 589821, 1114112, 8, 655357, 1114112, 9, 589822, 1179648, 8, 655358, 1179648, 9, 589823, 1245184, 8, 655359, 1245184, 9, 524288, 917504, 8, 589824, 917504, 9, 524289, 983040, 8, 589825, 983040, 9, 524290, 1048576, 8, 589826, 1048576, 9, 524291, 1114112, 8, 589827, 1114112, 9, 524292, 1179648, 8, 589828, 1179648, 9, 524293, 1245184, 8, 589829, 1245184, 9, 524294, 917504, 8, 589830, 917504, 9, 524295, 983040, 8, 589831, 983040, 9, 524296, 1048576, 8, 589832, 1048576, 9, 524297, 1114112, 8, 589833, 1114112, 9, 524298, 1179648, 8, 589834, 1179648, 9, 524299, 1245184, 8, 589835, 1245184, 9, 524300, 917504, 8, 589836, 917504, 9, 524301, 983040, 8, 589837, 983040, 9, 524302, 1048576, 8, 589838, 1048576, 9, 524303, 1114112, 8, 589839, 1114112, 9, 524304, 1179648, 8, 589840, 1179648, 9, 524305, 1245184, 8, 589841, 1245184, 9, 524306, 917504, 8, 589842, 917504, 9, 524307, 983040, 8, 589843, 983040, 9, 524308, 1048576, 8, 589844, 1048576, 9, 524309, 1114112, 8, 589845, 1114112, 9, 524310, 1179648, 8, 589846, 1179648, 9, 524311, 1245184, 8, 589847, 1245184, 9, 524312, 917504, 8, 589848, 917504, 9, 524313, 983040, 8, 589849, 983040, 9, 524314, 1048576, 8, 589850, 1048576, 9, 524315, 1114112, 8, 589851, 1114112, 9, 524316, 1179648, 8, 589852, 1179648, 9, 524317, 1245184, 8, 589853, 1245184, 9, 524318, 917504, 8, 589854, 917504, 9, 524319, 983040, 8, 589855, 983040, 9, 524320, 1048576, 8, 589856, 1048576, 9, 524321, 1114112, 8, 589857, 1114112, 9, 524322, 1179648, 8, 589858, 1179648, 9, 524323, 917504, 8, 589859, 917504, 9, 524324, 983040, 8, 589860, 983040, 9, 524325, 1048576, 8, 589861, 1048576, 9, 524326, 1114112, 8, 589862, 1114112, 9, 524327, 1179648, 8, 589863, 1179648, 9, 524328, 1245184, 8, 589864, 1245184, 9, 524329, 917504, 8, 589865, 917504, 9, 524330, 983040, 8, 589866, 983040, 9, 524331, 1048576, 8, 589867, 1048576, 9, 524332, 1114112, 8, 589868, 1114112, 9, 524333, 1179648, 8, 589869, 1179648, 9, 524334, 1245184, 8, 589870, 1245184, 9, 524335, 917504, 8, 589871, 917504, 9, 524336, 917504, 8, 589872, 917504, 9, 524337, 983040, 8, 589873, 983040, 9, 524338, 1048576, 8, 589874, 1048576, 9, 524339, 1114112, 8, 589875, 1114112, 9, 524340, 1179648, 8, 589876, 1179648, 9, 524341, 1245184, 8, 589877, 1245184, 9, 524342, 917504, 8, 589878, 917504, 9, 524343, 983040, 8, 589879, 983040, 9, 524344, 1048576, 8, 589880, 1048576, 9, 524345, 1114112, 8, 589881, 1114112, 9, 524346, 1179648, 8, 589882, 1179648, 9, 524347, 1245184, 8, 589883, 1245184, 9, 524348, 917504, 8, 589884, 917504, 9, 524349, 983040, 8, 589885, 983040, 9, 524350, 1048576, 8, 589886, 1048576, 9, 524351, 1114112, 8, 589887, 1114112, 9, 524352, 1179648, 8, 589888, 1179648, 9, 524353, 1245184, 8, 589889, 1245184, 9, 524354, 917504, 8, 589890, 917504, 9, 524355, 983040, 8, 589891, 983040, 9, 524356, 1048576, 8, 589892, 1048576, 9, 524357, 1114112, 8, 589893, 1114112, 9, 524358, 1179648, 8, 589894, 1179648, 9, 524359, 1245184, 8, 589895, 1245184, 9, 524360, 917504, 8, 589896, 917504, 9, 524361, 983040, 8, 589897, 983040, 9, 524362, 1048576, 8, 589898, 1048576, 9, 524363, 1114112, 8, 589899, 1114112, 9, 524364, 1179648, 8, 589900, 1179648, 9, 524365, 1245184, 8, 589901, 1245184, 9, 524366, 917504, 8, 589902, 917504, 9, 524367, 983040, 8, 589903, 983040, 9, 524368, 1048576, 8, 589904, 1048576, 9, 524369, 1114112, 8, 589905, 1114112, 9, 524370, 1179648, 8, 589906, 1179648, 9, 524371, 1245184, 8, 589907, 1245184, 9, 524372, 917504, 8, 589908, 917504, 9, 524373, 983040, 8, 589909, 983040, 9, 524374, 1048576, 8, 589910, 1048576, 9, 524375, 1114112, 8, 589911, 1114112, 9, 524376, 1179648, 8, 589912, 1179648, 9, 524377, 1245184, 8, 589913, 1245184, 9)
 
 [node name="player" parent="." instance=ExtResource("3_tafex")]
 position = Vector2(-244, 131)
@@ -584,14 +821,19 @@ position = Vector2(-244, 131)
 [node name="Camera2D" type="Camera2D" parent="player"]
 zoom = Vector2(3, 3)
 limit_left = -287
+limit_right = 1300
 limit_bottom = 160
 
 [node name="box2" type="Label" parent="player"]
-offset_left = -19.0
-offset_top = -49.0
-offset_right = 21.0
-offset_bottom = -26.0
+offset_left = -74.0
+offset_top = -113.0
+offset_right = 202.0
+offset_bottom = -49.0
 theme_override_font_sizes/font_size = 12
+label_settings = SubResource("LabelSettings_0uly2")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="npc" type="CharacterBody2D" parent="."]
 script = ExtResource("5_fx6qs")
@@ -611,9 +853,127 @@ debug_color = Color(0.878153, 0.291887, 0.460708, 0.42)
 wait_time = 2.0
 
 [node name="box1" type="Label" parent="npc"]
-offset_left = 87.0
-offset_top = 83.0
-offset_right = 127.0
-offset_bottom = 106.0
+offset_left = 27.0
+offset_top = 25.0
+offset_right = 280.0
+offset_bottom = 89.0
 theme_override_font_sizes/font_size = 12
-text = "hello"
+label_settings = SubResource("LabelSettings_geedw")
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="skeletons" type="Node" parent="."]
+
+[node name="skeleton1" type="Sprite2D" parent="skeletons"]
+position = Vector2(724.309, 127.151)
+texture = SubResource("AtlasTexture_uqp2l")
+
+[node name="skeleton2" type="Sprite2D" parent="skeletons"]
+position = Vector2(705.309, 125.151)
+rotation = 2.6337
+texture = SubResource("AtlasTexture_uqp2l")
+
+[node name="skeleton3" type="Sprite2D" parent="skeletons"]
+position = Vector2(739.309, 126.151)
+rotation = 0.359538
+texture = SubResource("AtlasTexture_uqp2l")
+
+[node name="skeleton4" type="Sprite2D" parent="skeletons"]
+position = Vector2(724.309, 117.151)
+rotation = 0.359538
+texture = SubResource("AtlasTexture_uqp2l")
+
+[node name="skeleton5" type="Sprite2D" parent="skeletons"]
+position = Vector2(751.309, 121.151)
+rotation = 0.359538
+texture = SubResource("AtlasTexture_uqp2l")
+
+[node name="skeleton6" type="Sprite2D" parent="skeletons"]
+position = Vector2(736.309, 109.151)
+rotation = 0.359538
+texture = SubResource("AtlasTexture_uqp2l")
+
+[node name="skeleton7" type="Sprite2D" parent="skeletons"]
+position = Vector2(711.309, 111.151)
+rotation = -0.837758
+texture = SubResource("AtlasTexture_uqp2l")
+
+[node name="skeleton8" type="Sprite2D" parent="skeletons"]
+position = Vector2(695.309, 122.151)
+rotation = -0.837758
+texture = SubResource("AtlasTexture_uqp2l")
+
+[node name="skeleton9" type="Sprite2D" parent="skeletons"]
+position = Vector2(728.309, 102.313)
+rotation = -0.25118
+texture = SubResource("AtlasTexture_uqp2l")
+offset = Vector2(-5.51895, -1.88791)
+
+[node name="skeleton10" type="Sprite2D" parent="skeletons"]
+position = Vector2(420, 124)
+rotation = -0.25118
+texture = SubResource("AtlasTexture_uqp2l")
+offset = Vector2(-5.51895, -1.88791)
+
+[node name="skeleton11" type="Sprite2D" parent="skeletons"]
+position = Vector2(529, 124)
+rotation = -3.09702
+texture = SubResource("AtlasTexture_uqp2l")
+offset = Vector2(-5.51895, -1.88791)
+
+[node name="skeleton12" type="Sprite2D" parent="skeletons"]
+position = Vector2(328, 123)
+rotation = -3.09702
+texture = SubResource("AtlasTexture_uqp2l")
+offset = Vector2(-5.51895, -1.88791)
+
+[node name="skeleton13" type="Sprite2D" parent="skeletons"]
+position = Vector2(479, 128)
+rotation = -6.09875
+texture = SubResource("AtlasTexture_uqp2l")
+offset = Vector2(-5.51895, -1.88791)
+
+[node name="floor weapons" type="Node" parent="."]
+
+[node name="spear" type="Sprite2D" parent="floor weapons"]
+position = Vector2(426, 112)
+rotation = -4.06836
+scale = Vector2(0.732143, 1)
+texture = SubResource("AtlasTexture_sbeq6")
+
+[node name="spear2" type="Sprite2D" parent="floor weapons"]
+position = Vector2(315, 127)
+rotation = -3.11018
+scale = Vector2(0.732143, 1)
+texture = SubResource("AtlasTexture_sbeq6")
+
+[node name="sword" type="Sprite2D" parent="floor weapons"]
+position = Vector2(273, 128)
+rotation = -1.98388
+texture = SubResource("AtlasTexture_4tsiw")
+
+[node name="sword2" type="Sprite2D" parent="floor weapons"]
+position = Vector2(381, 131)
+rotation = -3.08301
+texture = SubResource("AtlasTexture_4tsiw")
+
+[node name="sword3" type="Sprite2D" parent="floor weapons"]
+position = Vector2(474, 134)
+rotation = -2.23121
+texture = SubResource("AtlasTexture_4tsiw")
+
+[node name="shield" type="Sprite2D" parent="floor weapons"]
+position = Vector2(163, 128)
+rotation = -0.76546
+texture = SubResource("AtlasTexture_dbufo")
+
+[node name="shield2" type="Sprite2D" parent="floor weapons"]
+position = Vector2(351, 128)
+rotation = -0.76546
+texture = SubResource("AtlasTexture_dbufo")
+
+[node name="shield3" type="Sprite2D" parent="floor weapons"]
+position = Vector2(523, 131)
+rotation = 0.975609
+texture = SubResource("AtlasTexture_dbufo")

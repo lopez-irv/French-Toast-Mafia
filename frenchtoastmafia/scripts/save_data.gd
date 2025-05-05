@@ -34,7 +34,8 @@ func save_game():
 		"inventory": inventory_ref.get_save_data(),
 		"health_cap": player_level_global.healthCap,
 		"exp": player_level_global.xp,
-		"attack_damage": player_level_global.attackDamage
+		"attack_damage": player_level_global.attackDamage,
+		"player_skin": SkinGlobal.current_skin
 	}
 
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
@@ -60,6 +61,7 @@ func load_game():
 		player_level_global.healthCap = data.get("health_cap", 100)
 		player_level_global.xp = data.get("exp", 0)
 		CoinGlobal.total_coins = data.get("coins", 0)
+		SkinGlobal.current_skin = data.get("player_skin", "res://Resources/skins/default.tres")
 
 		var unlocked = data.get("unlocked_levels", {})
 		level_unlock_status.level0 = unlocked.get("level0", true)

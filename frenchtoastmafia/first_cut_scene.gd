@@ -20,6 +20,10 @@ func _ready() -> void:
 	player_sprite.frame = 3
 	player_sprite.visible = true  # ensure it's visible
 	animation_player.play("arise")
+	await animation_player.animation_finished
+	animation_player.play("walk and talk")
+	await animation_player.animation_finished
+	animation_player.play("head out")
 	#print("Animation:", player_sprite.animation)
 	#print("Frame:", player_sprite.frame)
 
@@ -64,9 +68,9 @@ func play_npc_animation(animation_name: String, order: int):
 	else:
 		print("player sprite not found")
 
-func show_players_text(cur_text: String):
+func show_players_text(cur_text: String, time1: float):
 	players_text_box.visible = true
 	players_text_box.text = cur_text
 	#print(box1.text)
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(time1).timeout
 	players_text_box.visible = false
