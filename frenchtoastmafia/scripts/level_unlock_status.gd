@@ -1,11 +1,11 @@
 extends Node
 
 var level0 = true
-var level1 = false
-var level2 = false
-var level3 = false
-var level4 = false
-var level5 = false
+var level1 = true
+var level2 = true
+var level3 = true
+var level4 = true
+var level5 = true
 var level6 = false
 var level7 = false
 var level8 = false

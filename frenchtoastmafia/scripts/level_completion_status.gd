@@ -3,12 +3,12 @@ extends Node
 var keyFlag = false		#shows if player has collected key in current level they're in
 
 var shop_level = false
-var level0 = false
-var level1 = false
-var level2 = false
-var level3 = false
-var level4 = false	#boss level
-var level5 = false
+var level0 = true
+var level1 = true
+var level2 = true
+var level3 = true
+var level4 = true	#boss level
+var level5 = true
 var level6 = false
 var level7 = false
 var level8 = false
