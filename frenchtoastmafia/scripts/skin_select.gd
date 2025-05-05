@@ -32,3 +32,6 @@ func _on_green_pressed() -> void:
 
 func _on_pink_pressed() -> void:
 	pass # Replace with function body.
+	
+func _on_secret_pressed() -> void:
+	pass # Replace with function body.
