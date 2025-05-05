@@ -13,7 +13,7 @@ var player: Node2D
 var attacking := false
 var dashing := false
 var attacking_direction := Vector2.ZERO
-
+var isDead = false
 @onready var sound_effect_player: AudioStreamPlayer2D = $sound_effect_player
 var attack_sound = preload("res://assets/sounds/bat_01.ogg")
 var hurt_sound = preload("res://assets/sounds/bat_03.ogg")
@@ -95,18 +95,19 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 			body.decreaseHealth(damage)
 
 func take_damage(amount: int):
-	sound_effect_player.stream = hurt_sound
-	sound_effect_player.play()
-	health -= amount
-	print("Bat took ", amount, " damage. Health now: ", health)
-	sprite.play("take damage")
-	#await sprite.animation_finished
-	sprite.play("flying")
-
-	if health <= 0:
-		_die()  
+	if isDead == false:
+		sound_effect_player.stream = hurt_sound
+		sound_effect_player.play()
+		health -= amount
+		print("Bat took ", amount, " damage. Health now: ", health)
+		sprite.play("take damage")
+		#await sprite.animation_finished
+		sprite.play("flying")
+		if health <= 0:
+			_die()  
 		
 func _die():
+	isDead = true
 	print("Bat dying")
 	attacking = false
 	dashing = false
