@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://btggniu2ojra5"]
+[gd_scene load_steps=9 format=3 uid="uid://7ouwdrnaqokv"]
 
 [ext_resource type="Script" path="res://scripts/skin_select.gd" id="1_4aemg"]
 [ext_resource type="Shader" path="res://scenes/pause_menu.gdshader" id="2_ye7xu"]
+[ext_resource type="Script" path="res://scripts/secret.gd" id="3_0x0ui"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ptkpd"]
 
@@ -105,7 +106,15 @@ focus_neighbor_top = NodePath("../default")
 text = "pink
 "
 
+[node name="secret" type="Button" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../default")
+text = "secret
+"
+script = ExtResource("3_0x0ui")
+
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/default" to="." method="_on_default_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/blue" to="." method="_on_blue_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/green" to="." method="_on_green_pressed"]
 [connection signal="pressed" from="ScrollContainer/VBoxContainer/pink" to="." method="_on_pink_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/secret" to="." method="_on_secret_pressed"]
