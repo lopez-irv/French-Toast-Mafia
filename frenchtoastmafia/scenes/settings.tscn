@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scenes/controls_button.gd" id="7_42j3s"]
 [ext_resource type="Script" path="res://scripts/back_button.gd" id="7_ueybq"]
 [ext_resource type="PackedScene" uid="uid://7ouwdrnaqokv" path="res://scenes/skin_select.tscn" id="8_alqko"]
-[ext_resource type="AudioStream" uid="uid://dgkafskvkemq0" path="res://assets/music/main-menu-music.wav" id="11_gtdgp"]
+[ext_resource type="AudioStream" uid="uid://dsgy7tfuraboh" path="res://assets/music/new music/6- The Veil of Night.mp3" id="8_lhlv0"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="12_jkmf7"]
 
 [node name="settings" type="Control"]
@@ -96,7 +96,7 @@ text = "BACK"
 script = ExtResource("7_ueybq")
 
 [node name="MenuMusicPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_gtdgp")
+stream = ExtResource("8_lhlv0")
 
 [node name="player" parent="." instance=ExtResource("12_jkmf7")]
 visible = false

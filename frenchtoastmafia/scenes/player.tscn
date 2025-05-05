@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_407jq"]
 [ext_resource type="Resource" uid="uid://c58tb8w1fpjvm" path="res://Resources/players_inventory.tres" id="2_3yveb"]
-[ext_resource type="SpriteFrames" uid="uid://bpx7rqv03ksvw" path="res://Resources/skins/default.tres" id="3_43hm7"]
+[ext_resource type="SpriteFrames" uid="uid://tavvf5tiyvx8" path="res://Resources/skins/blue-red-aqua.tres" id="3_7s6l8"]
 [ext_resource type="PackedScene" uid="uid://cgxjbtu3k7s5b" path="res://scenes/dash_timer.tscn" id="3_vvwfw"]
 [ext_resource type="PackedScene" uid="uid://bla6oyewdsm0a" path="res://scenes/inventory_ui.tscn" id="5_bibil"]
 [ext_resource type="Script" path="res://dash_cooldown.gd" id="6_52574"]
@@ -45,8 +45,8 @@ position = Vector2(-10, -9)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 position = Vector2(0, -15)
-sprite_frames = ExtResource("3_43hm7")
-animation = &"sword_attack"
+sprite_frames = ExtResource("3_7s6l8")
+animation = &"attack_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(0, -8)
