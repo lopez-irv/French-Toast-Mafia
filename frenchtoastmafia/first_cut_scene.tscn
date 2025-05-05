@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assets/backgrounds/background_layer_1.png" id="1_wijo2"]
 [ext_resource type="Texture2D" uid="uid://dte6kcwft5c2o" path="res://customAssets/woods/Tiles/Tilesheet - WOODS.png" id="2_jc7qp"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="3_tafex"]
-[ext_resource type="SpriteFrames" uid="uid://tavvf5tiyvx8" path="res://Resources/skins/blue-red-aqua.tres" id="5_5pnqa"]
 [ext_resource type="Script" path="res://scripts/cutscene1_npc.gd" id="5_fx6qs"]
+[ext_resource type="SpriteFrames" uid="uid://cxqgg45syo4re" path="res://Resources/skins/pink.tres" id="6_i5sto"]
 [ext_resource type="Texture2D" uid="uid://bgxknsgjm0jm" path="res://assets/sprites/skeleton.png" id="7_ipy51"]
 [ext_resource type="Texture2D" uid="uid://cdiobq0joudr3" path="res://customAssets/weapons.png" id="8_eqstx"]
 
@@ -840,8 +840,8 @@ script = ExtResource("5_fx6qs")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="npc"]
 position = Vector2(107, 116)
-sprite_frames = ExtResource("5_5pnqa")
-animation = &"idle"
+sprite_frames = ExtResource("6_i5sto")
+animation = &"roll"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="npc"]
