@@ -234,4 +234,10 @@ func _on_reached_half_health() -> void:
 	dlg.popup_centered()
 	if player and player.has_method("enable_fireball"):
 		player.enable_fireball()
-
+		
+func play_boss_text(cur_text: String, time1: float):
+	btext.visible = true
+	btext.text = cur_text
+	#print(box1.text)
+	await get_tree().create_timer(time1).timeout
+	btext.visible = false
