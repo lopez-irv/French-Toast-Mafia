@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var healthBar: ProgressBar = $healthBar
 @onready var dash_cooldown: Timer = $dashCooldown
 @onready var invincibilityTimer: Timer = $invincibilityTimer
+@onready var sword_throw_timer: Timer = $sword_timer
 @onready var health_bar: ProgressBar = get_tree().root.get_node("Node2D/HUD/health")
 @onready var shield_bar: ProgressBar = get_tree().root.get_node("Node2D/HUD/shield")
 
@@ -21,6 +22,7 @@ extends CharacterBody2D
 @export var inv: Inv
 @export var attacking = false # in the same animatedSprite2d as take_damage, 
 # we have an animation called sword_attack   , i want to play this animation
+@onready var sword = preload("res://scenes/sword.tscn")
 
 func enable_fireball() -> void:
 	fireball_unlocked = true
@@ -236,6 +238,17 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("equip_torch"):
 		equip_torch()
 	
+	if Input.is_action_just_pressed("throw") and sword_throw_timer.is_stopped():
+		sword_throw_timer.start()
+		var s = sword.instantiate()
+		if animated_sprite.flip_h:
+			s.global_position = $left_marker.global_position
+			s.vel = -0.4
+		else:
+			s.global_position = $right_marker.global_position
+			s.vel = 0.4
+		get_parent().add_child(s)
+		
 func start_roll():
 	is_rolling = true
 	attacking = true  # Optional: Prevent attack during roll
@@ -577,3 +590,4 @@ func _shoot_fireball() -> void:
 		sp.flip_h = not facing_right
 
 	get_tree().current_scene.add_child(fb)
+	
