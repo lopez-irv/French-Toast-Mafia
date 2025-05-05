@@ -1,10 +1,8 @@
-[gd_resource type="Resource" script_class="consumable_item" load_steps=4 format=3 uid="uid://culsti1lyd1jo"]
+[gd_resource type="Resource" script_class="consumable_item" load_steps=3 format=3 uid="uid://culsti1lyd1jo"]
 
 [ext_resource type="Script" path="res://scripts/consumable_item.gd" id="1_xygxr"]
-[ext_resource type="Texture2D" uid="uid://cexrsa5sdgsw2" path="res://assets/sprites/fruit.png" id="2_3w4iy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1il8w"]
-atlas = ExtResource("2_3w4iy")
 region = Rect2(2, 18, 11, 13)
 
 [resource]

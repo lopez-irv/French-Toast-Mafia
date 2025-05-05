@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/level_selection.gd" id="6_me3k5"]
 [ext_resource type="Script" path="res://scripts/settings_menu_button.gd" id="7_j3kgj"]
 [ext_resource type="Script" path="res://scenes/main_menu/load_save.gd" id="8_x0hdt"]
-[ext_resource type="AudioStream" uid="uid://dgkafskvkemq0" path="res://assets/music/main-menu-music.wav" id="9_v0fmk"]
+[ext_resource type="AudioStream" uid="uid://c06xa1qkk1uph" path="res://assets/music/main-menu-music.wav" id="9_v0fmk"]
 [ext_resource type="Script" path="res://scenes/main_menu/delete_save.gd" id="10_0bbut"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="12_acvcm"]
 

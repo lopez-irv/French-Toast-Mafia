@@ -7,18 +7,32 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player := get_tree().get_first_node_in_group("Player")
 @onready var hit_sound = $HitSoundPlayer
+@export var max_health: int = 1000
+@onready var healthBar: ProgressBar = $healthBar
+
 
 @onready var btext = $boss_text
 
 var control: bool
+var attackName
 var isHit = false
-var health = 240
+var health = 1000
 var attacking = false
 var can_play = true
 var last_attack
+var has_crossed_half = false
+var threshold_health: float
+
 
 func _ready() -> void: #turns hitboxes off at start 
+
 	control = false
+
+	health = max_health
+	threshold_health = max_health * 0.5
+	healthBar.value = health
+	healthBar.max_value = health
+	
 	$hitBoxLeft.monitoring = false
 	$hitBoxLeft.get_node("CollisionShape2D").disabled = true
 	
@@ -27,6 +41,9 @@ func _ready() -> void: #turns hitboxes off at start
 	
 	
 func _physics_process(delta: float) -> void:
+
+	if isDead or isHit:
+		return
 	if not control or not player:
 		return
 
@@ -46,7 +63,13 @@ func _physics_process(delta: float) -> void:
 	if distance < attack_range:
 		if not attacking:
 			velocity.x = 0
-			attack()
+			attackName = determineAttack()
+			if attackName == "attack1": 
+				attack1()
+			if attackName == "attack2": 
+				attack2()	
+			if attackName == "jump_stomp": 
+				jump_stomp()
 	else:
 		chase_player(to_player.normalized())
 
@@ -65,14 +88,18 @@ func play_hit_sound():
 		await get_tree().create_timer(0.30).timeout
 		can_play = true
 		
-func attack() -> void:
+func determineAttack()->String:
+	var attacks = ["attack1", "attack2", "jump_stomp"]
+	return attacks[randi() % attacks.size()]
+
+func attack1() -> void:
 	if attacking:
 		return
 	attacking = true
 	
 	sprite.play("attack1")
 	last_attack = "attack1"
-	
+	print("playing attack1 animation")
 	# Wait until halfway through the animation
 	await get_tree().create_timer(0.9).timeout
 	
@@ -81,12 +108,6 @@ func attack() -> void:
 	$hitBoxLeft.get_node("CollisionShape2D").disabled = false
 	$hitBoxRight.monitoring = true
 	$hitBoxRight.get_node("CollisionShape2D").disabled = false
-	
-	# Camera shake (optional)
-	var boss_level = get_tree().current_scene
-	if boss_level.has_method("shake_camera") and last_attack == "jump_stomp":
-		boss_level.shake_camera(10.0, 0.3)
-	
 	# ⏱️ Keep hitboxes on for a short moment to register collision
 	await get_tree().create_timer(0.25).timeout
 	
@@ -98,36 +119,119 @@ func attack() -> void:
 	
 	# Finish the animation if still running
 	await sprite.animation_finished
-	await get_tree().create_timer(0.2).timeout
+	#await get_tree().create_timer(0.2).timeout
 	
 	attacking = false
 
+func attack2() -> void:
+	if attacking:
+		return
+	attacking = true
+	
+	sprite.play("attack2")
+	print("playing attack2 animation")
+	last_attack = "attack2"
+	
+	# Wait until halfway through the animation
+	await get_tree().create_timer(.285).timeout
+	
+	# Enable hitboxes
+	$hitBoxLeft.monitoring = true
+	$hitBoxLeft.get_node("CollisionShape2D").disabled = false
+	$hitBoxRight.monitoring = true
+	$hitBoxRight.get_node("CollisionShape2D").disabled = false
+	
+	# ⏱️ Keep hitboxes on for a short moment to register collision
+	await get_tree().create_timer(0.57).timeout
+	
+	# Disable hitboxes
+	$hitBoxLeft.monitoring = false
+	$hitBoxLeft.get_node("CollisionShape2D").disabled = true
+	$hitBoxRight.monitoring = false
+	$hitBoxRight.get_node("CollisionShape2D").disabled = true
+	
+	# Finish the animation if still running
+	await sprite.animation_finished
+	#await get_tree().create_timer(0.2).timeout
+	
+	attacking = false
 	
 var isDead = false
 
-func take_damage(amount: int)->void: 
-	if(isDead == false):
-		health -= amount
-		print("Goblin took", amount, "damage. Health now:", health)
-		sprite.play("hit")
-		play_hit_sound()
-	
-	if health <= 0 and isDead == false:
-		isDead = true
-		sprite.play("death")
-		await sprite.animation_finished
-		await get_tree().create_timer(0.2).timeout  # small pause after swing
-		queue_free()  # Destroy the goblin
+func jump_stomp() -> void:
+	if attacking:
+		return
+	attacking = true
 
+	sprite.play("jump_stomp")
+	print("playing jump_stomp animation")
+	last_attack = "jump_stomp"
+	await get_tree().create_timer(1.875).timeout
+
+	var boss_level = get_tree().current_scene
+	if boss_level.has_method("shake_camera"):
+		boss_level.shake_camera(10.0, 0.3)
+	
+	await sprite.animation_finished
+
+	attacking = false
 
 func _on_hit_box_entered(body: Node2D) -> void:
 	print("hitbox entered by: ", body.name)
 	
 	if body.is_in_group("Player") and isHit == false:
-		player.decreaseHealth(5)
+		player.decreaseHealth(15)
+		
+func take_damage(amount: int) -> void:
+	if health <= 0 or isDead:
+		return
 
-func play_boss_text(text_name: String, time1: float):
-	btext.visible = true
-	btext.text = text_name
-	await get_tree().create_timer(time1).timeout
-	btext.visible = false
+	var prev = health
+	health -= amount
+	isHit = true
+	healthBar.value = health # update health bar
+
+	# Cancel attack
+	play_hit_sound()
+	if attacking:
+		attacking = false
+		sprite.play("hit")  # Interrupt attack
+		#await get_tree().create_timer(0.2667).timeout
+		print("playing get hit animation1")
+	else:
+		sprite.play("hit")
+		#await get_tree().create_timer(0.2667).timeout
+		print("playing get hit animation2")
+
+	#await get_tree().create_timer(0.3).timeout  # Instead of await animation_finished
+
+	isHit = false
+
+	if not attacking and not isDead:
+		var to_player = player.global_position - global_position
+		var distance = to_player.length()
+		if distance < attack_range:
+			sprite.play("idle")
+		else:
+			sprite.play("running")
+
+	if not has_crossed_half and prev > threshold_health and health <= threshold_health:
+		has_crossed_half = true
+		_on_reached_half_health()
+
+	if health <= 0:
+		isDead = true
+		sprite.play("death")
+		print("playing death animation")
+		await sprite.animation_finished
+		await get_tree().create_timer(0.2).timeout
+		queue_free()
+
+
+func _on_reached_half_health() -> void:
+	get_tree().paused = true
+	var dlg = get_tree().root.get_node("Node2D/HUD/FireballDialog") as AcceptDialog
+	dlg.popup_centered()
+	if player and player.has_method("enable_fireball"):
+		player.enable_fireball()
+

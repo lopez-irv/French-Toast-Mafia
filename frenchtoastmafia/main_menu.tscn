@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://daofoqg86xjno"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_x2q6k"]
-[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="2_xj3kf"]
-[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assests/fonts/PixelOperator8-Bold.ttf" id="3_jy3kd"]
-[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assests/fonts/PixelOperator8.ttf" id="4_o5md8"]
-[ext_resource type="AudioStream" uid="uid://c33nvjqnrfliu" path="res://assets/music/main-menu-music.wav" id="5_qxh5x"]
+[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assets/backgrounds/background_layer_1.png" id="2_xj3kf"]
+[ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_jy3kd"]
+[ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="4_o5md8"]
+[ext_resource type="AudioStream" uid="uid://c06xa1qkk1uph" path="res://assets/music/main-menu-music.wav" id="5_qxh5x"]
 [ext_resource type="Script" path="res://scenes/start_button.gd" id="5_tdcpf"]
 
 [node name="main_menu" type="Control"]

@@ -1,135 +1,125 @@
-[gd_scene load_steps=262 format=3 uid="uid://bebr2xepq2w1g"]
+[gd_scene load_steps=243 format=3 uid="uid://bebr2xepq2w1g"]
 
 [ext_resource type="Script" path="res://scripts/goblin_boss.gd" id="1_1ybqm"]
-[ext_resource type="Texture2D" uid="uid://o5pfq7yyukjg" path="res://customAssets/boss/FighterGoblin/Idle/Idle1.png" id="1_2hdwx"]
-[ext_resource type="Texture2D" uid="uid://bgrecykh2rcvi" path="res://customAssets/boss/FighterGoblin/Idle/Idle2.png" id="2_3geu0"]
-[ext_resource type="Texture2D" uid="uid://bucld4d714s5r" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk1.png" id="2_gla31"]
-[ext_resource type="Texture2D" uid="uid://byabnxax2mohl" path="res://customAssets/boss/FighterGoblin/Idle/Idle3.png" id="3_csclh"]
-[ext_resource type="Texture2D" uid="uid://feb84yyusfmc" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk2.png" id="3_swkqx"]
-[ext_resource type="Texture2D" uid="uid://3akig4qwr1w" path="res://customAssets/boss/FighterGoblin/Idle/Idle4.png" id="4_ahgmf"]
-[ext_resource type="Texture2D" uid="uid://grdgjy77w6jq" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk3.png" id="4_ts6lw"]
-[ext_resource type="Texture2D" uid="uid://b2gxhxgok135o" path="res://customAssets/boss/FighterGoblin/Idle/Idle5.png" id="5_0s8mb"]
-[ext_resource type="Texture2D" uid="uid://nplagr6humpg" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk4.png" id="5_q7uks"]
-[ext_resource type="Texture2D" uid="uid://c3dhf887iqasi" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk5.png" id="6_03wtj"]
-[ext_resource type="Texture2D" uid="uid://bav0tup4r0cnm" path="res://customAssets/boss/FighterGoblin/Idle/Idle6.png" id="6_oe8ov"]
-[ext_resource type="Texture2D" uid="uid://bv4ltjexq42ee" path="res://customAssets/boss/FighterGoblin/Idle/Idle7.png" id="7_0jv7r"]
-[ext_resource type="Texture2D" uid="uid://cctncxk1gac6g" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk6.png" id="7_xb0hg"]
-[ext_resource type="Texture2D" uid="uid://qoufuin4t0ss" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk7.png" id="8_3v2hy"]
-[ext_resource type="Texture2D" uid="uid://c2tnyr8pnnsfd" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk8.png" id="9_33usn"]
-[ext_resource type="Texture2D" uid="uid://dhoevccvcpbvv" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk9.png" id="10_t0nra"]
-[ext_resource type="Texture2D" uid="uid://ml3dtqyoxp4t" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk10.png" id="11_aiag8"]
-[ext_resource type="Texture2D" uid="uid://dsx35eo4b3gol" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk11.png" id="12_g5hln"]
-[ext_resource type="Texture2D" uid="uid://cp5gbymrdv2aj" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk12.png" id="13_2ssi6"]
-[ext_resource type="Texture2D" uid="uid://ebiey2ksdjre" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk13.png" id="14_eg4ut"]
-[ext_resource type="Texture2D" uid="uid://vque3d4kvkxx" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk14.png" id="15_atyue"]
-[ext_resource type="Texture2D" uid="uid://dirjx162xpjwy" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk15.png" id="16_n555k"]
-[ext_resource type="Texture2D" uid="uid://d2wgfownw6ybe" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk16.png" id="17_g7m28"]
-[ext_resource type="Texture2D" uid="uid://cndhfq8irs3yd" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk17.png" id="18_h2tmg"]
-[ext_resource type="Texture2D" uid="uid://cngsymjt4bmnn" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk18.png" id="19_6umv4"]
-[ext_resource type="Texture2D" uid="uid://bbmufkhokijmo" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk19.png" id="20_lqj4r"]
-[ext_resource type="Texture2D" uid="uid://gt2qqb5nbb82" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk20.png" id="21_jau45"]
-[ext_resource type="Texture2D" uid="uid://bbfwsbsqg8a2x" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk21.png" id="22_qnetx"]
-[ext_resource type="Texture2D" uid="uid://bwhdjbvjspr6r" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk1.png" id="23_pjkj5"]
-[ext_resource type="Texture2D" uid="uid://drx8b1rtq4ovk" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk2.png" id="24_fkkrm"]
-[ext_resource type="Texture2D" uid="uid://32d7phnmmsix" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk3.png" id="25_leau6"]
-[ext_resource type="Texture2D" uid="uid://idqk1bvmjwxw" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk4.png" id="26_ykbro"]
-[ext_resource type="Texture2D" uid="uid://dc8qbnjl7onnu" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk5.png" id="27_yjq4t"]
-[ext_resource type="Texture2D" uid="uid://bmui7c01sx27i" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk6.png" id="28_4i2eb"]
-[ext_resource type="Texture2D" uid="uid://cglvfvrpb3kd7" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk7.png" id="29_beffc"]
-[ext_resource type="Texture2D" uid="uid://b1xrssal1l08p" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk8.png" id="30_rucvj"]
-[ext_resource type="Texture2D" uid="uid://b1v87iyvyild6" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk9.png" id="31_l0cwu"]
-[ext_resource type="Texture2D" uid="uid://dy4cu2hrqswwv" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk10.png" id="32_r863k"]
-[ext_resource type="Texture2D" uid="uid://b44uaray4nfa7" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk11.png" id="33_t84ec"]
-[ext_resource type="Texture2D" uid="uid://ck53y3576mxl0" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk12.png" id="34_v4vdq"]
-[ext_resource type="Texture2D" uid="uid://6vvvpy73yer6" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk13.png" id="35_pcenn"]
-[ext_resource type="Texture2D" uid="uid://7rkn64csdghs" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk14.png" id="36_pa2ty"]
-[ext_resource type="Texture2D" uid="uid://dsgaj58a6580y" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk15.png" id="37_yqv7x"]
-[ext_resource type="Texture2D" uid="uid://coimlfrnp6rci" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk16.png" id="38_8xqby"]
-[ext_resource type="Texture2D" uid="uid://cymqp2ul4i3ti" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk17.png" id="39_oyn2a"]
-[ext_resource type="Texture2D" uid="uid://ck7lod0dr71y3" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk18.png" id="40_0pyfh"]
-[ext_resource type="Texture2D" uid="uid://c4kfruqsn4ri4" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk19.png" id="41_3reme"]
-[ext_resource type="Texture2D" uid="uid://dqgc30hvl81oy" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk20.png" id="42_axc46"]
-[ext_resource type="Texture2D" uid="uid://bfvl8ihg0v1a6" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk21.png" id="43_o3pep"]
-[ext_resource type="Texture2D" uid="uid://5mkjupv6356r" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk22.png" id="44_kmxur"]
-[ext_resource type="Texture2D" uid="uid://delndubg1ahld" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk23.png" id="45_5di6h"]
-[ext_resource type="Texture2D" uid="uid://c0o03i2pbhxti" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk24.png" id="46_7kqrl"]
-[ext_resource type="Texture2D" uid="uid://7xoyb1dtu2nv" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk25.png" id="47_a02fx"]
-[ext_resource type="Texture2D" uid="uid://bwhdrnonwnh87" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk26.png" id="48_iiha0"]
-[ext_resource type="Texture2D" uid="uid://cqxmqpx63tbun" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk27.png" id="49_i4bos"]
-[ext_resource type="Texture2D" uid="uid://bhbxtt4nd4ldc" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk28.png" id="50_5n6vn"]
-[ext_resource type="Texture2D" uid="uid://bsogr77fprk1i" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk29.png" id="51_u4s6i"]
-[ext_resource type="Texture2D" uid="uid://ccgvauvuhcj3i" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk30.png" id="52_bp15m"]
-[ext_resource type="Texture2D" uid="uid://b681n5oqp3coy" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk31.png" id="53_gaami"]
-[ext_resource type="Texture2D" uid="uid://422ynk0evj30" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk32.png" id="54_l7k7p"]
-[ext_resource type="Texture2D" uid="uid://bb6emhbc3tftq" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk33.png" id="55_hofom"]
-[ext_resource type="Texture2D" uid="uid://bu0tuhh2aat6q" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk34.png" id="56_um25e"]
-[ext_resource type="Texture2D" uid="uid://cpm5x6rsc7i4r" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk35.png" id="57_fr06d"]
-[ext_resource type="Texture2D" uid="uid://yx73uc8vusuk" path="res://customAssets/boss/FighterGoblin/Death/Death1.png" id="58_fivtw"]
-[ext_resource type="Texture2D" uid="uid://bcs71hmvoim6f" path="res://customAssets/boss/FighterGoblin/Run/Break/Break1.png" id="58_k63ll"]
-[ext_resource type="Texture2D" uid="uid://l7td1qw3uf56" path="res://customAssets/boss/FighterGoblin/Run/Break/Break2.png" id="59_6c57y"]
-[ext_resource type="Texture2D" uid="uid://coefjwvqdg44g" path="res://customAssets/boss/FighterGoblin/Death/Death2.png" id="59_golac"]
-[ext_resource type="Texture2D" uid="uid://b1ldpvi6ggyun" path="res://customAssets/boss/FighterGoblin/Run/Break/Break3.png" id="60_gsrs3"]
-[ext_resource type="Texture2D" uid="uid://cbno50nk3bte5" path="res://customAssets/boss/FighterGoblin/Death/Death3.png" id="60_o6k5n"]
-[ext_resource type="Texture2D" uid="uid://uhw8h84br8j6" path="res://customAssets/boss/FighterGoblin/Death/Death4.png" id="61_t8grh"]
-[ext_resource type="Texture2D" uid="uid://budis2hn57v70" path="res://customAssets/boss/FighterGoblin/Death/Death5.png" id="62_qh1fp"]
-[ext_resource type="Texture2D" uid="uid://b6w1reicf58k0" path="res://customAssets/boss/FighterGoblin/Death/Death6.png" id="63_7uurc"]
-[ext_resource type="Texture2D" uid="uid://bkliu31ghsyrp" path="res://customAssets/boss/FighterGoblin/Death/Death7.png" id="64_14evn"]
-[ext_resource type="Texture2D" uid="uid://fsafetmfdsl4" path="res://customAssets/boss/FighterGoblin/Death/Death8.png" id="65_p7dx7"]
-[ext_resource type="Texture2D" uid="uid://bpjwyr4t34l3p" path="res://customAssets/boss/FighterGoblin/Death/Death9.png" id="66_4nr83"]
-[ext_resource type="Texture2D" uid="uid://dgunp8s6pbhhv" path="res://customAssets/boss/FighterGoblin/Death/Death10.png" id="67_mmp1j"]
-[ext_resource type="Texture2D" uid="uid://bm20b02x4qy2s" path="res://customAssets/boss/FighterGoblin/Death/Death11.png" id="68_snx3e"]
-[ext_resource type="Texture2D" uid="uid://jhl5fdpqmktb" path="res://customAssets/boss/FighterGoblin/Death/Death12.png" id="69_54bkt"]
-[ext_resource type="Texture2D" uid="uid://bbga5xa362fpk" path="res://customAssets/boss/FighterGoblin/Death/Death13.png" id="70_m6hvv"]
-[ext_resource type="Texture2D" uid="uid://2laursqigdw4" path="res://customAssets/boss/FighterGoblin/Death/Death14.png" id="71_aj2kn"]
-[ext_resource type="Texture2D" uid="uid://dshbldksegjps" path="res://customAssets/boss/FighterGoblin/Death/Death15.png" id="72_f05yt"]
-[ext_resource type="Texture2D" uid="uid://r1w2tsui34n2" path="res://customAssets/boss/FighterGoblin/Death/Death16.png" id="73_wa5kv"]
-[ext_resource type="Texture2D" uid="uid://cleuw6u5mnkuy" path="res://customAssets/boss/FighterGoblin/Death/Death17.png" id="74_jr5nk"]
-[ext_resource type="Texture2D" uid="uid://dfo81atljm8h2" path="res://customAssets/boss/FighterGoblin/Death/Death18.png" id="75_5s4vl"]
-[ext_resource type="Texture2D" uid="uid://5h70ptx0gja3" path="res://customAssets/boss/FighterGoblin/Death/Death19.png" id="76_nt7kj"]
-[ext_resource type="Texture2D" uid="uid://bmkkb0g7isf1q" path="res://customAssets/boss/FighterGoblin/Death/Death20.png" id="77_ir4u4"]
-[ext_resource type="Texture2D" uid="uid://bh81a1xsycdse" path="res://customAssets/boss/FighterGoblin/Jump/Falling/Falling1.png" id="81_cfejr"]
-[ext_resource type="Texture2D" uid="uid://b3rrvkxy0tkuc" path="res://customAssets/boss/FighterGoblin/Jump/Falling/Falling2.png" id="82_s4wkg"]
-[ext_resource type="Texture2D" uid="uid://bueb5lhrwieh7" path="res://customAssets/boss/FighterGoblin/Jump/Falling/Falling3.png" id="83_ws20o"]
-[ext_resource type="Texture2D" uid="uid://babrogkoga8pj" path="res://customAssets/boss/FighterGoblin/Hited/Hited1.png" id="84_osguy"]
-[ext_resource type="Texture2D" uid="uid://dy8ih0sb2w83e" path="res://customAssets/boss/FighterGoblin/Hited/Hited2.png" id="85_t1lqt"]
-[ext_resource type="Texture2D" uid="uid://bau31nbw3jjgp" path="res://customAssets/boss/FighterGoblin/Hited/Hited3.png" id="86_47xjb"]
-[ext_resource type="Texture2D" uid="uid://h8era4eh30fb" path="res://customAssets/boss/FighterGoblin/Hited/Hited4.png" id="87_jhmms"]
-[ext_resource type="Texture2D" uid="uid://bisixhlnbkgr7" path="res://customAssets/boss/FighterGoblin/Jump/Jumping/Jumping1.png" id="95_01xag"]
-[ext_resource type="Texture2D" uid="uid://bpsr32ec2tlc4" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk1.png" id="95_f0ojy"]
-[ext_resource type="Texture2D" uid="uid://vaqspranmh08" path="res://customAssets/boss/FighterGoblin/Jump/Jumping/Jumping2.png" id="96_2axum"]
-[ext_resource type="Texture2D" uid="uid://dp6pig5miyuwl" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk2.png" id="96_vg1ff"]
-[ext_resource type="Texture2D" uid="uid://dj0hhh1tj242q" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk3.png" id="97_4enea"]
-[ext_resource type="Texture2D" uid="uid://75ix54l4t13n" path="res://customAssets/boss/FighterGoblin/Jump/Jumping/Jumping3.png" id="97_6sv0t"]
-[ext_resource type="Texture2D" uid="uid://w30j5c4wnsjp" path="res://customAssets/boss/FighterGoblin/Jump/Land/Land1.png" id="98_b2513"]
-[ext_resource type="Texture2D" uid="uid://df5fvqqrsaytn" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk4.png" id="98_l5r5r"]
-[ext_resource type="Texture2D" uid="uid://2jb3a0tgqiu6" path="res://customAssets/boss/FighterGoblin/Jump/Land/Land2.png" id="99_3cj1b"]
-[ext_resource type="Texture2D" uid="uid://ocj54j0l1p40" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping1 copy.png" id="99_u2126"]
-[ext_resource type="Texture2D" uid="uid://c5soy2uadujp4" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping1.png" id="100_c4c84"]
-[ext_resource type="Texture2D" uid="uid://biavu4o57mpa1" path="res://customAssets/boss/FighterGoblin/Jump/Land/Land3.png" id="100_oy2w4"]
-[ext_resource type="Texture2D" uid="uid://b8wtfmm5jew45" path="res://customAssets/boss/FighterGoblin/Jump/Land/Land4.png" id="101_6sguq"]
-[ext_resource type="Texture2D" uid="uid://b63emmox0mxwg" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping2 copy.png" id="101_u3bwh"]
-[ext_resource type="Texture2D" uid="uid://b25iga3f201u7" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping2.png" id="102_f6kdy"]
-[ext_resource type="Texture2D" uid="uid://dufjbxdi6gdd5" path="res://customAssets/boss/FighterGoblin/Jump/Land/Land5.png" id="102_pnc3p"]
-[ext_resource type="Texture2D" uid="uid://b2rwk1j1durpw" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping3 copy.png" id="103_re5m1"]
-[ext_resource type="Texture2D" uid="uid://cq4v627l0l5uo" path="res://customAssets/boss/FighterGoblin/Run/Running/Running1.png" id="103_v2myn"]
-[ext_resource type="Texture2D" uid="uid://bqpkyvrhd74da" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping3.png" id="104_g2v82"]
-[ext_resource type="Texture2D" uid="uid://dgcsogl0pem5y" path="res://customAssets/boss/FighterGoblin/Run/Running/Running2.png" id="104_g8v7u"]
-[ext_resource type="Texture2D" uid="uid://dio2571qhs6x2" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk10.png" id="105_8jru5"]
-[ext_resource type="Texture2D" uid="uid://81kbyneaj2t8" path="res://customAssets/boss/FighterGoblin/Run/Running/Running3.png" id="105_st02r"]
-[ext_resource type="Texture2D" uid="uid://bc8gl5w5oasd1" path="res://customAssets/boss/FighterGoblin/Run/Running/Running4.png" id="106_46k6v"]
-[ext_resource type="Texture2D" uid="uid://c5iyv4xop33as" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk11.png" id="106_shsfj"]
-[ext_resource type="Texture2D" uid="uid://c72ahsnfvqpg3" path="res://customAssets/boss/FighterGoblin/Run/Running/Running5.png" id="107_fbdx2"]
-[ext_resource type="Texture2D" uid="uid://dyb3iaiyuyp7q" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk12.png" id="107_yr7t5"]
-[ext_resource type="Texture2D" uid="uid://2773uake1iwo" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk13.png" id="108_fu2to"]
-[ext_resource type="Texture2D" uid="uid://rjofw8h8ckgs" path="res://customAssets/boss/FighterGoblin/Run/Running/Running6.png" id="108_i76y1"]
-[ext_resource type="Texture2D" uid="uid://dotyowc2owj8r" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk14.png" id="109_obuid"]
-[ext_resource type="Texture2D" uid="uid://c1p43pl0j3ebi" path="res://customAssets/boss/FighterGoblin/Run/Running/Running7.png" id="109_q3tk3"]
-[ext_resource type="Texture2D" uid="uid://c376a8ki6ctrg" path="res://customAssets/boss/FighterGoblin/Run/Running/Running8.png" id="110_he87h"]
-[ext_resource type="Texture2D" uid="uid://n1l5ncmkrl8q" path="res://customAssets/boss/FighterGoblin/Jump/ToJump/Jump1.png" id="111_rxbl1"]
-[ext_resource type="Texture2D" uid="uid://bnud44nmom5s3" path="res://customAssets/boss/FighterGoblin/Jump/ToJump/Jump2.png" id="112_r00wi"]
-[ext_resource type="Texture2D" uid="uid://wqt5mbby3jrh" path="res://customAssets/boss/FighterGoblin/Jump/ToJump/Jump3.png" id="113_7ud25"]
-[ext_resource type="Texture2D" uid="uid://idjjyghl4pbj" path="res://customAssets/boss/FighterGoblin/Jump/ToJump/Jump4.png" id="114_yd2np"]
-[ext_resource type="AudioStream" uid="uid://do0ovwsmxd7jh" path="res://customAssets/boss/FighterGoblin/bossHit.wav" id="115_u32c0"]
+[ext_resource type="Texture2D" uid="uid://c6ypu7g8bmgco" path="res://customAssets/boss/FighterGoblin/Idle/Idle1.png" id="1_2hdwx"]
+[ext_resource type="Texture2D" uid="uid://d3c8btiolqbb7" path="res://customAssets/boss/FighterGoblin/Idle/Idle2.png" id="2_3geu0"]
+[ext_resource type="Texture2D" uid="uid://ietfirkiwwjy" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk1.png" id="2_gla31"]
+[ext_resource type="Texture2D" uid="uid://b0y7oeubtrfbf" path="res://customAssets/boss/FighterGoblin/Idle/Idle3.png" id="3_csclh"]
+[ext_resource type="Texture2D" uid="uid://c08w1a2ucycf8" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk2.png" id="3_swkqx"]
+[ext_resource type="Texture2D" uid="uid://b3yr601eo635t" path="res://customAssets/boss/FighterGoblin/Idle/Idle4.png" id="4_ahgmf"]
+[ext_resource type="Texture2D" uid="uid://dqwfc2dx5un75" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk3.png" id="4_ts6lw"]
+[ext_resource type="Texture2D" uid="uid://ci1wy1rkhdj6r" path="res://customAssets/boss/FighterGoblin/Idle/Idle5.png" id="5_0s8mb"]
+[ext_resource type="Texture2D" uid="uid://bhix0os3yfagf" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk4.png" id="5_q7uks"]
+[ext_resource type="Texture2D" uid="uid://d24vcxcvpm0j7" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk5.png" id="6_03wtj"]
+[ext_resource type="Texture2D" uid="uid://djxkp0x6jur6x" path="res://customAssets/boss/FighterGoblin/Idle/Idle6.png" id="6_oe8ov"]
+[ext_resource type="Texture2D" uid="uid://c2q8r1dxvbyhh" path="res://customAssets/boss/FighterGoblin/Idle/Idle7.png" id="7_0jv7r"]
+[ext_resource type="Texture2D" uid="uid://dppaj01pvwd53" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk6.png" id="7_xb0hg"]
+[ext_resource type="Texture2D" uid="uid://dnfb0ki70agjy" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk7.png" id="8_3v2hy"]
+[ext_resource type="Texture2D" uid="uid://brf2104qlpow4" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk8.png" id="9_33usn"]
+[ext_resource type="Texture2D" uid="uid://decqegflysr2l" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk9.png" id="10_t0nra"]
+[ext_resource type="Texture2D" uid="uid://btp0xv5kd6lkw" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk10.png" id="11_aiag8"]
+[ext_resource type="Texture2D" uid="uid://us6gyxbem28r" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk11.png" id="12_g5hln"]
+[ext_resource type="Texture2D" uid="uid://bhmr5fiymqxed" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk12.png" id="13_2ssi6"]
+[ext_resource type="Texture2D" uid="uid://c88nje1ut8vc8" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk13.png" id="14_eg4ut"]
+[ext_resource type="Texture2D" uid="uid://ybe8scy4o2w0" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk14.png" id="15_atyue"]
+[ext_resource type="Texture2D" uid="uid://dlqauoepd4wta" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk15.png" id="16_n555k"]
+[ext_resource type="Texture2D" uid="uid://bk8ryplxwhu3w" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk16.png" id="17_g7m28"]
+[ext_resource type="Texture2D" uid="uid://cucdfaumvxgmb" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk17.png" id="18_h2tmg"]
+[ext_resource type="Texture2D" uid="uid://d0einqknrqny0" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk18.png" id="19_6umv4"]
+[ext_resource type="Texture2D" uid="uid://srqwwb0pg0yr" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk19.png" id="20_lqj4r"]
+[ext_resource type="Texture2D" uid="uid://clsrpy06fnxvw" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk20.png" id="21_jau45"]
+[ext_resource type="Texture2D" uid="uid://denvm2dh76ina" path="res://customAssets/boss/FighterGoblin/Attacks/AirHeavyAtk/AirHeavyAtk21.png" id="22_qnetx"]
+[ext_resource type="Texture2D" uid="uid://ckow7pqymp3j5" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk1.png" id="23_pjkj5"]
+[ext_resource type="Texture2D" uid="uid://rogebr8c7g4s" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk16.png" id="38_8xqby"]
+[ext_resource type="Texture2D" uid="uid://d0urvdp5hbu2y" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk17.png" id="39_oyn2a"]
+[ext_resource type="Texture2D" uid="uid://ifrgtewycgtl" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk18.png" id="40_0pyfh"]
+[ext_resource type="Texture2D" uid="uid://dndt1801miwbn" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk19.png" id="41_3reme"]
+[ext_resource type="Texture2D" uid="uid://ddqlv7kwlawjo" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk20.png" id="42_axc46"]
+[ext_resource type="Texture2D" uid="uid://dwfxrnxe8jyn" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk21.png" id="43_o3pep"]
+[ext_resource type="Texture2D" uid="uid://cstry8vm7tffp" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk22.png" id="44_kmxur"]
+[ext_resource type="Texture2D" uid="uid://c14umdpxogr0c" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk23.png" id="45_5di6h"]
+[ext_resource type="Texture2D" uid="uid://7kre7kyramp0" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk24.png" id="46_7kqrl"]
+[ext_resource type="Texture2D" uid="uid://pocmansnxrby" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk25.png" id="47_a02fx"]
+[ext_resource type="Texture2D" uid="uid://cn2ulitwsdskx" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk26.png" id="48_iiha0"]
+[ext_resource type="Texture2D" uid="uid://dfod06idavl4u" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk27.png" id="49_i4bos"]
+[ext_resource type="Texture2D" uid="uid://b6xidi6y2kucr" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk28.png" id="50_5n6vn"]
+[ext_resource type="Texture2D" uid="uid://deunyeol3oysw" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk29.png" id="51_u4s6i"]
+[ext_resource type="Texture2D" uid="uid://d318qo8cstbc4" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk30.png" id="52_bp15m"]
+[ext_resource type="Texture2D" uid="uid://p3sqn8nmigr5" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk31.png" id="53_gaami"]
+[ext_resource type="Texture2D" uid="uid://bhey6wy0msil0" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk32.png" id="54_l7k7p"]
+[ext_resource type="Texture2D" uid="uid://cahgsmntkwqbe" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk33.png" id="55_hofom"]
+[ext_resource type="Texture2D" uid="uid://rootaby6dimk" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk34.png" id="56_um25e"]
+[ext_resource type="Texture2D" uid="uid://df3tv4irpyehm" path="res://customAssets/boss/FighterGoblin/Attacks/LightAtk/LightAtk35.png" id="57_fr06d"]
+[ext_resource type="Texture2D" uid="uid://b7cxagvo6cba0" path="res://customAssets/boss/FighterGoblin/Death/Death1.png" id="58_fivtw"]
+[ext_resource type="Texture2D" uid="uid://uog2umpjxye1" path="res://customAssets/boss/FighterGoblin/Run/Break/Break1.png" id="58_k63ll"]
+[ext_resource type="Texture2D" uid="uid://cd7s64oykkpps" path="res://customAssets/boss/FighterGoblin/Run/Break/Break2.png" id="59_6c57y"]
+[ext_resource type="Texture2D" uid="uid://bblha8m8opq6v" path="res://customAssets/boss/FighterGoblin/Death/Death2.png" id="59_golac"]
+[ext_resource type="Texture2D" uid="uid://5nxcponx7oa7" path="res://customAssets/boss/FighterGoblin/Run/Break/Break3.png" id="60_gsrs3"]
+[ext_resource type="Texture2D" uid="uid://posfjr1dbgyx" path="res://customAssets/boss/FighterGoblin/Death/Death3.png" id="60_o6k5n"]
+[ext_resource type="Texture2D" uid="uid://co86va3pu87qx" path="res://customAssets/boss/FighterGoblin/Death/Death4.png" id="61_t8grh"]
+[ext_resource type="Texture2D" uid="uid://bwbke2cw4rwbs" path="res://customAssets/boss/FighterGoblin/Death/Death5.png" id="62_qh1fp"]
+[ext_resource type="Texture2D" uid="uid://b2xncq54cb1h2" path="res://customAssets/boss/FighterGoblin/Death/Death6.png" id="63_7uurc"]
+[ext_resource type="Texture2D" uid="uid://br1ka4mguttmn" path="res://customAssets/boss/FighterGoblin/Death/Death7.png" id="64_14evn"]
+[ext_resource type="Texture2D" uid="uid://deuvo40jqs6k7" path="res://customAssets/boss/FighterGoblin/Death/Death8.png" id="65_p7dx7"]
+[ext_resource type="Texture2D" uid="uid://bdtofrnnudw4x" path="res://customAssets/boss/FighterGoblin/Death/Death9.png" id="66_4nr83"]
+[ext_resource type="Texture2D" uid="uid://br1asuvgjruj5" path="res://customAssets/boss/FighterGoblin/Death/Death10.png" id="67_mmp1j"]
+[ext_resource type="Texture2D" uid="uid://do5atixk3hebh" path="res://customAssets/boss/FighterGoblin/Death/Death11.png" id="68_snx3e"]
+[ext_resource type="Texture2D" uid="uid://brxn5yn638pd1" path="res://customAssets/boss/FighterGoblin/Death/Death12.png" id="69_54bkt"]
+[ext_resource type="Texture2D" uid="uid://dligc5si02e7i" path="res://customAssets/boss/FighterGoblin/Death/Death13.png" id="70_m6hvv"]
+[ext_resource type="Texture2D" uid="uid://yofu3ig6x62x" path="res://customAssets/boss/FighterGoblin/Death/Death14.png" id="71_aj2kn"]
+[ext_resource type="Texture2D" uid="uid://be4ikdi1u6a4w" path="res://customAssets/boss/FighterGoblin/Death/Death15.png" id="72_f05yt"]
+[ext_resource type="Texture2D" uid="uid://c57jfb7f8aggq" path="res://customAssets/boss/FighterGoblin/Death/Death16.png" id="73_wa5kv"]
+[ext_resource type="Texture2D" uid="uid://c65n8odlu4bf4" path="res://customAssets/boss/FighterGoblin/Death/Death17.png" id="74_jr5nk"]
+[ext_resource type="Texture2D" uid="uid://dq27prbbx2rk6" path="res://customAssets/boss/FighterGoblin/Death/Death18.png" id="75_5s4vl"]
+[ext_resource type="Texture2D" uid="uid://bfr8hlolbqhhl" path="res://customAssets/boss/FighterGoblin/Death/Death19.png" id="76_nt7kj"]
+[ext_resource type="Texture2D" uid="uid://c7gfx2appvea0" path="res://customAssets/boss/FighterGoblin/Death/Death20.png" id="77_ir4u4"]
+[ext_resource type="Texture2D" uid="uid://dmnet0610gkhn" path="res://customAssets/boss/FighterGoblin/Jump/Falling/Falling1.png" id="81_cfejr"]
+[ext_resource type="Texture2D" uid="uid://di4ibxr1ua5a" path="res://customAssets/boss/FighterGoblin/Jump/Falling/Falling2.png" id="82_s4wkg"]
+[ext_resource type="Texture2D" uid="uid://brb48c0tg47fe" path="res://customAssets/boss/FighterGoblin/Jump/Falling/Falling3.png" id="83_ws20o"]
+[ext_resource type="Texture2D" uid="uid://d1v2wg40qx768" path="res://customAssets/boss/FighterGoblin/Hited/Hited1.png" id="84_osguy"]
+[ext_resource type="Texture2D" uid="uid://dpwtfn2214eyx" path="res://customAssets/boss/FighterGoblin/Hited/Hited2.png" id="85_t1lqt"]
+[ext_resource type="Texture2D" uid="uid://c1bqvhr16ralw" path="res://customAssets/boss/FighterGoblin/Hited/Hited3.png" id="86_47xjb"]
+[ext_resource type="Texture2D" uid="uid://dqyis32jr1wnr" path="res://customAssets/boss/FighterGoblin/Hited/Hited4.png" id="87_jhmms"]
+[ext_resource type="Texture2D" uid="uid://dax06xmeo6kia" path="res://customAssets/boss/FighterGoblin/Jump/Jumping/Jumping1.png" id="95_01xag"]
+[ext_resource type="Texture2D" uid="uid://cd0nh1y5ebwri" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk1.png" id="95_f0ojy"]
+[ext_resource type="Texture2D" uid="uid://d25oibikokllr" path="res://customAssets/boss/FighterGoblin/Jump/Jumping/Jumping2.png" id="96_2axum"]
+[ext_resource type="Texture2D" uid="uid://bpwce30dbkwyw" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk2.png" id="96_vg1ff"]
+[ext_resource type="Texture2D" uid="uid://bv74t3hlh81gi" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk3.png" id="97_4enea"]
+[ext_resource type="Texture2D" uid="uid://usnevfx70454" path="res://customAssets/boss/FighterGoblin/Jump/Jumping/Jumping3.png" id="97_6sv0t"]
+[ext_resource type="Texture2D" uid="uid://0nkeroiypmux" path="res://customAssets/boss/FighterGoblin/Jump/Land/Land1.png" id="98_b2513"]
+[ext_resource type="Texture2D" uid="uid://dmrkffopcrpd8" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk4.png" id="98_l5r5r"]
+[ext_resource type="Texture2D" uid="uid://56jrpqy3xk5u" path="res://customAssets/boss/FighterGoblin/Jump/Land/Land2.png" id="99_3cj1b"]
+[ext_resource type="Texture2D" uid="uid://c5wi0yneqrrme" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping1 copy.png" id="99_u2126"]
+[ext_resource type="Texture2D" uid="uid://bplxfxa5qmvqd" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping1.png" id="100_c4c84"]
+[ext_resource type="Texture2D" uid="uid://csbve1t4eke3o" path="res://customAssets/boss/FighterGoblin/Jump/Land/Land3.png" id="100_oy2w4"]
+[ext_resource type="Texture2D" uid="uid://d4hc1hc77y8hs" path="res://customAssets/boss/FighterGoblin/Jump/Land/Land4.png" id="101_6sguq"]
+[ext_resource type="Texture2D" uid="uid://e4xu3j3uxj2m" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping2 copy.png" id="101_u3bwh"]
+[ext_resource type="Texture2D" uid="uid://ccy1ckjnu23fv" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping2.png" id="102_f6kdy"]
+[ext_resource type="Texture2D" uid="uid://d01txmxmrk2qf" path="res://customAssets/boss/FighterGoblin/Jump/Land/Land5.png" id="102_pnc3p"]
+[ext_resource type="Texture2D" uid="uid://densapubvlsc3" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping2 copy 2.png" id="103_k7rmd"]
+[ext_resource type="Texture2D" uid="uid://b0nj4fn24xi66" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping3 copy.png" id="103_re5m1"]
+[ext_resource type="Texture2D" uid="uid://bfp8q1lk41sxw" path="res://customAssets/boss/FighterGoblin/Run/Running/Running1.png" id="103_v2myn"]
+[ext_resource type="Texture2D" uid="uid://b5yas2wi7egxg" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping2 copy 3.png" id="104_7jwmy"]
+[ext_resource type="Texture2D" uid="uid://cye57c8hg18su" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping3.png" id="104_g2v82"]
+[ext_resource type="Texture2D" uid="uid://cn34kccx6g0ll" path="res://customAssets/boss/FighterGoblin/Run/Running/Running2.png" id="104_g8v7u"]
+[ext_resource type="Texture2D" uid="uid://cj30lfkqfy3t5" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk10.png" id="105_8jru5"]
+[ext_resource type="Texture2D" uid="uid://vigmqmvkpcuo" path="res://customAssets/boss/FighterGoblin/jump_stomp/Jumping2 copy 4.png" id="105_86egj"]
+[ext_resource type="Texture2D" uid="uid://clknbqjq3cawp" path="res://customAssets/boss/FighterGoblin/Run/Running/Running3.png" id="105_st02r"]
+[ext_resource type="Texture2D" uid="uid://b4c3cc8rle674" path="res://customAssets/boss/FighterGoblin/Run/Running/Running4.png" id="106_46k6v"]
+[ext_resource type="Texture2D" uid="uid://64beo5kv5yyu" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk11.png" id="106_shsfj"]
+[ext_resource type="Texture2D" uid="uid://ca6tymtm45o0x" path="res://customAssets/boss/FighterGoblin/Run/Running/Running5.png" id="107_fbdx2"]
+[ext_resource type="Texture2D" uid="uid://cdhddpspepl87" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk12.png" id="107_yr7t5"]
+[ext_resource type="Texture2D" uid="uid://b26qj4w6cf56v" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk13.png" id="108_fu2to"]
+[ext_resource type="Texture2D" uid="uid://jpyeyj5gkrt4" path="res://customAssets/boss/FighterGoblin/Run/Running/Running6.png" id="108_i76y1"]
+[ext_resource type="Texture2D" uid="uid://bgpsacu4prfdk" path="res://customAssets/boss/FighterGoblin/jump_stomp/LightAtk14.png" id="109_obuid"]
+[ext_resource type="Texture2D" uid="uid://du6a6lkm0vsth" path="res://customAssets/boss/FighterGoblin/Run/Running/Running7.png" id="109_q3tk3"]
+[ext_resource type="Texture2D" uid="uid://d1s7e3m7y402u" path="res://customAssets/boss/FighterGoblin/Run/Running/Running8.png" id="110_he87h"]
+[ext_resource type="Texture2D" uid="uid://c1kf0afy8eji3" path="res://customAssets/boss/FighterGoblin/Jump/ToJump/Jump1.png" id="111_rxbl1"]
+[ext_resource type="Texture2D" uid="uid://n18480fy2yo7" path="res://customAssets/boss/FighterGoblin/Jump/ToJump/Jump2.png" id="112_r00wi"]
+[ext_resource type="Texture2D" uid="uid://c37j14ckvjkai" path="res://customAssets/boss/FighterGoblin/Jump/ToJump/Jump3.png" id="113_7ud25"]
+[ext_resource type="Texture2D" uid="uid://b4mre8w1nbcm" path="res://customAssets/boss/FighterGoblin/Jump/ToJump/Jump4.png" id="114_yd2np"]
+[ext_resource type="AudioStream" uid="uid://dfdnlxhxsqsn6" path="res://customAssets/boss/FighterGoblin/bossHit.wav" id="115_u32c0"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_roy77"]
 atlas = ExtResource("2_gla31")
@@ -217,62 +207,6 @@ region = Rect2(0, 0, 142, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k7eds"]
 atlas = ExtResource("23_pjkj5")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rdbvg"]
-atlas = ExtResource("24_fkkrm")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u7e1f"]
-atlas = ExtResource("25_leau6")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6qwyr"]
-atlas = ExtResource("26_ykbro")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ctvf"]
-atlas = ExtResource("27_yjq4t")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hh0i0"]
-atlas = ExtResource("28_4i2eb")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qnrfw"]
-atlas = ExtResource("29_beffc")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k8sjs"]
-atlas = ExtResource("30_rucvj")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_72sni"]
-atlas = ExtResource("31_l0cwu")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h7bst"]
-atlas = ExtResource("32_r863k")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7oqpk"]
-atlas = ExtResource("33_t84ec")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gmyme"]
-atlas = ExtResource("34_v4vdq")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4xg4v"]
-atlas = ExtResource("35_pcenn")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_do5au"]
-atlas = ExtResource("36_pa2ty")
-region = Rect2(0, 0, 142, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vemul"]
-atlas = ExtResource("37_yqv7x")
 region = Rect2(0, 0, 142, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l8tdc"]
@@ -535,6 +469,22 @@ region = Rect2(0, 0, 142, 80)
 atlas = ExtResource("102_f6kdy")
 region = Rect2(0, 0, 142, 80)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gm6cp"]
+atlas = ExtResource("103_k7rmd")
+region = Rect2(0, 0, 142, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh2d0"]
+atlas = ExtResource("104_7jwmy")
+region = Rect2(0, 0, 142, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2ope"]
+atlas = ExtResource("105_86egj")
+region = Rect2(0, 0, 142, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipkm2"]
+atlas = ExtResource("105_86egj")
+region = Rect2(0, 0, 142, 80)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlbsk"]
 atlas = ExtResource("103_re5m1")
 region = Rect2(0, 0, 142, 80)
@@ -718,48 +668,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_k7eds")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rdbvg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u7e1f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6qwyr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8ctvf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hh0i0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qnrfw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k8sjs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_72sni")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h7bst")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7oqpk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gmyme")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4xg4v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_do5au")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vemul")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_l8tdc")
 }, {
 "duration": 1.0,
@@ -821,7 +729,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"attack2",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -931,7 +839,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hit",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -983,6 +891,18 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6upsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gm6cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rh2d0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2ope")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipkm2")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qlbsk")
@@ -1134,6 +1054,12 @@ size = Vector2(31, 63.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0up0o"]
 size = Vector2(79, 32.5)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxngs"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_auqky"]
+bg_color = Color(0.865041, 0, 0.097925, 1)
+
 [node name="goblinBoss" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 3
@@ -1143,9 +1069,7 @@ script = ExtResource("1_1ybqm")
 position = Vector2(1, -1)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_rm1up")
-animation = &"idle"
-frame = 4
-frame_progress = 0.254965
+animation = &"attack1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7.5, -1.25)
@@ -1170,6 +1094,17 @@ shape = SubResource("RectangleShape2D_0up0o")
 [node name="HitSoundPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("115_u32c0")
 volume_db = 3.467
+
+[node name="healthBar" type="ProgressBar" parent="."]
+offset_left = -21.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = -34.0
+theme_override_styles/background = SubResource("StyleBoxFlat_vxngs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_auqky")
+max_value = 1000.0
+value = 100.0
+show_percentage = false
 
 [connection signal="body_entered" from="hitBoxRight" to="." method="_on_hit_box_entered"]
 [connection signal="body_entered" from="hitBoxLeft" to="." method="_on_hit_box_entered"]
