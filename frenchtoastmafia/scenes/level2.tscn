@@ -1320,7 +1320,10 @@ position = Vector2(-125, -275)
 position = Vector2(561, -337)
 
 [node name="FallingPlatform7" parent="platforms" instance=ExtResource("3_ia2s2")]
-position = Vector2(431, -240)
+position = Vector2(408, -234)
+
+[node name="FallingPlatform8" parent="platforms" instance=ExtResource("3_ia2s2")]
+position = Vector2(484, -286)
 
 [node name="saws" type="Node" parent="."]
 

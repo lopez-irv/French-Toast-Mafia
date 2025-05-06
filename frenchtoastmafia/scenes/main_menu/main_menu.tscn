@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://b6dew7w6yfxd2"]
+[gd_scene load_steps=15 format=3 uid="uid://b6dew7w6yfxd2"]
 
-[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assests/backgrounds/background_layer_1.png" id="1_rkbhb"]
+[ext_resource type="Texture2D" uid="uid://dogxsxnvmd66w" path="res://assets/backgrounds/background_layer_1.png" id="1_rkbhb"]
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_udoj2"]
 [ext_resource type="FontFile" uid="uid://c4r3gwdlp5ncn" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_85jrc"]
+[ext_resource type="Texture2D" uid="uid://y2bmy6pm481t" path="res://assets/sprites/zey.png" id="3_3b83f"]
 [ext_resource type="FontFile" uid="uid://blceg55b1cgev" path="res://assets/fonts/PixelOperator8.ttf" id="3_bkv8m"]
 [ext_resource type="Script" path="res://scenes/main_menu/exit_button.gd" id="5_tl7qf"]
 [ext_resource type="Script" path="res://scenes/start_button.gd" id="5_v2jj8"]
@@ -10,9 +11,9 @@
 [ext_resource type="Script" path="res://scripts/level_selection.gd" id="6_me3k5"]
 [ext_resource type="Script" path="res://scripts/settings_menu_button.gd" id="7_j3kgj"]
 [ext_resource type="Script" path="res://scenes/main_menu/load_save.gd" id="8_x0hdt"]
-[ext_resource type="AudioStream" uid="uid://dgkafskvkemq0" path="res://assets/music/main-menu-music.wav" id="9_v0fmk"]
 [ext_resource type="Script" path="res://scenes/main_menu/delete_save.gd" id="10_0bbut"]
 [ext_resource type="PackedScene" uid="uid://c7jc5m7bfpa3l" path="res://scenes/player.tscn" id="12_acvcm"]
+[ext_resource type="AudioStream" uid="uid://bn4bedmobwx80" path="res://assets/music/new music/1- Midnight Dreams.mp3" id="12_ak5x1"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -31,6 +32,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_rkbhb")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 2
+offset_left = 114.0
+offset_right = 986.0
+offset_bottom = 657.0
+texture = ExtResource("3_3b83f")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -52,6 +60,7 @@ theme_override_constants/separation = 60
 layout_mode = 2
 
 [node name="Game_Title" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0.2724, 0.569813, 0.614168, 1)
 theme_override_constants/shadow_offset_x = 50
@@ -140,7 +149,7 @@ text = "Delete Save"
 script = ExtResource("10_0bbut")
 
 [node name="MenuMusicPlayer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_v0fmk")
+stream = ExtResource("12_ak5x1")
 
 [node name="player" parent="." instance=ExtResource("12_acvcm")]
 visible = false
